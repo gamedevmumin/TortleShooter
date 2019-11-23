@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1230558548429432}
+  m_IsPrefabAsset: 1
+--- !u!1 &1230558548429432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4344119534553218}
+  - component: {fileID: 114975841222375894}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4344119534553218
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1230558548429432}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0988846, y: -0.31998658, z: -9.914133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114975841222375894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1230558548429432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51a445610aa7c74c98d5e9b9c3db81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: RifleShooting
+    clip: {fileID: 8300000, guid: 8cac9e7051a107141be024328049c262, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.11
+    randomPitch: 0.1
+    loop: 0
+  - name: Jump
+    clip: {fileID: 8300000, guid: 80bd24ab555d1d243a1f88d0650be899, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.11
+    randomPitch: 0.1
+    loop: 0
+  - name: Hurt
+    clip: {fileID: 8300000, guid: bfe940fd09e946841939307304aded08, type: 3}
+    volume: 0.839
+    pitch: 1
+    randomVolume: 0.2
+    randomPitch: 0.2
+    loop: 0
+  - name: PlayerDamaged
+    clip: {fileID: 8300000, guid: add2131cd4cf17a49a9b16c5a918a56c, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.2
+    randomPitch: 0.2
+    loop: 0
+  - name: Death
+    clip: {fileID: 8300000, guid: bfe940fd09e946841939307304aded08, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.2
+    randomPitch: 0.2
+    loop: 0
+  - name: Music
+    clip: {fileID: 8300000, guid: d326481543541f64db579d53bae0296b, type: 3}
+    volume: 0.8
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: e35de5bb5cd609f40b652fec84a05420, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.2
+    randomPitch: 0.2
+    loop: 0
+  - name: PortalOpen
+    clip: {fileID: 8300000, guid: 1a3d35d6d01e03c478bed7e36c17c387, type: 3}
+    volume: 1.6
+    pitch: 0.862
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: PortalClose
+    clip: {fileID: 8300000, guid: bc430bee0880c624c8487979df0029d1, type: 3}
+    volume: 1.6
+    pitch: 0.862
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Collect
+    clip: {fileID: 8300000, guid: 29a761fecd4c00947ad211e523c825fd, type: 3}
+    volume: 1.6
+    pitch: 0.862
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: FireBolt
+    clip: {fileID: 8300000, guid: 3ac4647ef67459e4792c141a45232df8, type: 3}
+    volume: 1.8
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
