@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8890727250785024860}
   - component: {fileID: 2942747394720597761}
   - component: {fileID: -3371713338933517741}
+  - component: {fileID: -7406272908557398430}
   m_Layer: 0
   m_Name: EvilEyeBullet
   m_TagString: Untagged
@@ -94,5 +95,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Evil Eye Bullet
-  bulletToChangeFor: {fileID: 0}
-  icon: {fileID: 0}
+  bulletToChangeFor: {fileID: 114452012955997140, guid: e251dea0e72f539488ecdd6c2d6976b9,
+    type: 3}
+  icon: {fileID: 21300000, guid: de5b431b9220ba14e8ea379113fa496d, type: 3}
+--- !u!61 &-7406272908557398430
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985688906255096033}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

@@ -22,7 +22,6 @@ public class Weapon : MonoBehaviour {
     public PickableWeapon PickableWeapon { private set; get; }
     protected PlayerItems playerItems;
     protected List<IRandomBulletChanger> bulletChangingItems = new List<IRandomBulletChanger>();
-    protected List<int> ints;
 	void Start () {
         SceneManager.sceneLoaded += OnSceneLoaded;
         shotsIntervalTimer = shotsInterval;
@@ -30,9 +29,16 @@ public class Weapon : MonoBehaviour {
         firePoint = transform.Find("FirePoint").transform;
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         anim = GetComponent<Animator>();
+        ReloadItems();
+        playerItems.reloadItems += ReloadItems;
+    }
+
+    void ReloadItems()
+    {
         List<Item> temp = playerItems.EquippedItems.FindAll(item => item is IRandomBulletChanger);
         foreach (Item item in temp)
         {
+            Debug.Log(item.Name + " loaded to " + name);
             bulletChangingItems.Add(item as IRandomBulletChanger);
         }
     }
@@ -96,15 +102,15 @@ public class Weapon : MonoBehaviour {
 
     virtual protected Bullet ChooseBulletToShoot()
     {
-        Bullet bulletToShoot;
+        Bullet bulletToShoot = bullet;
         foreach(IRandomBulletChanger irbc in bulletChangingItems)
         {
+            
             if(irbc.shouldWork())
             {
                 bulletToShoot = irbc.BulletToChangeFor;
             }
         }
-        bulletToShoot = bullet;
         return bulletToShoot;
     }
 

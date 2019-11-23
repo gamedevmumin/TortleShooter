@@ -22,20 +22,18 @@ public class PickableWeapon : MonoBehaviour
     {
         if (weapon != null)
         {
-            Transform graphic = transform.Find("Graphic");
-            sR = graphic.GetComponent<SpriteRenderer>();
-            sR.sprite = weapon.Icon;
-            Transform textObject = transform.Find("Canvas").Find("NameText");
-            nameText = textObject.GetComponent<Text>();
-            nameText.text = weaponName;
-            nameText.transform.parent.gameObject.SetActive(false);
-            playerWeapons = GameObject.Find("Player").GetComponent<PlayerWeapons>();
+            Set();
         }
     }
 
     public void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
+        Set();     
+    }
+
+    private void Set()
+    {
         Transform graphic = transform.Find("Graphic");
         sR = graphic.GetComponent<SpriteRenderer>();
         sR.sprite = weapon.Icon;
