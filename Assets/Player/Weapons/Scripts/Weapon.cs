@@ -21,22 +21,31 @@ public class Weapon : MonoBehaviour {
 
     PickableWeapon pickableWeapon;
     public PickableWeapon PickableWeapon { private set { pickableWeapon = value; } get { return pickableWeapon; } }
-	// Use this for initialization
+    protected List<IItem> items = new List<IItem>();
+    protected List<IRandomBulletChanger> bulletChangingItems = new List<IRandomBulletChanger>();
+    protected List<int> ints;
 	void Start () {
         SceneManager.sceneLoaded += OnSceneLoaded;
         shotsIntervalTimer = shotsInterval;
         firePoint = transform.Find("FirePoint").transform;
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         anim = GetComponent<Animator>();
-        
+        items.Add(new EvilEyeBullet());
+        List<IItem> temp = items.FindAll(item => item is IRandomBulletChanger);
+        foreach(IItem item in temp)
+        {
+            bulletChangingItems.Add(item as IRandomBulletChanger);
+        }
+        Debug.Log(bulletChangingItems[0].shouldWork());
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
     }
-    // Update is called once per frame
-     void Update () {
+
+    void Update () {
         ManageRotation();
         ManageShooting();
     }
@@ -92,5 +101,6 @@ public class Weapon : MonoBehaviour {
     {
         PickableWeapon = pickableWeapon;
     }
+
 
 }
