@@ -19,25 +19,22 @@ public class Weapon : MonoBehaviour {
     [SerializeField]
     protected float shakeAmount;
 
-    PickableWeapon pickableWeapon;
-    public PickableWeapon PickableWeapon { private set { pickableWeapon = value; } get { return pickableWeapon; } }
-    protected List<IItem> items = new List<IItem>();
+    public PickableWeapon PickableWeapon { private set; get; }
+    protected PlayerItems playerItems;
     protected List<IRandomBulletChanger> bulletChangingItems = new List<IRandomBulletChanger>();
     protected List<int> ints;
 	void Start () {
         SceneManager.sceneLoaded += OnSceneLoaded;
         shotsIntervalTimer = shotsInterval;
+        playerItems = GameObject.Find("Player").GetComponent<PlayerItems>();
         firePoint = transform.Find("FirePoint").transform;
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         anim = GetComponent<Animator>();
-        items.Add(new EvilEyeBullet());
-        List<IItem> temp = items.FindAll(item => item is IRandomBulletChanger);
-        foreach(IItem item in temp)
+        List<Item> temp = playerItems.EquippedItems.FindAll(item => item is IRandomBulletChanger);
+        foreach (Item item in temp)
         {
             bulletChangingItems.Add(item as IRandomBulletChanger);
         }
-        Debug.Log(bulletChangingItems[0].shouldWork());
-
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -86,8 +83,8 @@ public class Weapon : MonoBehaviour {
             {
                 shotsIntervalTimer = shotsInterval;
                 anim.SetTrigger("Shot");
-                cameraShake.Shake(shakeAmount, 0.1f);
-                Instantiate(bullet, firePoint.position, transform.rotation);
+                cameraShake.Shake(shakeAmount, 0.1f);            
+                Instantiate(ChooseBulletToShoot(), firePoint.position, transform.rotation);
                 AudioManager.instance.PlaySound("RifleShooting");
             }
         }
@@ -95,6 +92,20 @@ public class Weapon : MonoBehaviour {
         {
             shotsIntervalTimer -= Time.deltaTime;
         }
+    }
+
+    virtual protected Bullet ChooseBulletToShoot()
+    {
+        Bullet bulletToShoot;
+        foreach(IRandomBulletChanger irbc in bulletChangingItems)
+        {
+            if(irbc.shouldWork())
+            {
+                bulletToShoot = irbc.BulletToChangeFor;
+            }
+        }
+        bulletToShoot = bullet;
+        return bulletToShoot;
     }
 
     public void OnPickUp(PickableWeapon pickableWeapon)

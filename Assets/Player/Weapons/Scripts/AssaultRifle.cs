@@ -47,7 +47,7 @@ public class AssaultRifle : Weapon {
         {
             anim.SetTrigger("Shot");
             cameraShake.Shake(shakeAmount, 0.1f);
-            Instantiate(bullet, firePoint.position, transform.rotation);
+            Instantiate(ChooseBulletToShoot(), firePoint.position, transform.rotation);
             AudioManager.instance.PlaySound("RifleShooting");
             yield return new WaitForSeconds(0.1f);
         }

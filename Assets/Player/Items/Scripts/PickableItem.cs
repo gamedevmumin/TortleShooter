@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IItem
+public class PickableItem : MonoBehaviour
 {
-    string Name { get; }
+    [SerializeField]
+    Item item;
 }

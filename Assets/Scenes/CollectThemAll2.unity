@@ -4479,6 +4479,18 @@ MonoBehaviour:
   weaponSlot: {fileID: 1462382906}
   pickableWeaponPrefab: {fileID: 3756245010852579568, guid: 65867b4a8838db14fbe0ce93bf0b1934,
     type: 3}
+--- !u!114 &1227953150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227953144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b360a47e4dfe08949a18ac4b5478cc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1259259425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5965,6 +5977,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89f464c594eae434cacfd4f308851ec9, type: 3}
+--- !u!1001 &7984114943417020060
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7910840439961822865, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_Name
+      value: PickableHermesBoots
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527813487679620396, guid: ccb435ee880351044b840bd4399a9d0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccb435ee880351044b840bd4399a9d0f, type: 3}
 --- !u!1001 &8050119620643152802
 PrefabInstance:
   m_ObjectHideFlags: 0
