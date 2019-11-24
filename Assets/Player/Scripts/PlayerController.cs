@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour {
             {
                 Debug.LogError("Can't find ground check!");
             }
-            Debug.Log("HMM");
             colliders = transform.Find("Colliders").gameObject;
             fallingTimer = fallingTime;
             playerWeapons = GetComponent<PlayerWeapons>();

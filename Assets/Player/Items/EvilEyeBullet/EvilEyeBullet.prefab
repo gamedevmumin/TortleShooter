@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de5b431b9220ba14e8ea379113fa496d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10ec97734cca1a547a2694b3d983f4d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   name: Evil Eye Bullet
   bulletToChangeFor: {fileID: 114452012955997140, guid: e251dea0e72f539488ecdd6c2d6976b9,
     type: 3}
-  icon: {fileID: 21300000, guid: de5b431b9220ba14e8ea379113fa496d, type: 3}
+  icon: {fileID: 21300000, guid: 10ec97734cca1a547a2694b3d983f4d9, type: 3}
 --- !u!61 &-7406272908557398430
 BoxCollider2D:
   m_ObjectHideFlags: 0
