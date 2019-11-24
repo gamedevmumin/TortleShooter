@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour {
 
     void ReloadItems()
     {
+        bulletChangingItems.Clear();
         List<Item> temp = playerItems.EquippedItems.FindAll(item => item is IRandomBulletChanger);
         foreach (Item item in temp)
         {

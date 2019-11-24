@@ -166,6 +166,9 @@ MonoBehaviour:
   stats:
     currentHP: 0
     maxHP: 3
+    speed: 340
+    jumpHeight: 13.8
+    invincibilityTime: 1
   invincibilityTime: 1
   congratz: {fileID: 0}
   press: {fileID: 0}

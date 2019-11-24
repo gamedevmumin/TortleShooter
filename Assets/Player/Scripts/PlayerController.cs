@@ -7,11 +7,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour {
 
-    [SerializeField]
-    float speed;
-    [SerializeField]
-    float jumpHeight;
-
     public Rigidbody2D rb { get; private set; }
     Animator anim;
     CameraShake cameraShake;
@@ -29,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float groundedRemember = 0.2f;
     float groundedRememberTimer;
-    [SerializeField][Range(0,1)]
+    [SerializeField] [Range(0, 1)]
     float cutOfJumpHeight;
     [SerializeField]
     TimerUI timer;
@@ -40,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField]
     PlayerStats stats;
-
+    public PlayerStats Stats { get { return stats; } }
     bool isDead;
     bool inertia = false;
     // Weapon weapon;
@@ -48,8 +43,6 @@ public class PlayerController : MonoBehaviour {
     SpriteRenderer sR;
 
     float invincibilityTimer;
-    [SerializeField]
-    float invincibilityTime = 1f;
 
     [SerializeField]
     Congratz congratz;
@@ -118,7 +111,6 @@ public class PlayerController : MonoBehaviour {
         if(Mathf.Abs(Input.mouseScrollDelta.y)>0f)
         {
             playerWeapons.SwitchWeapon();
-            Debug.Log("Switching Weapons");
         }
     }
 
@@ -137,7 +129,7 @@ public class PlayerController : MonoBehaviour {
         float movementInput = Input.GetAxisRaw("Horizontal");
         if (Mathf.Abs(movementInput)>0f)
         {
-            rb.velocity = new Vector2(movementInput * speed*Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(movementInput * stats.speed*Time.deltaTime, rb.velocity.y);
         }
         else
         {
@@ -184,7 +176,7 @@ public class PlayerController : MonoBehaviour {
         {
             jumpPressedRememberTimer = 0f;
             groundedRememberTimer = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            rb.velocity = new Vector2(rb.velocity.x, stats.jumpHeight);
             AudioManager.instance.PlaySound("Jump");
         }
 
@@ -225,7 +217,7 @@ public class PlayerController : MonoBehaviour {
             StartCoroutine("Blink");
             AudioManager.instance.PlaySound("PlayerDamaged");
             if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);
-            invincibilityTimer = invincibilityTime;
+            invincibilityTimer = stats.invincibilityTime;
         }
     }
 

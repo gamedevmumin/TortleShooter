@@ -5,7 +5,7 @@ using UnityEngine;
 public class EvilEyeBullet : Item, IRandomBulletChanger
 {
     [SerializeField]
-    string name;
+    new string name;
     [SerializeField]
     private Bullet bulletToChangeFor;
     [SerializeField]
