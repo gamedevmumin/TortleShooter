@@ -18,8 +18,8 @@ public class Chasm : MonoBehaviour {
     {
         if(coll.CompareTag("Player"))
         {
-            PlayerController player = coll.GetComponent<PlayerController>();
-            player.TakeDamage(3000, transform);
+            IDamageable player = coll.GetComponent<IDamageable>();
+            player.TakeDamage(3000);
         }
         Destroy(coll.gameObject);
     }

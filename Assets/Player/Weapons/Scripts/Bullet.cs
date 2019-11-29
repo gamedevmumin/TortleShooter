@@ -53,7 +53,7 @@ public class Bullet : MonoBehaviour {
             {
                 if (!isPlayersBullet)
                 {
-                    PlayerController p = coll.GetComponent<PlayerController>();
+                    PlayerDamageable p = coll.GetComponent<PlayerDamageable>();
                     DamagePlayer(p);
                 }
             }
@@ -70,9 +70,9 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-    void DamagePlayer(PlayerController p)
+    void DamagePlayer(IDamageable p)
     {
-        p.TakeDamage(damage, transform);
+        p.TakeDamage(damage);
       
             canDoDamage = false;
             DestroyProjectile();

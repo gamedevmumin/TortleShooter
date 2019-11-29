@@ -117,7 +117,7 @@ public class EyeRunner : Enemy {
     {
         if(coll.CompareTag("Player") && !isDead)
         {
-            coll.GetComponent<PlayerController>().TakeDamage(1, transform);
+            coll.GetComponent<IDamageable>().TakeDamage(1);
         }
     }
 

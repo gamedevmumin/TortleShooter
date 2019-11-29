@@ -9,11 +9,9 @@ public class PlayerController : MonoBehaviour {
 
     public Rigidbody2D rb { get; private set; }
     Animator anim;
-    CameraShake cameraShake;
     bool isRight = true;
     [SerializeField]
     LayerMask whatIsPlatform;   
-
     [SerializeField]
     TimerUI timer;
     [SerializeField]
@@ -27,12 +25,11 @@ public class PlayerController : MonoBehaviour {
     bool isDead;
     bool inertia = false;
     SpriteRenderer sR;
-    float invincibilityTimer;
     [SerializeField]
     Congratz congratz;
     [SerializeField]
     GameObject press;
-    HeartBar heartBar;
+    
     GameObject colliders;
     bool first = true;
     static PlayerController instance;
@@ -46,12 +43,10 @@ public class PlayerController : MonoBehaviour {
             stats.Set(startingStats);
             stats.currentHP = stats.maxHP;
             instance = this;
-            isDead = false;
-            heartBar = GameObject.Find("StatPanel/HeartBar").GetComponent<HeartBar>();
+            isDead = false;          
             sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();
             anim = GetComponent<Animator>();
-            rb = GetComponent<Rigidbody2D>();          
-            cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();                      
+            rb = GetComponent<Rigidbody2D>();                                          
             colliders = transform.Find("Colliders").gameObject;
             fallingTimer = fallingTime;
             playerWeapons = GetComponent<PlayerWeapons>();            
@@ -72,8 +67,7 @@ public class PlayerController : MonoBehaviour {
                 ManageAnimation();
                 ManageSwitchingWeapons();
             }
-        }
-        invincibilityTimer -= Time.deltaTime;
+        }       
 	}
 
     void ManageSwitchingWeapons()
@@ -134,8 +128,8 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(time);
         collider.enabled = true;
     }
-
-    public void TakeDamage(int damage, Transform damageDealer)
+    /*
+    public void TakeDamage(int damage)
     {
         if (invincibilityTimer <= 0f)
         {
@@ -147,11 +141,10 @@ public class PlayerController : MonoBehaviour {
             invincibilityTimer = stats.invincibilityTime;
         }
     }
-
-
+    */
     void Die()
     {
-       AudioManager.instance.PlaySound("PlayerDeath");      
+        AudioManager.instance.PlaySound("PlayerDeath");      
         isDead = true;
         if(timer!=null)  timer.isStopped = true;
         Destroy(gameObject);
@@ -174,8 +167,7 @@ public class PlayerController : MonoBehaviour {
         if (!isDead)
         {
             if (anim != null) anim.SetBool("isGettingToPortal", true);
-            //BetweenLevelDataContainer.instance.playerStats = stats;
-            invincibilityTimer = 9999f;
+            //invincibilityTimer = 9999f;
             inertia = true;
             colliders.SetActive(false);
         }
