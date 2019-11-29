@@ -40,11 +40,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8050119619798341723}
-  - component: {fileID: 8050119619798341722}
   - component: {fileID: 8050119619798341717}
   - component: {fileID: 8050119620085115068}
   - component: {fileID: 8050119619798341716}
   - component: {fileID: 8050119619798341719}
+  - component: {fileID: 1227953145}
+  - component: {fileID: 1227953150}
+  - component: {fileID: 7350883019504069444}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -70,55 +72,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8050119619798341722
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050119619798341718}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 828bfe5896f33cd4b8d3454bc904ba44, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 596447205
-  m_SortingLayer: 5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 546da17fb7d09db46a13c2a36e58a25a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!95 &8050119619798341717
 Animator:
   serializedVersion: 3
@@ -150,8 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed34e573c0246614889c67b26fc841dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 340
-  jumpHeight: 13.8
   whatIsGround:
     serializedVersion: 2
     m_Bits: 10241
@@ -163,13 +114,8 @@ MonoBehaviour:
   cutOfJumpHeight: 0.85
   timer: {fileID: 0}
   fallingTime: 0.3
-  stats:
-    currentHP: 0
-    maxHP: 3
-    speed: 340
-    jumpHeight: 13.8
-    invincibilityTime: 1
-  invincibilityTime: 1
+  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
+  startingStats: {fileID: 11400000, guid: bbf2e2d681f373041973c1794e12227e, type: 2}
   congratz: {fileID: 0}
   press: {fileID: 0}
 --- !u!50 &8050119619798341716
@@ -219,6 +165,46 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28238642, y: 0.6413452}
   m_EdgeRadius: 0
+--- !u!114 &1227953145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d333bdb2915ca0b449dab63fb51545f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: {fileID: 8050119619778576713}
+  pickableWeaponPrefab: {fileID: 3756245010852579568, guid: 65867b4a8838db14fbe0ce93bf0b1934,
+    type: 3}
+--- !u!114 &1227953150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b360a47e4dfe08949a18ac4b5478cc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7350883019504069444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1743a0ac8180dd94e986de519f9b023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
 --- !u!1 &8050119620292545364
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 706148378709668001, guid: 0ae61ed0511e1cc4d859579f341cda2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 706148378709668002, guid: 0ae61ed0511e1cc4d859579f341cda2a,
         type: 3}

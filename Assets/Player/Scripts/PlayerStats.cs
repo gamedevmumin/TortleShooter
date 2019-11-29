@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class PlayerStats{
+[CreateAssetMenu]
+public class PlayerStats : ScriptableObject{
 
     [HideInInspector]
     public int currentHP;
     [SerializeField]
-    public  int maxHP = 3;
+    public  int maxHP;
     [SerializeField]
-    public float speed;
+    public FloatReference speed;
     [SerializeField]
     public float jumpHeight;
     [SerializeField]
     public float invincibilityTime;
+
+    public void Set(PlayerStats stats)
+    {
+        currentHP = stats.currentHP;
+        maxHP = stats.maxHP;
+        speed.Value = stats.speed.Value;
+        jumpHeight = stats.jumpHeight;
+        invincibilityTime = stats.invincibilityTime;
+    }
 }

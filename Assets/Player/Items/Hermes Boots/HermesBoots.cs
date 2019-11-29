@@ -10,19 +10,23 @@ public class HermesBoots : Item, IPlayerStatsChanger
     Sprite icon;
     [SerializeField]
     float speedBuff;
+    [SerializeField]
+    PlayerStats playerStats;
     public override string Name { get { return name; } protected set { name = value; } }
     public override Sprite Icon { get => icon; protected set => icon=value; }
     public override PickableItem PickableItem { get; protected set; }
     public bool WasActivated { get; set; }
 
-    public void ChangeStats(PlayerStats playerStats)
+    public void ChangeStats()
     {
         WasActivated = true;
-        playerStats.speed += speedBuff;
+        Debug.Log("Changing stats...");
+        playerStats.speed.Value += speedBuff;
     }
 
     public override void OnPickUp(PickableItem pickableItem)
     {
+        WasActivated = false;
         PickableItem = pickableItem;
     }
 }

@@ -6,7 +6,7 @@ public class BetweenLevelDataContainer : MonoBehaviour {
 
     public static BetweenLevelDataContainer instance { get; private set; }
 
-    public PlayerStats playerStats = new PlayerStats();
+    //public PlayerStats playerStats = new PlayerStats();
     public MapData mapData = new MapData();
     public bool firstScene = true;
 
@@ -15,7 +15,7 @@ public class BetweenLevelDataContainer : MonoBehaviour {
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
-            playerStats.currentHP = playerStats.maxHP;
+           // playerStats.currentHP = playerStats.maxHP;
             instance = this;
         }
         else if (instance != this)

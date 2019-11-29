@@ -18,8 +18,9 @@ public class PlayerItems : MonoBehaviour {
             List<Item> temp = EquippedItems.FindAll(item => item is IPlayerStatsChanger);
             foreach (IPlayerStatsChanger item in temp)
             {
+                Debug.Log("items here");
                 statsChangingItems.Add(item as IPlayerStatsChanger);
-                if(!item.WasActivated) item.ChangeStats(playerController.Stats);
+                if(!item.WasActivated) item.ChangeStats();
             }
         }; 
     }

@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IPlayerStatsChanger
 {
     bool WasActivated { get; set; }
-    void ChangeStats(PlayerStats playerStats);
+    void ChangeStats();
 }

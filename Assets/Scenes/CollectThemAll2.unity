@@ -295,6 +295,7 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 4c4ed7507a21db74395c36be01aaedab, type: 3}
   hearts: []
   maxHearts: 10
+  playerStats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
 --- !u!222 &103053845
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1566,12 +1567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d47bb72a98bdeb4ebdb57ebfd963b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats:
-    currentHP: 0
-    maxHP: 6
-    speed: 340
-    jumpHeight: 13.8
-    invincibilityTime: 1
   firstScene: 1
 --- !u!4 &507656024
 Transform:
@@ -4461,39 +4456,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1227953144 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8050119619798341718, guid: 971b49ac93f25ee48993d5e884750a9b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8050119620643152802}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1227953145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227953144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d333bdb2915ca0b449dab63fb51545f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSlot: {fileID: 1462382906}
-  pickableWeaponPrefab: {fileID: 3756245010852579568, guid: 65867b4a8838db14fbe0ce93bf0b1934,
-    type: 3}
---- !u!114 &1227953150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227953144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b360a47e4dfe08949a18ac4b5478cc7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1259259425
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,12 +4649,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1462382906 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8050119619778576713, guid: 971b49ac93f25ee48993d5e884750a9b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8050119620643152802}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1529491738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4784,12 +4740,8 @@ MonoBehaviour:
   cutOfJumpHeight: 0.85
   timer: {fileID: 0}
   fallingTime: 0.2
-  stats:
-    currentHP: 0
-    maxHP: 3
-    speed: 0
-    jumpHeight: 0
-    invincibilityTime: 0
+  stats: {fileID: 0}
+  startingStats: {fileID: 0}
   congratz: {fileID: 1757647119}
   press: {fileID: 1867167322}
 --- !u!95 &1529491742
@@ -4994,7 +4946,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8050119620643152802}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227953144}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed34e573c0246614889c67b26fc841dd, type: 3}
@@ -6232,13 +6184,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8050119620550646239, guid: 971b49ac93f25ee48993d5e884750a9b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8050119619798341722, guid: 971b49ac93f25ee48993d5e884750a9b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 971b49ac93f25ee48993d5e884750a9b, type: 3}
 --- !u!4 &8065579809318853291 stripped
 Transform:

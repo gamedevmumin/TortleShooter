@@ -18,19 +18,12 @@ public class HeartBar : MonoBehaviour
     List<Image> hearts;
 
     [SerializeField] int maxHearts = 20;
+    [SerializeField] PlayerStats playerStats;
 
-    //Player player;
-
-    // Use this for initialization
-    void Start()
+    private void Awake()
     {
-        //player = GameObject.Find("Player").GetComponent<Player>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+       setStartingHearts(playerStats.currentHP, playerStats.maxHP);
+       changeState(playerStats.currentHP, playerStats.maxHP);
     }
 
     public void setStartingHearts(int currentHealth, int maxHealth)
@@ -85,27 +78,5 @@ public class HeartBar : MonoBehaviour
                 hearts[i].color = new Color(1, 1, 1, 0);
             }
         }
-        /*
-        foreach(Image heart in hearts)
-        {
-            Destroy(heart.gameObject);
-            hearts.Remove(heart);
-        }
-        int howMuchFullAlready = 0;
-        int howMuchFullInStats = playerStats.CurHealth;
-        for(int i = 0; i < playerStats.maxHealth; i++)
-        {
-
-            if(howMuchFullAlready<=howMuchFullInStats)
-            {
-                heart.sprite = fullHeart;
-            }
-            else
-            {
-                heart.sprite = emptyHeart;
-            }
-            howMuchFullAlready++;
-
-        }*/
     }
 }

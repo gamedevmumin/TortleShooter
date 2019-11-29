@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     LayerMask whatIsPlatform;
     GameObject groundCheck;
-
     [SerializeField]
     float jumpPressedRemember = 0.2f;
     float jumpPressedRememberTimer;
@@ -28,67 +27,48 @@ public class PlayerController : MonoBehaviour {
     float cutOfJumpHeight;
     [SerializeField]
     TimerUI timer;
-
     [SerializeField]
     float fallingTime = 0.2f;
     float fallingTimer;
-
     [SerializeField]
     PlayerStats stats;
+    [SerializeField]
+    PlayerStats startingStats;
     public PlayerStats Stats { get { return stats; } }
     bool isDead;
     bool inertia = false;
-    // Weapon weapon;
-
     SpriteRenderer sR;
-
     float invincibilityTimer;
-
     [SerializeField]
     Congratz congratz;
     [SerializeField]
     GameObject press;
-
     HeartBar heartBar;
-
     GameObject colliders;
-
     BoxCollider2D trigger;
-
     bool first = true;
-
     static PlayerController instance;
-
     PlayerWeapons playerWeapons;
 
+    IMovement movementController;
+
     void Start () {
-            stats = BetweenLevelDataContainer.instance.playerStats;
+            stats.Set(startingStats);
+            stats.currentHP = stats.maxHP;
             instance = this;
             isDead = false;
             trigger = GetComponent<BoxCollider2D>();
             heartBar = GameObject.Find("StatPanel/HeartBar").GetComponent<HeartBar>();
-            if (heartBar == null)
-            {
-                Debug.LogError("No HeartBar found!!!");
-            }
-            else
-            {
-                heartBar.setStartingHearts(stats.currentHP, stats.maxHP);
-                heartBar.changeState(stats.currentHP, stats.maxHP);
-            }
             sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();
             anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
             groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
-            cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
-            
-            if (groundCheck == null)
-            {
-                Debug.LogError("Can't find ground check!");
-            }
+            cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();           
+            if (groundCheck == null) Debug.LogError("Can't find ground check!");
             colliders = transform.Find("Colliders").gameObject;
             fallingTimer = fallingTime;
             playerWeapons = GetComponent<PlayerWeapons>();
+            movementController = GetComponent<IMovement>();
 	}
 	
 	// Update is called once per frame
@@ -127,14 +107,7 @@ public class PlayerController : MonoBehaviour {
     void ManageMovement()
     {
         float movementInput = Input.GetAxisRaw("Horizontal");
-        if (Mathf.Abs(movementInput)>0f)
-        {
-            rb.velocity = new Vector2(movementInput * stats.speed*Time.deltaTime, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
-        }
+        movementController.Move(movementInput);
         ManageJumping();
         ManageDirection();
         ManagePlatforms();
@@ -225,11 +198,11 @@ public class PlayerController : MonoBehaviour {
     void Die()
     {
        AudioManager.instance.PlaySound("PlayerDeath");      
-       if(press!=null) press.SetActive(true);
-       if(congratz!=null) congratz.gameObject.SetActive(true);
+      // if(press!=null) press.SetActive(true);
+      // if(congratz!=null) congratz.gameObject.SetActive(true);
         isDead = true;
-       if(timer!=null)  timer.isStopped = true;
-        rb.velocity = Vector2.zero;
+        if(timer!=null)  timer.isStopped = true;
+        //rb.velocity = Vector2.zero;
         Destroy(gameObject);
     }
 
@@ -250,7 +223,7 @@ public class PlayerController : MonoBehaviour {
         if (!isDead)
         {
             if (anim != null) anim.SetBool("isGettingToPortal", true);
-            BetweenLevelDataContainer.instance.playerStats = stats;
+            //BetweenLevelDataContainer.instance.playerStats = stats;
             invincibilityTimer = 9999f;
             inertia = true;
             colliders.SetActive(false);
