@@ -11,20 +11,9 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     CameraShake cameraShake;
     bool isRight = true;
-    bool isGrounded = true;
     [SerializeField]
-    LayerMask whatIsGround;
-    [SerializeField]
-    LayerMask whatIsPlatform;
-    GameObject groundCheck;
-    [SerializeField]
-    float jumpPressedRemember = 0.2f;
-    float jumpPressedRememberTimer;
-    [SerializeField]
-    float groundedRemember = 0.2f;
-    float groundedRememberTimer;
-    [SerializeField] [Range(0, 1)]
-    float cutOfJumpHeight;
+    LayerMask whatIsPlatform;   
+
     [SerializeField]
     TimerUI timer;
     [SerializeField]
@@ -45,31 +34,32 @@ public class PlayerController : MonoBehaviour {
     GameObject press;
     HeartBar heartBar;
     GameObject colliders;
-    BoxCollider2D trigger;
     bool first = true;
     static PlayerController instance;
     PlayerWeapons playerWeapons;
+    GameObject groundCheck;
 
     IMovement movementController;
+    IJumpingController jumpingController;
 
     void Start () {
             stats.Set(startingStats);
             stats.currentHP = stats.maxHP;
             instance = this;
             isDead = false;
-            trigger = GetComponent<BoxCollider2D>();
             heartBar = GameObject.Find("StatPanel/HeartBar").GetComponent<HeartBar>();
             sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();
             anim = GetComponent<Animator>();
-            rb = GetComponent<Rigidbody2D>();
-            groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
-            cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();           
-            if (groundCheck == null) Debug.LogError("Can't find ground check!");
+            rb = GetComponent<Rigidbody2D>();          
+            cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();                      
             colliders = transform.Find("Colliders").gameObject;
             fallingTimer = fallingTime;
-            playerWeapons = GetComponent<PlayerWeapons>();
+            playerWeapons = GetComponent<PlayerWeapons>();            
+            groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
+            if (groundCheck == null) Debug.LogError("Can't find ground check!");
             movementController = GetComponent<IMovement>();
-	}
+            jumpingController = GetComponent<IJumpingController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -98,17 +88,12 @@ public class PlayerController : MonoBehaviour {
     {
         anim.SetFloat("vSpeed", Mathf.Abs(rb.velocity.x));
     }
-
-    void FixedUpdate()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, 0.2f, whatIsGround);
-    }
-
+  
     void ManageMovement()
     {
         float movementInput = Input.GetAxisRaw("Horizontal");
         movementController.Move(movementInput);
-        ManageJumping();
+        jumpingController.ManageJumping();
         ManageDirection();
         ManagePlatforms();
     }
@@ -128,37 +113,6 @@ public class PlayerController : MonoBehaviour {
         else if (rb.velocity.x > 0 && !isRight)
         {
             Flip();
-        }
-    }
-
-    void ManageJumping()
-    {
-        groundedRememberTimer -= Time.deltaTime;
-        if (isGrounded)
-        {
-            groundedRememberTimer = groundedRemember;
-        }
-
-        jumpPressedRememberTimer -= Time.deltaTime;
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpPressedRememberTimer = jumpPressedRemember;
-        }
-   
-        if (groundedRememberTimer>0f && jumpPressedRememberTimer > 0f)
-        {
-            jumpPressedRememberTimer = 0f;
-            groundedRememberTimer = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, stats.jumpHeight);
-            AudioManager.instance.PlaySound("Jump");
-        }
-
-        if(Input.GetButtonUp("Jump"))
-        {
-            if(rb.velocity.y > 0f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutOfJumpHeight);
-            }
         }
     }
 
@@ -198,11 +152,8 @@ public class PlayerController : MonoBehaviour {
     void Die()
     {
        AudioManager.instance.PlaySound("PlayerDeath");      
-      // if(press!=null) press.SetActive(true);
-      // if(congratz!=null) congratz.gameObject.SetActive(true);
         isDead = true;
         if(timer!=null)  timer.isStopped = true;
-        //rb.velocity = Vector2.zero;
         Destroy(gameObject);
     }
 

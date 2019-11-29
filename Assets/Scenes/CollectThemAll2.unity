@@ -4456,6 +4456,31 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1227953144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8050119619798341718, guid: 971b49ac93f25ee48993d5e884750a9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8050119620643152802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1227953145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227953144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851e80e45d4195a4a8b2e61eab5874b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPressedRemember: 0.2
+  groundedRemember: 0.08
+  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 10241
+  cutOfJumpHeight: 0.85
 --- !u!1 &1259259425
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,15 +4754,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed34e573c0246614889c67b26fc841dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1
   whatIsPlatform:
     serializedVersion: 2
     m_Bits: 0
-  jumpPressedRemember: 0.2
-  groundedRemember: 0.08
-  cutOfJumpHeight: 0.85
   timer: {fileID: 0}
   fallingTime: 0.2
   stats: {fileID: 0}
@@ -4946,7 +4965,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8050119620643152802}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1227953144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed34e573c0246614889c67b26fc841dd, type: 3}
