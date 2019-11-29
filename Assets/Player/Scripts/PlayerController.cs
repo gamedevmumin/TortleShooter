@@ -25,13 +25,7 @@ public class PlayerController : MonoBehaviour {
     bool isDead;
     bool inertia = false;
     SpriteRenderer sR;
-    [SerializeField]
-    Congratz congratz;
-    [SerializeField]
-    GameObject press;
-    
     GameObject colliders;
-    bool first = true;
     static PlayerController instance;
     PlayerWeapons playerWeapons;
     GameObject groundCheck;
@@ -39,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     IMovement movementController;
     IJumpingController jumpingController;
 
-    void Start () {
+    void Awake () {
             stats.Set(startingStats);
             stats.currentHP = stats.maxHP;
             instance = this;
@@ -56,7 +50,6 @@ public class PlayerController : MonoBehaviour {
             jumpingController = GetComponent<IJumpingController>();
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (stats.currentHP <= 0f) Die();
         if (!inertia)
@@ -100,14 +93,8 @@ public class PlayerController : MonoBehaviour {
 
     void ManageDirection()
     {
-        if (rb.velocity.x < 0 && isRight)
-        {
+        if ((rb.velocity.x < 0 && isRight) || (rb.velocity.x > 0 && !isRight))
             Flip();
-        }
-        else if (rb.velocity.x > 0 && !isRight)
-        {
-            Flip();
-        }
     }
 
     void ManagePlatforms()
@@ -128,33 +115,13 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(time);
         collider.enabled = true;
     }
-    /*
-    public void TakeDamage(int damage)
-    {
-        if (invincibilityTimer <= 0f)
-        {
-            cameraShake.blind();
-            stats.currentHP -= damage;
-            StartCoroutine("Blink");
-            AudioManager.instance.PlaySound("PlayerDamaged");
-            if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);
-            invincibilityTimer = stats.invincibilityTime;
-        }
-    }
-    */
+
     void Die()
     {
         AudioManager.instance.PlaySound("PlayerDeath");      
         isDead = true;
         if(timer!=null)  timer.isStopped = true;
         Destroy(gameObject);
-    }
-
-    IEnumerator Blink()
-    {
-        sR.material.SetFloat("_FlashAmount", 1f);
-        yield return new WaitForSeconds(0.03f);
-        sR.material.SetFloat("_FlashAmount", 0f);
     }
 
     public void resetLevel()
@@ -171,6 +138,5 @@ public class PlayerController : MonoBehaviour {
             inertia = true;
             colliders.SetActive(false);
         }
-    }
-    
+    }  
 }

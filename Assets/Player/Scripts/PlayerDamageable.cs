@@ -9,11 +9,14 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
     PlayerStats stats;
     HeartBar heartBar;
     CameraShake cameraShake;
-
+    [SerializeField]
+    VisualSpriteEffect damageEffect;
+    SpriteRenderer sR;
     void Start()
     {
         heartBar = GameObject.Find("StatPanel/HeartBar").GetComponent<HeartBar>();
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
+        sR = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -27,7 +30,7 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
         {
             cameraShake.blind();
             stats.currentHP -= damageValue;
-            //StartCoroutine("Blink");
+            StartCoroutine(damageEffect.PlayEffect(sR));
             AudioManager.instance.PlaySound("PlayerDamaged");
             if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);
             invincibilityTimer = stats.invincibilityTime;

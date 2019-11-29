@@ -20,7 +20,7 @@ public class HeartBar : MonoBehaviour
     [SerializeField] int maxHearts = 20;
     [SerializeField] PlayerStats playerStats;
 
-    private void Awake()
+    private void Start()
     {
        setStartingHearts(playerStats.currentHP, playerStats.maxHP);
        changeState(playerStats.currentHP, playerStats.maxHP);
