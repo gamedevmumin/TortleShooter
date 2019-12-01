@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour {
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 
     IMovement movementController;
     IJumpingController jumpingController;
-
+    IDashing dashingController;
     void Awake () {
             stats.Set(startingStats);
             stats.currentHP = stats.maxHP;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour {
             if (groundCheck == null) Debug.LogError("Can't find ground check!");
             movementController = GetComponent<IMovement>();
             jumpingController = GetComponent<IJumpingController>();
+            dashingController = GetComponent<IDashing>();
     }
 	
 	void Update () {
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour {
         float movementInput = Input.GetAxisRaw("Horizontal");
         movementController.Move(movementInput);
         jumpingController.ManageJumping();
+        if (Input.GetKeyDown(KeyCode.LeftShift)) dashingController.Dash();
         ManageDirection();
         ManagePlatforms();
     }
