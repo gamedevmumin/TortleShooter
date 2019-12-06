@@ -18,5 +18,5 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: cc4e52dd4fc9e884db11ac3760a4f2dd, type: 2}
-  jumpHeight: 13.8
+  jumpHeight: 12.1
   invincibilityTime: 1

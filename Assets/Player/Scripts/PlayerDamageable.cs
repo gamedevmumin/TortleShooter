@@ -33,7 +33,12 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
             StartCoroutine(damageEffect.PlayEffect(sR));
             AudioManager.instance.PlaySound("PlayerDamaged");
             if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);
-            invincibilityTimer = stats.invincibilityTime;
+            StartInvincibilityTimer(stats.invincibilityTime);
         }
+    }
+
+    public void StartInvincibilityTimer(float invincibilityTime)
+    {
+        invincibilityTimer = invincibilityTime;
     }
 }

@@ -47,6 +47,10 @@ GameObject:
   - component: {fileID: 1227953145}
   - component: {fileID: 1227953150}
   - component: {fileID: 7350883019504069444}
+  - component: {fileID: 7972660972256476837}
+  - component: {fileID: 1227953146}
+  - component: {fileID: 1227953153}
+  - component: {fileID: 655382297}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -103,21 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed34e573c0246614889c67b26fc841dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 10241
   whatIsPlatform:
     serializedVersion: 2
     m_Bits: 8192
-  jumpPressedRemember: 0.2
-  groundedRemember: 0.08
-  cutOfJumpHeight: 0.85
   timer: {fileID: 0}
   fallingTime: 0.3
   stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
   startingStats: {fileID: 11400000, guid: bbf2e2d681f373041973c1794e12227e, type: 2}
-  congratz: {fileID: 0}
-  press: {fileID: 0}
 --- !u!50 &8050119619798341716
 Rigidbody2D:
   serializedVersion: 4
@@ -133,7 +129,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: ffd1419f11d341a4e927f656f8783c1e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -205,6 +201,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
+--- !u!114 &7972660972256476837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851e80e45d4195a4a8b2e61eab5874b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPressedRemember: 0.2
+  groundedRemember: 0.08
+  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
+  cutOfJumpHeight: 0.85
+--- !u!114 &1227953146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388cfb0227c0acc41b77a23d456d69df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
+  dashTime: 0.12
+  maxDashes: 1
+--- !u!114 &1227953153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef4090cded4014468f69eda3fa425c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
+  damageEffect: {fileID: 11400000, guid: 568a993c0bd1fd94c8ae56a3446492e0, type: 2}
+--- !u!114 &655382297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139f7ee32f3290d47b7c9b3949f015fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 10241
+  groundCheck: {fileID: 8050119621461954006}
 --- !u!1 &8050119620292545364
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +383,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8050119620823337775}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ffd1419f11d341a4e927f656f8783c1e, type: 2}
+  m_Material: {fileID: 6200000, guid: aaf61f2d746d16a4296fcce1016fc597, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -352,7 +409,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8050119620823337775}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ffd1419f11d341a4e927f656f8783c1e, type: 2}
+  m_Material: {fileID: 6200000, guid: aaf61f2d746d16a4296fcce1016fc597, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

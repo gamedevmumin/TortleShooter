@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour {
     Rigidbody2D rb;
 
     [SerializeField]
-    int damage = 10;
+    int maxDamage = 15;
+    [SerializeField]
+    int minDamage = 10;
 
     Transform hitPoint;
 
@@ -62,7 +64,12 @@ public class Bullet : MonoBehaviour {
 
     void DamageEnemy(Enemy e)
     {
-        e.TakeDamage(damage, transform);
+        DamageInfo damageInfo;
+        damageInfo.minDamage = minDamage;
+        damageInfo.maxDamage = maxDamage;
+        damageInfo.damageDone = Random.Range(minDamage, maxDamage);
+        damageInfo.damageDealer = transform;
+        e.TakeDamage(damageInfo);
         if (!e.isDead)
         {
             canDoDamage = false;
@@ -72,7 +79,11 @@ public class Bullet : MonoBehaviour {
 
     void DamagePlayer(IDamageable p)
     {
-        p.TakeDamage(damage);
+        DamageInfo damageInfo;
+        damageInfo.minDamage = minDamage;
+        damageInfo.maxDamage = maxDamage;
+        damageInfo.damageDone = Random.Range(minDamage, maxDamage);
+        p.TakeDamage(damageInfo.damageDone);
       
             canDoDamage = false;
             DestroyProjectile();

@@ -55,7 +55,6 @@ public class Spawner : MonoBehaviour {
     void Spawn()
     {
         double randomNumber = Random.Range(0, 100);
-        Debug.Log(randomNumber);
         int enemyToSpawn = 0;
         foreach (EnemySpawnChance enemy in enemies)
         {

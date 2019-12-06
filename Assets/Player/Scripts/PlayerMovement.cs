@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     {
         if (Mathf.Abs(input) > 0f)
         {
-            rb.velocity = new Vector2(input * stats.speed * Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(input * stats.speed * Time.fixedDeltaTime, rb.velocity.y);
         }
         else
         {

@@ -19,14 +19,16 @@ public class EyeRunner : Enemy {
     enum Direction {  RIGHT, LEFT };
     Direction direction = Direction.RIGHT;
 
- 	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    DamageIndicatorSpawner effectSpawner;
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody2D>();
         sR = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         bC = transform.Find("Colliders").GetComponent<BoxCollider2D>();
         cC = GetComponentInChildren<CircleCollider2D>();
-        cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
+        cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>(); ;
         double dir = Random.Range(-1f, 1f);
         if(dir>0f)
         {
@@ -86,12 +88,15 @@ public class EyeRunner : Enemy {
         sR.material.SetFloat("_FlashAmount", 0f);
     }
 
-    override public void TakeDamage(int damage, Transform damageDealer)
+    override public void TakeDamage(DamageInfo damageInfo)
     {
         if (!isDead)
         {
+            Vector2 scale = new Vector2((float)damageInfo.damageDone / (float)damageInfo.maxDamage,
+                (float)damageInfo.damageDone / (float)damageInfo.maxDamage);
+            effectSpawner.SpawnEffect(damageInfo.damageDealer.position, scale, damageInfo);
             cameraShake.Shake(0.05f, 0.1f);
-            currentHealth -= damage;
+            currentHealth -= damageInfo.damageDone;
             if (currentHealth > 0f) AudioManager.instance.PlaySound("Hurt");
             StartCoroutine("Blink");
         }

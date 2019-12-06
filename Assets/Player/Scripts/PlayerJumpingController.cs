@@ -13,27 +13,20 @@ public class PlayerJumpingController : MonoBehaviour, IJumpingController
     float groundedRememberTimer;
     [SerializeField]
     PlayerStats stats;
-    [SerializeField]
-    LayerMask whatIsGround;
     Rigidbody2D rb;
-    GameObject groundCheck;
-    bool isGrounded = true;
     [SerializeField] [Range(0, 1)]
     float cutOfJumpHeight = 0.85f;
+    IGroundedChecking groundedChecker;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
-        if (groundCheck == null) Debug.LogError("Can't find ground check!");
+        groundedChecker = GetComponent<IGroundedChecking>();
     }
-    void FixedUpdate()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, 0.2f, whatIsGround);
-    }
+
     public void ManageJumping()
     {
         groundedRememberTimer -= Time.deltaTime;
-        if (isGrounded)
+        if (groundedChecker.IsGrounded())
             groundedRememberTimer = groundedRemember;
 
         jumpPressedRememberTimer -= Time.deltaTime;

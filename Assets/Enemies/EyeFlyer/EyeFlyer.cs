@@ -25,6 +25,9 @@ public class EyeFlyer : Enemy
 
     bool isOnRight = true;
 
+    [SerializeField]
+    DamageIndicatorSpawner effectSpawner;
+
     // Use this for initialization
     void Start()
     {
@@ -51,12 +54,15 @@ public class EyeFlyer : Enemy
         }
     }
 
-    override public void TakeDamage(int damage, Transform damageDealer)
+    override public void TakeDamage(DamageInfo damageInfo)
     {
         if (!isDead)
         {
+            Vector2 scale = new Vector2((float)damageInfo.damageDone/ (float)damageInfo.maxDamage , 
+                (float)damageInfo.damageDone / (float)damageInfo.maxDamage);
+           effectSpawner.SpawnEffect(damageInfo.damageDealer.position, scale, damageInfo);
             cameraShake.Shake(0.05f, 0.1f);
-            currentHealth -= damage;
+            currentHealth -= damageInfo.damageDone;
             if (currentHealth > 0f) AudioManager.instance.PlaySound("Hurt");
             StartCoroutine("Blink");
         }
