@@ -36,8 +36,11 @@ public class PlayerController : MonoBehaviour {
 	IJumpingController jumpingController;
 	IDashing dashingController;
 	void Awake () {
-			stats.Set(startingStats);
-			stats.currentHP = stats.maxHP;
+        if (BetweenLevelDataContainer.instance.FirstScene)
+        {
+            stats.Set(startingStats);
+            stats.currentHP = stats.maxHP;
+        }
 			//instance = this;
 			isDead = false;          
 			sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();

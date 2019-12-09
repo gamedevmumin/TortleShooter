@@ -8,18 +8,20 @@ public class BetweenLevelDataContainer : MonoBehaviour {
 
     //public PlayerStats playerStats = new PlayerStats();
     public MapData mapData = new MapData();
-    public bool firstScene = true;
+    public bool FirstScene { get; private set; }
 
     void Awake()
     {
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
-           // playerStats.currentHP = playerStats.maxHP;
+            FirstScene = true;
+            //playerStats.currentHP = playerStats.maxHP;
             instance = this;
         }
         else if (instance != this)
         {
+            instance.FirstScene = false;
             Destroy(gameObject);
         }
     }
