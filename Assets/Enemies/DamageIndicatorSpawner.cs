@@ -14,5 +14,6 @@ public class DamageIndicatorSpawner : MonoBehaviour {
         Vector2 pos = new Vector2(position.x + Random.Range(-0.5f, 0.5f), position.y + Random.Range(-0.5f, 0.5f));
         GameObject eo = Instantiate(damageIndicator.gameObject, pos, Quaternion.Euler(Vector2.zero));
         eo.transform.localScale = scale;
+        Destroy(eo, 5f);
     }
 }

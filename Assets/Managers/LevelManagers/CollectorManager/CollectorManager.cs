@@ -44,7 +44,7 @@ public class CollectorManager : LevelManager
             counter.UpdateCounter(amountOfObjectsToCollect);
         }
         SpawnObjective();
-        AudioManager.instance.PlaySound("Music");
+        if(AudioManager.instance) AudioManager.instance.PlaySound("Music");
     }
 
     override public void StartLevel()

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-       
+         
         if (instance != null)
         {
             if (instance != this)
@@ -26,11 +26,21 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            //SceneManager.sceneLoaded += OnSceneLoaded;
             instance = this;
-            DontDestroyOnLoad(this);
+           // DontDestroyOnLoad(this);
         }
-        
+        if (SceneManager.GetActiveScene().name == "Map")
+        {
+            GameObject portalGO = GameObject.Find("PORTAL");
+            if (portalGO) portal = portalGO.GetComponent<Portal>(); ;
+            if (portal) portal.gameObject.SetActive(false);
+            return;
+        }
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        portal = GameObject.Find("PORTAL").gameObject.GetComponent<Portal>();
+        portal.gameObject.SetActive(false);
+
     }
 
     // Use this for initialization
@@ -57,7 +67,7 @@ public class GameManager : MonoBehaviour {
 
     public void finishLevel(LevelStatus levelStatus)
     {
-        if (levelStatus == LevelStatus.WON)
+        //if (levelStatus == LevelStatus.WON)
         {
             Debug.Log("YOU WON!!!");
             portal.gameObject.SetActive(true);
@@ -69,16 +79,7 @@ public class GameManager : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Map")
-        {
-            GameObject portalGO = GameObject.Find("PORTAL");
-            if(portalGO) portal = portalGO.GetComponent<Portal>(); ;
-            if(portal) portal.gameObject.SetActive(false);
-            return;
-        }
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        portal = GameObject.Find("PORTAL").gameObject.GetComponent<Portal>();
-        portal.gameObject.SetActive(false);
+       
         //LevelManager lM = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         // lM.StartLevel();
 

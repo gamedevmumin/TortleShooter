@@ -50,7 +50,7 @@ MonoBehaviour:
   bullet: {fileID: 114452012955997140, guid: 6a62695580b756e4f9b03e3d0a64f347, type: 3}
   icon: {fileID: 21300000, guid: ddd97f1aa484e104a897dc8dd235540d, type: 3}
   shotsInterval: 0.5
-  shakeAmount: 0.02
+  shakeAmount: 0.01
 --- !u!95 &95847353636567764
 Animator:
   serializedVersion: 3

@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour {
 	GameObject colliders;
 	static PlayerController instance;
 	PlayerWeapons playerWeapons;
-	GameObject groundCheck;
+    [SerializeField]
+	List<Transform> groundChecks;
 
 	IMovement movementController;
 	IJumpingController jumpingController;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 	void Awake () {
 			stats.Set(startingStats);
 			stats.currentHP = stats.maxHP;
-			instance = this;
+			//instance = this;
 			isDead = false;          
 			sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();
 			anim = GetComponent<Animator>();
@@ -45,8 +46,8 @@ public class PlayerController : MonoBehaviour {
 			colliders = transform.Find("Colliders").gameObject;
 			fallingTimer = fallingTime;
 			playerWeapons = GetComponent<PlayerWeapons>();            
-			groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
-			if (groundCheck == null) Debug.LogError("Can't find ground check!");
+			//groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
+			//if (groundCheck == null) Debug.LogError("Can't find ground check!");
 			movementController = GetComponent<IMovement>();
 			jumpingController = GetComponent<IJumpingController>();
 			dashingController = GetComponent<IDashing>();
@@ -107,14 +108,18 @@ public class PlayerController : MonoBehaviour {
 
 	void ManagePlatforms()
 	{
-		if(Input.GetButton("Down"))
-		{          
-			RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.2f, whatIsPlatform);            
-			if(hit)
-			{
-				StartCoroutine(DisableCollider(hit.collider, 0.6f));            
-			}
-		}        
+        if (Input.GetButton("Down"))
+        {
+            foreach (Transform groundCheck in groundChecks)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.2f, whatIsPlatform);
+                if (hit)
+                {
+                    StartCoroutine(DisableCollider(hit.collider, 0.6f));
+                    break;
+                }
+            }
+        }		       
 	}
 
 	IEnumerator DisableCollider(Collider2D collider, float time)

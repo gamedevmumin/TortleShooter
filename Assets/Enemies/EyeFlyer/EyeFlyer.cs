@@ -61,7 +61,7 @@ public class EyeFlyer : Enemy
             Vector2 scale = new Vector2((float)damageInfo.damageDone/ (float)damageInfo.maxDamage , 
                 (float)damageInfo.damageDone / (float)damageInfo.maxDamage);
            effectSpawner.SpawnEffect(damageInfo.damageDealer.position, scale, damageInfo);
-            cameraShake.Shake(0.05f, 0.1f);
+            //cameraShake.Shake(0.05f, 0.1f);
             currentHealth -= damageInfo.damageDone;
             if (currentHealth > 0f) AudioManager.instance.PlaySound("Hurt");
             StartCoroutine("Blink");
@@ -84,8 +84,11 @@ public class EyeFlyer : Enemy
 
     void attack()
     {
-        anim.SetTrigger("attack");
-        StartCoroutine(shoot());
+        if (playerPosition)
+        {
+            anim.SetTrigger("attack");
+            StartCoroutine(shoot());
+        }
     }
 
     IEnumerator shoot()
