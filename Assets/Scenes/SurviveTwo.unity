@@ -3444,7 +3444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d47bb72a98bdeb4ebdb57ebfd963b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: 1
 --- !u!4 &1416282735
 Transform:
   m_ObjectHideFlags: 0
@@ -3492,8 +3491,8 @@ MonoBehaviour:
   - {fileID: 1139833416}
   - {fileID: 558949389}
   - {fileID: 685673580}
-  minSurvivalTime: 10
-  maxSurvivalTime: 15
+  minSurvivalTime: 25
+  maxSurvivalTime: 30
 --- !u!4 &1417376412
 Transform:
   m_ObjectHideFlags: 0

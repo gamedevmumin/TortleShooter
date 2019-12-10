@@ -14,7 +14,8 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
     SpriteRenderer sR;
     void Start()
     {
-        heartBar = GameObject.Find("StatPanel/HeartBar").GetComponent<HeartBar>();
+        GameObject heartBarObj = GameObject.Find("StatPanel/HeartBar");
+        if(heartBarObj) heartBar = heartBarObj.GetComponent<HeartBar>();
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         sR = GetComponentInChildren<SpriteRenderer>();
     }

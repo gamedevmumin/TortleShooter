@@ -11,7 +11,7 @@ public class Counter : MonoBehaviour {
     int amount;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         text = GetComponent<Text>();
         //collectorManager = GameObject.Find("LevelManager").GetComponent<CollectorManager>();
 	}

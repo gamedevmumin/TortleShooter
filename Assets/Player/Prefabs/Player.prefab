@@ -242,6 +242,8 @@ MonoBehaviour:
   weaponSlot: {fileID: 8050119619778576713}
   pickableWeaponPrefab: {fileID: 3756245010852579568, guid: 65867b4a8838db14fbe0ce93bf0b1934,
     type: 3}
+  playerStartingWeapons: {fileID: 11400000, guid: 6a2f04e4e4dc2ff4abbdfd04f47affa5,
+    type: 2}
 --- !u!114 &1227953150
 MonoBehaviour:
   m_ObjectHideFlags: 0

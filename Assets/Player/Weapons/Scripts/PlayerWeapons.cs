@@ -11,12 +11,21 @@ public class PlayerWeapons : MonoBehaviour
     [SerializeField]
     Transform weaponSlot;
     [SerializeField] PickableWeapon pickableWeaponPrefab;
+    [SerializeField] PlayerStartingWeapons playerStartingWeapons;
     WeaponsUI wUI;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        GameObject wuiObject = GameObject.Find("Canvas/StatPanel/WeaponsUI");
+        if (wuiObject) wUI = wuiObject.GetComponent<WeaponsUI>();
+    }
+
     void Start()
     {
-       if(activeWeapon) Instantiate(activeWeapon, weaponSlot);
-        wUI = GameObject.Find("Canvas/StatPanel/WeaponsUI").GetComponent<WeaponsUI>();
+        if (playerStartingWeapons.startingInactiveWeapon) PickUpWeapon(playerStartingWeapons.startingInactiveWeapon);
+        if (playerStartingWeapons.startingActiveWeapon) PickUpWeapon(playerStartingWeapons.startingActiveWeapon);
+        
+       
         if(wUI)
         {
             if(activeWeapon && inactiveWeapon)
@@ -77,12 +86,12 @@ public class PlayerWeapons : MonoBehaviour
         else
         {
             PickableWeapon pickableWeapon = Instantiate(pickableWeaponPrefab) as PickableWeapon;
+            pickableWeapon.transform.position = transform.position;
             pickableWeapon.Initialize(activeWeapon);
             Destroy(activeWeaponObject.gameObject);
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;
             activeWeapon = weapon;
             wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
-        }
-        
+        }       
     }
 }

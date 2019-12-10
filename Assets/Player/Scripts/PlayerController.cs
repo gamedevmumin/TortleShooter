@@ -29,33 +29,36 @@ public class PlayerController : MonoBehaviour {
 	GameObject colliders;
 	static PlayerController instance;
 	PlayerWeapons playerWeapons;
-    [SerializeField]
+	[SerializeField]
 	List<Transform> groundChecks;
 
 	IMovement movementController;
 	IJumpingController jumpingController;
 	IDashing dashingController;
-	void Awake () {
-        if (BetweenLevelDataContainer.instance.FirstScene)
-        {
-            stats.Set(startingStats);
-            stats.currentHP = stats.maxHP;
-        }
-			//instance = this;
-			isDead = false;          
+	PlayerDamageable playerDamageable;
+
+	void Awake () {    
 			sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();
 			anim = GetComponent<Animator>();
 			rb = GetComponent<Rigidbody2D>();                                          
-			colliders = transform.Find("Colliders").gameObject;
-			fallingTimer = fallingTime;
+			colliders = transform.Find("Colliders").gameObject;			
 			playerWeapons = GetComponent<PlayerWeapons>();            
-			//groundCheck = gameObject.transform.Find("GroundCheck").gameObject;
-			//if (groundCheck == null) Debug.LogError("Can't find ground check!");
 			movementController = GetComponent<IMovement>();
 			jumpingController = GetComponent<IJumpingController>();
 			dashingController = GetComponent<IDashing>();
+		playerDamageable = GetComponent<PlayerDamageable>();
 	}
-	
+
+	private void Start()
+	{
+		if (BetweenLevelDataContainer.instance.FirstScene)
+		{
+			stats.Set(startingStats);
+			stats.currentHP = stats.maxHP;
+		}
+		isDead = false;
+		fallingTimer = fallingTime;
+	}
 	void Update () {
 		if (stats.currentHP <= 0f) Die();
 		if (!inertia)
@@ -111,18 +114,18 @@ public class PlayerController : MonoBehaviour {
 
 	void ManagePlatforms()
 	{
-        if (Input.GetButton("Down"))
-        {
-            foreach (Transform groundCheck in groundChecks)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.2f, whatIsPlatform);
-                if (hit)
-                {
-                    StartCoroutine(DisableCollider(hit.collider, 0.6f));
-                    break;
-                }
-            }
-        }		       
+		if (Input.GetButton("Down"))
+		{
+			foreach (Transform groundCheck in groundChecks)
+			{
+				RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.2f, whatIsPlatform);
+				if (hit)
+				{
+					StartCoroutine(DisableCollider(hit.collider, 0.6f));
+					break;
+				}
+			}
+		}		       
 	}
 
 	IEnumerator DisableCollider(Collider2D collider, float time)
@@ -150,6 +153,7 @@ public class PlayerController : MonoBehaviour {
 		if (!isDead)
 		{
 			if (anim != null) anim.SetBool("isGettingToPortal", true);
+			playerDamageable.StartInvincibilityTimer(9999f);
 			//invincibilityTimer = 9999f;
 			inertia = true;
 			colliders.SetActive(false);

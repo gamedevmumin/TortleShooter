@@ -129,8 +129,11 @@ public class EyeFlyer : Enemy
             //cC.enabled = false;
             //bC.enabled = false;
             AudioManager.instance.PlaySound("Death");
-            rb.AddForce(new Vector2(-rb.velocity.x * 100f, 400f));
-            rb.gravityScale = 3.5f;
+            if (rb)
+            {
+                rb.AddForce(new Vector2(-rb.velocity.x * 100f, 400f));
+                rb.gravityScale = 3.5f;
+            }
             //anim.SetBool("isDead", isDead);
             sR.material.color = new Color32(65, 58, 58, 255);
         }
