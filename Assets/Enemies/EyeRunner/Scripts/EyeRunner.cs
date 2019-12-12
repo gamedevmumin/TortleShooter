@@ -21,14 +21,24 @@ public class EyeRunner : Enemy {
 
 	[SerializeField]
 	DamageIndicatorSpawner effectSpawner;
-	// Use this for initialization
-	void Start () {
-		rb = GetComponent<Rigidbody2D>();
-		sR = GetComponent<SpriteRenderer>();
-		anim = GetComponent<Animator>();
-		bC = transform.Find("Colliders").GetComponent<BoxCollider2D>();
-		cC = GetComponentInChildren<CircleCollider2D>();
-		cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>(); ;
+    ScreeneFreezer screenFreezer;
+    [SerializeField]
+    FloatVariable freezeTime;
+
+    private void Awake()
+    {
+        screenFreezer = FindObjectOfType<ScreeneFreezer>();
+        rb = GetComponent<Rigidbody2D>();
+        sR = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        bC = transform.Find("Colliders").GetComponent<BoxCollider2D>();
+        cC = GetComponentInChildren<CircleCollider2D>();
+        cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>(); ;
+    }
+
+    // Use this for initialization
+    void Start () {
+		
 		double dir = Random.Range(-1f, 1f);
 		if(dir>0f)
 		{
@@ -109,9 +119,8 @@ public class EyeRunner : Enemy {
 		{
 			isDead = true;
 			transform.Rotate(0, 0, -90);
-			//cC.enabled = false;
-			//bC.enabled = false;
-			AudioManager.instance.PlaySound("Death");
+            screenFreezer.Freeze(freezeTime.Value);
+            AudioManager.instance.PlaySound("Death");
 			rb.AddForce(new Vector2(-rb.velocity.x * 100f, 400f));
 			anim.SetBool("isDead", isDead);
 			sR.material.color = new Color32(65, 58, 58, 255);

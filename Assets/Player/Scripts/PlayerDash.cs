@@ -48,13 +48,13 @@ public class PlayerDash : MonoBehaviour, IDashing
 
     IEnumerator DashCoroutine()
     {
-        cameraShake.Shake(0.01f, 0.01f);
+        cameraShake.Shake(0.018f, 0.015f);
         AudioManager.instance.PlaySound("Dash");
         stats.speed.Value += 605;      
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 5.45f);
         dashed = true;
         remainingDashes--;
-        playerDamageable.StartInvincibilityTimer(dashTime);
+        playerDamageable.StartInvincibilityTimer(dashTime+0.015f);
         yield return new WaitForSeconds(dashTime);
         stats.speed.Value -= 605;
         yield return new WaitForSeconds(0.03f);

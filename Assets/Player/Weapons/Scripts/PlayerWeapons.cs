@@ -71,7 +71,7 @@ public class PlayerWeapons : MonoBehaviour
         {
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;
             activeWeapon = weapon;
-            wUI.UpdateState(activeWeapon.Icon, null);
+            if(wUI) wUI.UpdateState(activeWeapon.Icon, null);
         }
         else if(inactiveWeapon == null)
         {
@@ -81,7 +81,7 @@ public class PlayerWeapons : MonoBehaviour
             inactiveWeaponObject.gameObject.SetActive(false);
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;           
             activeWeapon = weapon;
-            wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
+            if (wUI) wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
         }
         else
         {
@@ -91,7 +91,7 @@ public class PlayerWeapons : MonoBehaviour
             Destroy(activeWeaponObject.gameObject);
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;
             activeWeapon = weapon;
-            wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
+            if (wUI) wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
         }       
     }
 }

@@ -18,17 +18,25 @@ public class Weapon : MonoBehaviour {
 	protected float shotsInterval;
 	[SerializeField]
 	protected float shakeAmount;
+    
 
 	public PickableWeapon PickableWeapon { private set; get; }
 	protected PlayerItems playerItems;
 	protected List<IRandomBulletChanger> bulletChangingItems = new List<IRandomBulletChanger>();
-	void Start () {
+
+    private void Awake()
+    {
+        playerItems = GameObject.Find("Player").GetComponent<PlayerItems>();
+        firePoint = transform.Find("FirePoint").transform;
+        cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
+        anim = GetComponent<Animator>();
+       
+    }
+
+    void Start () {
 		SceneManager.sceneLoaded += OnSceneLoaded;
 		shotsIntervalTimer = shotsInterval;
-		playerItems = GameObject.Find("Player").GetComponent<PlayerItems>();
-		firePoint = transform.Find("FirePoint").transform;
-		cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
-		anim = GetComponent<Animator>();
+		
 		ReloadItems();
 		playerItems.reloadItems += ReloadItems;
 	}

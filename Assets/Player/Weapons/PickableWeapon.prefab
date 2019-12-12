@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3756245010551841800}
   - component: {fileID: 3756245010551841801}
   - component: {fileID: 3756245010551841806}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: PickUpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3756245010852579571}
   - component: {fileID: 3756245010852579568}
   - component: {fileID: 3756245010852579570}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PickableWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 3756245011070902064}
   - component: {fileID: 3756245011070902065}
   - component: {fileID: 3756245011070902070}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 3756245011100728864}
   - component: {fileID: 3756245011100728877}
   - component: {fileID: 3756245011100728867}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 3756245011933645743}
   - component: {fileID: 3756245011933645740}
   - component: {fileID: 3756245011933645741}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

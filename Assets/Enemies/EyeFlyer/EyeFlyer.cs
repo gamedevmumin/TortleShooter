@@ -28,19 +28,28 @@ public class EyeFlyer : Enemy
     [SerializeField]
     DamageIndicatorSpawner effectSpawner;
 
-    // Use this for initialization
-    void Start()
+    ScreeneFreezer screenFreezer;
+    [SerializeField]
+    FloatVariable freezeTime;
+
+    private void Awake()
     {
-        attackTimer = attackTime;
+        screenFreezer = FindObjectOfType<ScreeneFreezer>();
         sR = GetComponent<SpriteRenderer>();
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         anim = GetComponent<Animator>();
         firePoint = transform.Find("FirePoint").transform;
-        currentHealth = maxHealth;
-        isDead = false;
         rb = GetComponent<Rigidbody2D>();
         GameObject player = GameObject.Find("Player");
-        if(player)playerPosition = player.transform;
+        if (player) playerPosition = player.transform;
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        attackTimer = attackTime;
+        currentHealth = maxHealth;
+        isDead = false;               
     }
 
     // Update is called once per frame
@@ -126,15 +135,13 @@ public class EyeFlyer : Enemy
         {
             isDead = true;
             transform.Rotate(0, 0, -90);
-            //cC.enabled = false;
-            //bC.enabled = false;
+            screenFreezer.Freeze(freezeTime.Value);
             AudioManager.instance.PlaySound("Death");
             if (rb)
             {
                 rb.AddForce(new Vector2(-rb.velocity.x * 100f, 400f));
                 rb.gravityScale = 3.5f;
             }
-            //anim.SetBool("isDead", isDead);
             sR.material.color = new Color32(65, 58, 58, 255);
         }
     }
