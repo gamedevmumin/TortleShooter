@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176281389414164}
-  m_LocalRotation: {x: 0, y: -0, z: -0.0035714784, w: 0.9999936}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0035692314, w: 0.9999936}
   m_LocalPosition: {x: 0.34, y: -6.372, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
@@ -118,7 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   lifeTime: 10
-  damage: 10
+  maxDamage: 15
+  minDamage: 10
   hitParticle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022,
     type: 3}
   isPlayersBullet: 1
@@ -156,7 +157,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.19385092, y: 0.010164887}
+  m_Offset: {x: 0.19903298, y: 0.010164887}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.23209876, y: 0.45555553}
@@ -167,7 +168,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4876525, y: 0.23500693}
+  m_Size: {x: 0.49801657, y: 0.23500693}
   m_EdgeRadius: 0
 --- !u!1 &1205835494220312
 GameObject:
@@ -193,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205835494220312}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.501, y: 0, z: 0}
+  m_LocalPosition: {x: 0.288, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4820168871436646}

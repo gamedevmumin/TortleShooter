@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 
 	public Rigidbody2D rb { get; private set; }
 	Animator anim;
-	bool isRight = true;
+	//bool isRight = true;
 	[SerializeField]
 	LayerMask whatIsPlatform;   
 	[SerializeField]
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	public PlayerStats Stats { get { return stats; } }
 	bool isDead;
 	bool inertia = false;
-	SpriteRenderer sR;
+//	SpriteRenderer sR;
 	GameObject colliders;
 	static PlayerController instance;
 	PlayerWeapons playerWeapons;
@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour {
 	IJumpingController jumpingController;
 	IDashing dashingController;
 	PlayerDamageable playerDamageable;
+    IDirectionManager directionManager;
 
-	void Awake () {    
-			sR = GameObject.Find("PlayerGraphics").GetComponent<SpriteRenderer>();
+	void Awake () {    			
 			anim = GetComponent<Animator>();
 			rb = GetComponent<Rigidbody2D>();                                          
 			colliders = transform.Find("Colliders").gameObject;			
@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour {
 			movementController = GetComponent<IMovement>();
 			jumpingController = GetComponent<IJumpingController>();
 			dashingController = GetComponent<IDashing>();
-		playerDamageable = GetComponent<PlayerDamageable>();
+		    playerDamageable = GetComponent<PlayerDamageable>();
+            directionManager = GetComponent<IDirectionManager>();
 	}
 
 	private void Start()
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 		movementInput = Input.GetAxisRaw("Horizontal");       
 	   jumpingController.ManageJumping();
 		if (Input.GetKeyDown(KeyCode.LeftShift)) dashingController.Dash();
-		ManageDirection();
+		directionManager.ManageDirection(rb.velocity);
 		ManagePlatforms();
 	}
 
@@ -100,17 +101,6 @@ public class PlayerController : MonoBehaviour {
 		movementController.Move(movementInput);
 	}
 
-	void Flip()
-	{
-		isRight = !isRight;
-		sR.flipX = !sR.flipX;       
-	}
-
-	void ManageDirection()
-	{
-		if ((rb.velocity.x < 0 && isRight) || (rb.velocity.x > 0 && !isRight))
-			Flip();
-	}
 
 	void ManagePlatforms()
 	{

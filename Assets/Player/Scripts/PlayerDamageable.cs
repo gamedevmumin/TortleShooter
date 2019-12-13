@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerDamageable : MonoBehaviour, IDamageable
 {
     float invincibilityTimer;
+    public float InvincibilityTimer { get { return invincibilityTimer; } private set { invincibilityTimer = value; } }
     [SerializeField]
     PlayerStats stats;
     HeartBar heartBar;
@@ -12,6 +13,7 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
     [SerializeField]
     VisualSpriteEffect damageEffect;
     SpriteRenderer sR;
+
     void Start()
     {
         GameObject heartBarObj = GameObject.Find("StatPanel/HeartBar");
@@ -36,6 +38,7 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
             if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);
             StartInvincibilityTimer(stats.invincibilityTime);
         }
+        
     }
 
     public void StartInvincibilityTimer(float invincibilityTime)
@@ -43,3 +46,4 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
         invincibilityTimer = invincibilityTime;
     }
 }
+

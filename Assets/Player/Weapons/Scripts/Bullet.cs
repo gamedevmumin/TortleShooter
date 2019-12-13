@@ -31,10 +31,9 @@ public class Bullet : MonoBehaviour {
         Invoke("DestroyProjectile", lifeTime);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
-        hitPoint = GetComponentInChildren<Transform>();
+        hitPoint = transform.Find("HitPoint").transform;
+       
     }
-
-
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (canDoDamage == true)
@@ -56,7 +55,10 @@ public class Bullet : MonoBehaviour {
                 if (!isPlayersBullet)
                 {
                     PlayerDamageable p = coll.GetComponent<PlayerDamageable>();
-                    DamagePlayer(p);
+                    if (p.InvincibilityTimer <= 0f)
+                    {
+                        DamagePlayer(p);
+                    }
                 }
             }
         }
@@ -85,8 +87,8 @@ public class Bullet : MonoBehaviour {
         damageInfo.damageDone = Random.Range(minDamage, maxDamage);
         p.TakeDamage(damageInfo.damageDone);
       
-            canDoDamage = false;
-            DestroyProjectile();
+        canDoDamage = false;
+        DestroyProjectile();
         
     }
     void DestroyProjectile()

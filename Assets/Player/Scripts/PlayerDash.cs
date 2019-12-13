@@ -21,14 +21,20 @@ public class PlayerDash : MonoBehaviour, IDashing
     int remainingDashes;
 
     PlayerDamageable playerDamageable;
+    [SerializeField]
+    ParticleSystem dashEffect;
 
-    void Start()
+    void Awake()
     {
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         groundedChecker = GetComponent<IGroundedChecking>();
-        rb = GetComponent<Rigidbody2D>();
-        remainingDashes = maxDashes;
+        rb = GetComponent<Rigidbody2D>();        
         playerDamageable = GetComponent<PlayerDamageable>();
+    }
+
+    void Start()
+    {
+        remainingDashes = maxDashes;
     }
 
     void Update()
@@ -42,19 +48,23 @@ public class PlayerDash : MonoBehaviour, IDashing
     {       
         if (!dashed && remainingDashes > 0)
         {
-            StartCoroutine(DashCoroutine());
+            if (Mathf.Abs(rb.velocity.x) > 0f)
+            {
+                StartCoroutine(DashCoroutine());
+            }
         }
     }
 
     IEnumerator DashCoroutine()
     {
+        dashEffect.Play();
         cameraShake.Shake(0.018f, 0.015f);
         AudioManager.instance.PlaySound("Dash");
         stats.speed.Value += 605;      
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 5.45f);
         dashed = true;
         remainingDashes--;
-        playerDamageable.StartInvincibilityTimer(dashTime+0.015f);
+        playerDamageable.StartInvincibilityTimer(dashTime+0.015f);      
         yield return new WaitForSeconds(dashTime);
         stats.speed.Value -= 605;
         yield return new WaitForSeconds(0.03f);
