@@ -52,17 +52,19 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        restartLevel();
+        if (Input.GetKey(KeyCode.R))
+        {
+            restartLevel();
+        }
     }
 
     void restartLevel()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
+        
             player.resetLevel();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             AudioManager.instance.PlaySound("Music");
-        }
+       
     }
 
     public void finishLevel(LevelStatus levelStatus)

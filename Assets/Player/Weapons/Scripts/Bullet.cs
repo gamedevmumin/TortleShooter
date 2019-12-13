@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour {
                 if (!isPlayersBullet)
                 {
                     PlayerDamageable p = coll.GetComponent<PlayerDamageable>();
-                    if (p.InvincibilityTimer <= 0f)
+                    if (p && p.InvincibilityTimer <= 0f)
                     {
                         DamagePlayer(p);
                     }

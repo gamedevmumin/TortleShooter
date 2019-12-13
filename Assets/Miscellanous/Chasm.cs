@@ -19,8 +19,14 @@ public class Chasm : MonoBehaviour {
         if(coll.CompareTag("Player"))
         {
             IDamageable player = coll.GetComponent<IDamageable>();
-            player.TakeDamage(3000);
+            Rigidbody2D rb = coll.GetComponent<Rigidbody2D>();
+            if(rb)
+            {
+                Debug.Log("Chasmeeed");
+                rb.velocity = new Vector2(rb.velocity.x, 12f);
+            }
+            if(player!=null)player.TakeDamage(1);
         }
-        Destroy(coll.gameObject);
+        else Destroy(coll.gameObject);
     }
 }
