@@ -1062,7 +1062,7 @@ PrefabInstance:
     - target: {fileID: 114975841222375894, guid: 60915c90456b1d54cbca1afe7bbac53e,
         type: 3}
       propertyPath: sounds.Array.data[5].volume
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114975841222375894, guid: 60915c90456b1d54cbca1afe7bbac53e,
         type: 3}
@@ -1616,6 +1616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227953146, guid: 971b49ac93f25ee48993d5e884750a9b, type: 3}
+      propertyPath: maxDashes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8050119619798341718, guid: 971b49ac93f25ee48993d5e884750a9b,
         type: 3}
       propertyPath: m_Name

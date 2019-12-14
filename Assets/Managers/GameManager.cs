@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
             if (portal) portal.gameObject.SetActive(false);
             return;
         }
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         portal = GameObject.Find("PORTAL").gameObject.GetComponent<Portal>();
         portal.gameObject.SetActive(false);
 
@@ -79,12 +79,5 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-       
-        //LevelManager lM = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        // lM.StartLevel();
-
-    }
 
 }

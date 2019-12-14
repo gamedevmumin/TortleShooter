@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CollectThemAll2.unity
     guid: 11bef36b0bea03d4f9c19cc4853dba27
+  - enabled: 1
+    path: Assets/Scenes/SurviveThree.unity
+    guid: 323c06e919c61ca4f875a58423b8162d
   m_configObjects: {}

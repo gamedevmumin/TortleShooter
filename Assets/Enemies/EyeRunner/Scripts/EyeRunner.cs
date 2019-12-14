@@ -53,18 +53,14 @@ public class EyeRunner : Enemy {
 		isDead = false;
 		ChooseDirection();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(isDead)
-		{
-		  //  rb.velocity = new Vector2(0f, rb.velocity.y);
-			
-		}
-		else
-		{
-			ChooseDirection();
-		}
+
+    private void FixedUpdate()
+    {
+        if(!isDead) ChooseDirection();
+    }
+
+    // Update is called once per frame
+    void Update () { 
 
 		if(currentHealth<=0 && !isDead)
 		{
@@ -74,8 +70,8 @@ public class EyeRunner : Enemy {
 
 	void ChooseDirection()
 	{
-			if (direction == Direction.RIGHT) rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
-			else if (direction == Direction.LEFT) rb.velocity = new Vector2(-speed * Time.deltaTime, rb.velocity.y);       
+			if (direction == Direction.RIGHT) rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
+			else if (direction == Direction.LEFT) rb.velocity = new Vector2(-speed * Time.fixedDeltaTime, rb.velocity.y);       
 	}
 
 	public void ChangeDirection()

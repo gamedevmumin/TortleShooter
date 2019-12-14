@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 114452012955997140, guid: a3beee1a95ead874fbabe6bd087a317e, type: 3}
   icon: {fileID: 21300000, guid: d53c7d8359df29045be535a80912cc25, type: 3}
-  shotsInterval: 0.15
+  shotsInterval: 0.18
   shakeAmount: 0.01
 --- !u!95 &706148378709668003
 Animator:

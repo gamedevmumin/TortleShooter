@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   maxHealth: 30
-  speed: 240
+  speed: 200
   effectSpawner: {fileID: -6686974320643684034, guid: eb7d23f850afb4b47b30680e8dda1869,
     type: 3}
   freezeTime: {fileID: 11400000, guid: de7f7604047624742b3cf5194ceae70e, type: 2}

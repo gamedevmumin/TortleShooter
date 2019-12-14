@@ -22,7 +22,6 @@ public class Chasm : MonoBehaviour {
             Rigidbody2D rb = coll.GetComponent<Rigidbody2D>();
             if(rb)
             {
-                Debug.Log("Chasmeeed");
                 rb.velocity = new Vector2(rb.velocity.x, 12f);
             }
             if(player!=null)player.TakeDamage(1);

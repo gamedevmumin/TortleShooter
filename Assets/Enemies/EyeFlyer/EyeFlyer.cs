@@ -32,6 +32,8 @@ public class EyeFlyer : Enemy
     [SerializeField]
     FloatVariable freezeTime;
 
+    Vector2 moveDirection;
+
     private void Awake()
     {
         screenFreezer = FindObjectOfType<ScreeneFreezer>();
@@ -113,7 +115,7 @@ public class EyeFlyer : Enemy
     {
         if (playerPosition!=null)
         {
-            Vector2 moveDirection = -transform.position + playerPosition.position;
+            moveDirection = -transform.position + playerPosition.position;
             //czasem sie bedzie bugowac
             if (moveDirection.x > 0 && !isOnRight)
             {
@@ -125,8 +127,14 @@ public class EyeFlyer : Enemy
                 isOnRight = !isOnRight;
                 transform.Rotate(0f, 180f, 0f);
             }
-            rb.velocity = moveDirection.normalized * speed * Time.deltaTime;
+           
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if(!isDead)
+        rb.velocity = moveDirection.normalized * speed * Time.fixedDeltaTime;
     }
 
     override public void Die()
