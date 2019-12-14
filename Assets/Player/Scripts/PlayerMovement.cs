@@ -12,11 +12,11 @@ public class PlayerMovement : MonoBehaviour, IMovement
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    public void Move(float input)
+    public void Move(Vector2 input)
     {
-        if (Mathf.Abs(input) > 0f)
+        if (Mathf.Abs(input.x) > 0f)
         {
-            rb.velocity = new Vector2(input * stats.speed * Time.fixedDeltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(input.x * stats.speed * Time.fixedDeltaTime, rb.velocity.y);
         }
         else
         {

@@ -71,7 +71,9 @@ public class Spawner : MonoBehaviour {
     {
         foreach(Enemy spawn in spawnedEnemies)
         {
-            if(spawn) spawn.Die();          
+            IKillable killable = null;
+            if (spawn) killable = spawn.GetComponent<IKillable>();
+            if(killable != null) killable.Die();          
         }
         spawnedEnemies.Clear();
     }

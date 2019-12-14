@@ -42,7 +42,8 @@ public class Bullet : MonoBehaviour {
             {
                 if (isPlayersBullet)
                 {
-                    Enemy e = coll.GetComponent<Enemy>();
+                    IDamageable e = coll.GetComponent<IDamageable>();
+                    if(!coll.GetComponent<EnemyStats>().IsDead)
                     DamageEnemy(e);
                 }
             }
@@ -64,28 +65,28 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-    void DamageEnemy(Enemy e)
+    void DamageEnemy(IDamageable e)
     {
-        DamageInfo damageInfo;
+        DamageInfo damageInfo = new DamageInfo();
         damageInfo.minDamage = minDamage;
         damageInfo.maxDamage = maxDamage;
         damageInfo.damageDone = Random.Range(minDamage, maxDamage);
         damageInfo.damageDealer = transform;
         e.TakeDamage(damageInfo);
-        if (!e.isDead)
-        {
+
             canDoDamage = false;
             DestroyProjectile();
-        }
+        
     }
 
     void DamagePlayer(IDamageable p)
     {
-        DamageInfo damageInfo;
+        DamageInfo damageInfo = new DamageInfo();
         damageInfo.minDamage = minDamage;
         damageInfo.maxDamage = maxDamage;
         damageInfo.damageDone = Random.Range(minDamage, maxDamage);
-        p.TakeDamage(damageInfo.damageDone);
+        damageInfo.damageDealer = transform;
+        p.TakeDamage(damageInfo);
       
         canDoDamage = false;
         DestroyProjectile();

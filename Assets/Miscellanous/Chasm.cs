@@ -24,7 +24,12 @@ public class Chasm : MonoBehaviour {
             {
                 rb.velocity = new Vector2(rb.velocity.x, 12f);
             }
-            if(player!=null)player.TakeDamage(1);
+            if (player != null)
+            {
+                DamageInfo damageInfo = new DamageInfo();
+                damageInfo.damageDone = 1;
+                player.TakeDamage(damageInfo);
+            }
         }
         else Destroy(coll.gameObject);
     }

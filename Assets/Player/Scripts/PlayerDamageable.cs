@@ -27,12 +27,12 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
         invincibilityTimer -= Time.deltaTime;
     }
 
-    public void TakeDamage(int damageValue)
+    public void TakeDamage(DamageInfo damageInfo)
     {
         if (invincibilityTimer <= 0f)
         {
             cameraShake.blind();
-            stats.currentHP -= damageValue;
+            stats.currentHP -= damageInfo.damageDone;
             StartCoroutine(damageEffect.PlayEffect(sR));
             AudioManager.instance.PlaySound("PlayerDamaged");
             if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);

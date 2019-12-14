@@ -41,9 +41,14 @@ GameObject:
   - component: {fileID: 4151832399875170}
   - component: {fileID: 212879207405610806}
   - component: {fileID: 95097132668700914}
-  - component: {fileID: 114443838890500432}
   - component: {fileID: 61364268462396414}
   - component: {fileID: 50522212554517912}
+  - component: {fileID: 2801520444769544346}
+  - component: {fileID: 2002914195}
+  - component: {fileID: 4939794451520369282}
+  - component: {fileID: 3738718577490805093}
+  - component: {fileID: 8433691825413089748}
+  - component: {fileID: 541054590}
   m_Layer: 9
   m_Name: EyeFlyer
   m_TagString: Enemy
@@ -134,26 +139,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114443838890500432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681217844343792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243c67b0762333a4dafdae1b7d288fc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDead: 0
-  maxHealth: 90
-  speed: 25
-  attackTime: 3
-  bullet: {fileID: 114935249312638040, guid: b6793bc571952174aa39d0f59f72fe6a, type: 3}
-  effectSpawner: {fileID: -6686974320643684034, guid: eb7d23f850afb4b47b30680e8dda1869,
-    type: 3}
-  freezeTime: {fileID: 11400000, guid: de7f7604047624742b3cf5194ceae70e, type: 2}
 --- !u!61 &61364268462396414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,3 +186,83 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2801520444769544346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ba438293117bb489c86365e80e9613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2002914195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d4c949ab0249944a9f9bf91e91e092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStartingStats: {fileID: 11400000, guid: 42cab63a4bd47f04696eef6e9c8c0df7, type: 2}
+--- !u!114 &4939794451520369282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1809d3885bf534abeee4fd47ebf13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3738718577490805093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab8b746cabe6294094402deff10a16e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8433691825413089748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3aad2194f324d4c98337070716c95b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectSpawner: {fileID: -6686974320643684034, guid: eb7d23f850afb4b47b30680e8dda1869,
+    type: 3}
+  damageEffect: {fileID: 11400000, guid: 568a993c0bd1fd94c8ae56a3446492e0, type: 2}
+  sR: {fileID: 212879207405610806}
+--- !u!114 &541054590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bab2f30d0a8ac49b7d863ca3ae5198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTime: 3
+  bullet: {fileID: 114935249312638040, guid: b6793bc571952174aa39d0f59f72fe6a, type: 3}
+  firePoint: {fileID: 4271030346641412}

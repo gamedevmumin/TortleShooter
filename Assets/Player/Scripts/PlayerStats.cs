@@ -18,6 +18,7 @@ public class PlayerStats : ScriptableObject{
 
     public void Set(PlayerStats stats)
     {
+        
         currentHP = stats.currentHP;
         maxHP = stats.maxHP;
         speed.Value = stats.speed.Value;

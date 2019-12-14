@@ -86,10 +86,10 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat("vSpeed", Mathf.Abs(rb.velocity.x));
 	}
 
-	float movementInput;
+	Vector2 movementInput;
 	void ManageMovement()
 	{
-		movementInput = Input.GetAxisRaw("Horizontal");       
+		movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), movementInput.y);       
 	   jumpingController.ManageJumping();
 		if (Input.GetKeyDown(KeyCode.LeftShift)) dashingController.Dash();
 		directionManager.ManageDirection(rb.velocity);

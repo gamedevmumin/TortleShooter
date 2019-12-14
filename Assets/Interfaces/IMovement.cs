@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IMovement {
-    void Move(float input);
+    void Move(Vector2 input);
 }

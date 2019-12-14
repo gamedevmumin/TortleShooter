@@ -16,7 +16,6 @@ public class BetweenLevelDataContainer : MonoBehaviour {
         {
             DontDestroyOnLoad(gameObject);
             FirstScene = true;
-            //playerStats.currentHP = playerStats.maxHP;
             instance = this;
         }
         else if (instance != this)
