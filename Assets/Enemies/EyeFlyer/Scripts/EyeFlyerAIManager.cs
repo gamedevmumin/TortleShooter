@@ -21,7 +21,8 @@ public class EyeFlyerAIManager : MonoBehaviour, IAIManager
     Transform firePoint;
 
     EnemyStats stats;
-
+    [SerializeField]
+    bool shoots;
     IMovementManager movementManager;
 
     void Awake()
@@ -38,7 +39,7 @@ public class EyeFlyerAIManager : MonoBehaviour, IAIManager
         if (!stats.IsDead)
         {
             movementManager.ManageMovement();
-            ManageAttack();
+            if(shoots) ManageAttack();
         }
     }
 

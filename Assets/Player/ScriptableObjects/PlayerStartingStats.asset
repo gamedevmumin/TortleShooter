@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStartingStats
   m_EditorClassIdentifier: 
   currentHP: 0
-  maxHP: 6
+  maxHP: 3
   speed:
     UseConstant: 0
     ConstantValue: 0
