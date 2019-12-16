@@ -26,8 +26,9 @@ public class Spawner : MonoBehaviour {
     [SerializeField]
     List<EnemySpawnChance> enemies;
 
-    List<Enemy> spawnedEnemies;
-
+    //List<Enemy> spawnedEnemies;
+    [SerializeField]
+    SceneContents sceneContents;
     public bool shouldSpawn = true;
 
    
@@ -35,7 +36,7 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spawnIntervalTimer = spawnInterval;
-        spawnedEnemies = new List<Enemy>();
+       // spawnedEnemies = new List<Enemy>();
         //Spawn();
     }
 	
@@ -69,13 +70,13 @@ public class Spawner : MonoBehaviour {
 
     public void KillThemAll()
     {
-        foreach(Enemy spawn in spawnedEnemies)
+        foreach(Enemy spawn in sceneContents.Enemies)
         {
             IKillable killable = null;
             if (spawn) killable = spawn.GetComponent<IKillable>();
             if(killable != null) killable.Die();          
         }
-        spawnedEnemies.Clear();
+       // spawnedEnemies.Clear();
     }
 
     IEnumerator spawnEnemies(int enemyToSpawn)
@@ -86,7 +87,7 @@ public class Spawner : MonoBehaviour {
             if (shouldSpawn)
             {
                 Enemy enemy = Instantiate(enemies[enemyToSpawn].enemy, transform.position, transform.rotation) as Enemy;
-                spawnedEnemies.Add(enemy);
+               // spawnedEnemies.Add(enemy);
             }
             else KillThemAll();
             yield return new WaitForSeconds(0.45f);

@@ -8,9 +8,13 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
 
     EnemyStats stats;
     IMovement movement;
-    Vector2 moveDirection;
+    Vector2 movementDirection;
     Transform playerTransform;
     bool isPlayerOnRight;
+
+    [SerializeField]
+    SceneContents sceneContents;
+
     void Awake()
     {
         stats = GetComponent<EnemyStats>();
@@ -27,7 +31,7 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
     void FixedUpdate()
     {
         if (!stats.IsDead)
-            movement.Move(moveDirection);
+            movement.Move(movementDirection.normalized);
 
     }
 
@@ -35,18 +39,44 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
     {
         if (playerTransform != null)
         {
-            moveDirection = -transform.position + playerTransform.position;
-            if (moveDirection.x > 0 && !isPlayerOnRight)
-            {
-                isPlayerOnRight = !isPlayerOnRight;
-                transform.Rotate(0f, 180f, 0f);
-            }
-            else if (moveDirection.x < 0 && isPlayerOnRight)
-            {
-                isPlayerOnRight = !isPlayerOnRight;
-                transform.Rotate(0f, 180f, 0f);
-            }
+            movementDirection = GetMovementDirection();
 
+                if (movementDirection.x > 0 && !isPlayerOnRight)
+                {
+                    isPlayerOnRight = !isPlayerOnRight;
+                    transform.Rotate(0f, 180f, 0f);
+                }
+                else if (movementDirection.x < 0 && isPlayerOnRight)
+                {
+                    isPlayerOnRight = !isPlayerOnRight;
+                    transform.Rotate(0f, 180f, 0f);
+                }
+            
         }
+    }
+
+    private Vector3 GetMovementDirection()
+    {
+        Vector3 movementDirection = Vector3.zero;
+        
+        foreach(PlayerController player in sceneContents.Players)
+        {
+            Vector3 dir = -transform.position + player.transform.position;
+            float distance = dir.magnitude;
+            float springStrength = 1f;
+            movementDirection += dir * springStrength;
+        }
+        if (movementDirection.magnitude > 2f)
+        {
+            foreach (Enemy enemy in sceneContents.Enemies)
+            {
+                Vector3 dir = -transform.position + enemy.transform.position;
+                float distance = dir.magnitude;
+                float springStrength = 2.2f / (1f + distance * distance * distance);
+                movementDirection -= dir * springStrength;
+            }
+        }
+        
+        return movementDirection;
     }
 }

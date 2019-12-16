@@ -4993,6 +4993,8 @@ MonoBehaviour:
   - {fileID: 8050119621461954007}
   - {fileID: 6763894689308984100}
   - {fileID: 8893468152763847002}
+  OnPlayerDied: {fileID: 11400000, guid: 54b58105520c8284bb68b88454463268, type: 2}
+  sceneContents: {fileID: 11400000, guid: ba5940257e6c2fc47a6a98d9cb26902b, type: 2}
 --- !u!50 &8050119619798341716
 Rigidbody2D:
   serializedVersion: 4

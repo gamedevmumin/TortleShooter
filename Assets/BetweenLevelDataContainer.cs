@@ -6,7 +6,6 @@ public class BetweenLevelDataContainer : MonoBehaviour {
 
     public static BetweenLevelDataContainer instance { get; private set; }
 
-    //public PlayerStats playerStats = new PlayerStats();
     public MapData mapData = new MapData();
     public bool FirstScene { get; private set; }
 

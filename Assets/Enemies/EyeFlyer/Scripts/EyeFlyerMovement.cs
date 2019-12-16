@@ -10,11 +10,10 @@ public class EyeFlyerMovement : MonoBehaviour, IMovement
     {
         rb = GetComponent<Rigidbody2D>();
         stats = GetComponent<EnemyStats>();
-
     }
 
     public void Move(Vector2 input)
     {
-        rb.velocity = input.normalized * stats.Speed * Time.fixedDeltaTime;
+        rb.velocity = input * stats.Speed * Time.fixedDeltaTime;
     }
 }

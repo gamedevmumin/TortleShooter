@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 3738718577490805093}
   - component: {fileID: 8433691825413089748}
   - component: {fileID: 541054590}
+  - component: {fileID: -6595821034277313885}
   m_Layer: 9
   m_Name: EyeFlyer
   m_TagString: Enemy
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba438293117bb489c86365e80e9613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneContents: {fileID: 11400000, guid: ba5940257e6c2fc47a6a98d9cb26902b, type: 2}
 --- !u!114 &2002914195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab8b746cabe6294094402deff10a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneContents: {fileID: 11400000, guid: ba5940257e6c2fc47a6a98d9cb26902b, type: 2}
 --- !u!114 &8433691825413089748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,3 +269,16 @@ MonoBehaviour:
   attackTime: 3
   bullet: {fileID: 114935249312638040, guid: b6793bc571952174aa39d0f59f72fe6a, type: 3}
   firePoint: {fileID: 4271030346641412}
+--- !u!114 &-6595821034277313885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681217844343792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8fa00bfb486df4a8d8d1a3eed3533c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeTime: {fileID: 11400000, guid: de7f7604047624742b3cf5194ceae70e, type: 2}

@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour {
    
 
     void Awake()
-    {
-         
+    {         
         if (instance != null)
         {
             if (instance != this)
@@ -26,9 +25,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            //SceneManager.sceneLoaded += OnSceneLoaded;
             instance = this;
-           // DontDestroyOnLoad(this);
         }
         if (SceneManager.GetActiveScene().name == "Map")
         {
