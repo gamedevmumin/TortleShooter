@@ -5,7 +5,8 @@ using UnityEngine;
 public class TouchDamage : MonoBehaviour
 {
     EnemyStats stats;
-
+    [SerializeField]
+    int amount = 1;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
@@ -16,7 +17,7 @@ public class TouchDamage : MonoBehaviour
         if (coll.CompareTag("Player") && !stats.IsDead)
         {
             DamageInfo damageInfo = new DamageInfo();
-            damageInfo.damageDone = 1;
+            damageInfo.damageDone = amount;
             coll.GetComponent<IDamageable>().TakeDamage(damageInfo);
         }
     }

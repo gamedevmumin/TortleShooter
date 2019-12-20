@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
     private void OnEnable()
     {
         sceneContents.RegisterPlayer(this);
+        Debug.Log("Player registered");
     }
 
     private void OnDisable()
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        movementController.Move(movementInput);
+        movementController.Move(movementInput, stats.speed);
     }
 
     void ManagePlatforms()

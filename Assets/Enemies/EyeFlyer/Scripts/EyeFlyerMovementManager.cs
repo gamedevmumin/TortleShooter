@@ -9,7 +9,6 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
     EnemyStats stats;
     IMovement movement;
     Vector2 movementDirection;
-    Transform playerTransform;
     bool isPlayerOnRight;
 
     [SerializeField]
@@ -21,8 +20,6 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
     {
         stats = GetComponent<EnemyStats>();
         movement = GetComponent<IMovement>();
-        GameObject player = GameObject.Find("Player");
-        if (player) playerTransform = player.transform;
     }
 
     void Start()
@@ -33,14 +30,13 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
     void FixedUpdate()
     {
         if (!stats.IsDead)
-            movement.Move(movementDirection.normalized);
+            movement.Move(movementDirection.normalized, stats.Speed);
 
     }
 
     public void ManageMovement()
     {
-        if (playerTransform != null)
-        {
+
                 if(needsToChangeDirection == false) movementDirection = GetMovementDirection();
 
                 if (movementDirection.x > 0 && !isPlayerOnRight)
@@ -54,7 +50,7 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
                     if (needsToChangeDirection == false) StartCoroutine(changeDirection());
                 }
             
-        }
+        
     }
 
     IEnumerator changeDirection()

@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        AIManager.ManageAI();
+        if(AIManager!=null) AIManager.ManageAI();
     }
 
     private void OnEnable()

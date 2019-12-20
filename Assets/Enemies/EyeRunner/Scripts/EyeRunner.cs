@@ -16,7 +16,7 @@ public class EyeRunner : MonoBehaviour {
 
 	BoxCollider2D bC;
 	CircleCollider2D cC;
-	enum Direction {  RIGHT, LEFT };
+	enum Direction { RIGHT, LEFT };
 	Direction direction = Direction.RIGHT;
 
 	[SerializeField]
@@ -26,11 +26,11 @@ public class EyeRunner : MonoBehaviour {
 	FloatVariable freezeTime;
 
 
-    protected SpriteRenderer sR;
+	protected SpriteRenderer sR;
 
-    protected EnemyStats stats;
+	protected EnemyStats stats;
 
-    private void Awake()
+	private void Awake()
 	{
 		screenFreezer = FindObjectOfType<ScreeneFreezer>();
 		rb = GetComponent<Rigidbody2D>();
@@ -55,7 +55,6 @@ public class EyeRunner : MonoBehaviour {
 			transform.Rotate(0f, 180f, 0f);
 			direction = Direction.LEFT;
 		}       
-		//currentHealth = maxHealth;
 		isDead = false;
 		ChooseDirection();
 	}
@@ -65,7 +64,6 @@ public class EyeRunner : MonoBehaviour {
 		if(!isDead) ChooseDirection();
 	}
 
-	// Update is called once per frame
 	void Update () { 
 
 		if(stats.CurrentHP<=0 && !isDead)
@@ -102,7 +100,6 @@ public class EyeRunner : MonoBehaviour {
 			Vector2 scale = new Vector2((float)damageInfo.damageDone / (float)damageInfo.maxDamage,
 				(float)damageInfo.damageDone / (float)damageInfo.maxDamage);
 			effectSpawner.SpawnEffect(damageInfo.damageDealer.position, scale, damageInfo);
-			//cameraShake.Shake(0.05f, 0.1f);
 			stats.CurrentHP -= damageInfo.damageDone;
 			if (stats.CurrentHP > 0f) AudioManager.instance.PlaySound("Hurt");
 			StartCoroutine("Blink");
@@ -120,6 +117,7 @@ public class EyeRunner : MonoBehaviour {
 			AudioManager.instance.PlaySound("Death");
 			rb.AddForce(new Vector2(-rb.velocity.x * 100f, 400f));
 			anim.SetBool("isDead", isDead);
+
 			sR.material.color = new Color32(65, 58, 58, 255);
 		}
 	}
@@ -128,8 +126,8 @@ public class EyeRunner : MonoBehaviour {
 	{
 		if(coll.CompareTag("Player") && !isDead)
 		{
-            DamageInfo damageInfo = new DamageInfo();
-            damageInfo.damageDone = 1;
+			DamageInfo damageInfo = new DamageInfo();
+			damageInfo.damageDone = 1;
 			coll.GetComponent<IDamageable>().TakeDamage(damageInfo);
 		}
 	}

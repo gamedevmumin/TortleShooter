@@ -269,6 +269,7 @@ MonoBehaviour:
   attackTime: 3
   bullet: {fileID: 114935249312638040, guid: b6793bc571952174aa39d0f59f72fe6a, type: 3}
   firePoint: {fileID: 4271030346641412}
+  shoots: 1
 --- !u!114 &-6595821034277313885
 MonoBehaviour:
   m_ObjectHideFlags: 0

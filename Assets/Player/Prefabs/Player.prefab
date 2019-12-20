@@ -5083,7 +5083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1743a0ac8180dd94e986de519f9b023d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
 --- !u!114 &7972660972256476837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5113,7 +5112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
-  dashTime: 0.12
+  dashTime: 0.123
   maxDashes: 1
   dashEffect: {fileID: 1654654941}
 --- !u!114 &1227953153

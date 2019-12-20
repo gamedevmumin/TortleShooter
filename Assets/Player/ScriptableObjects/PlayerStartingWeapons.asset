@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingActiveWeapon: {fileID: 706148378709667932, guid: 0ae61ed0511e1cc4d859579f341cda2a,
     type: 3}
-  startingInactiveWeapon: {fileID: 0}
+  startingInactiveWeapon: {fileID: 114378386028699400, guid: 83deeaeddee20fe47af13607c738c954,
+    type: 3}

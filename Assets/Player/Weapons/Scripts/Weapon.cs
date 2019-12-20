@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Weapon : MonoBehaviour {
-
+    [SerializeField]
+    protected float spread = 1f;
 	protected bool isOnRight = true;
 	[SerializeField]
 	protected Bullet bullet;
@@ -73,7 +74,7 @@ public class Weapon : MonoBehaviour {
 
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, angle));
-
+        
 		if (mousePos.x > 0 && !isOnRight)
 		{
 			isOnRight = !isOnRight;
@@ -99,7 +100,8 @@ public class Weapon : MonoBehaviour {
 				shotsIntervalTimer = shotsInterval;
 				anim.SetTrigger("Shot");
 				cameraShake.Shake(shakeAmount, 0.1f);            
-				Instantiate(ChooseBulletToShoot(), firePoint.position, transform.rotation);
+				Bullet shotBullet = Instantiate(ChooseBulletToShoot(), firePoint.position, transform.rotation) as Bullet;
+                shotBullet.gameObject.transform.Rotate(new Vector3(0f,0f,1f), Random.Range(-spread, spread));
 				AudioManager.instance.PlaySound("RifleShooting");
 			}
 		}

@@ -1650,7 +1650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29388458a33f1549a43dd453531d3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 5
+  firstSpawnTime: 4
+  spawnInterval: 7
   enemies:
   - enemy: {fileID: 2801520444769544346, guid: b2d878c2938176a4c8751f0058504573, type: 3}
     chance: 100
@@ -1865,7 +1866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29388458a33f1549a43dd453531d3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 5
+  firstSpawnTime: 4
+  spawnInterval: 7
   enemies:
   - enemy: {fileID: 2801520444769544346, guid: b2d878c2938176a4c8751f0058504573, type: 3}
     chance: 100
@@ -2073,7 +2075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29388458a33f1549a43dd453531d3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 4
+  firstSpawnTime: 4
+  spawnInterval: 7
   enemies:
   - enemy: {fileID: 2801520444769544346, guid: b2d878c2938176a4c8751f0058504573, type: 3}
     chance: 100

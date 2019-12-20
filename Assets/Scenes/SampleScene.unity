@@ -876,12 +876,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29388458a33f1549a43dd453531d3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSpawnTime: 2.4
   spawnInterval: 2.4
   enemies:
-  - enemy: {fileID: 114104490588861718, guid: 702e58b3552d41c418d22e6efb793dab, type: 3}
+  - enemy: {fileID: 4107329418833421799, guid: 702e58b3552d41c418d22e6efb793dab, type: 3}
     chance: 100
-    minAmount: 5
-    maxAmount: 6
+    minAmount: 4
+    maxAmount: 5
+  sceneContents: {fileID: 11400000, guid: ba5940257e6c2fc47a6a98d9cb26902b, type: 2}
   shouldSpawn: 1
 --- !u!4 &1139833417
 Transform:

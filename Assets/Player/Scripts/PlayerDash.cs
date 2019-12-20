@@ -22,6 +22,7 @@ public class PlayerDash : MonoBehaviour, IDashing
 
     PlayerDamageable playerDamageable;
     [SerializeField]
+
     ParticleSystem dashEffect;
 
     void Awake()
