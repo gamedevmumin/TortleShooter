@@ -100,6 +100,7 @@ public class EyeRunner : MonoBehaviour {
 			Vector2 scale = new Vector2((float)damageInfo.damageDone / (float)damageInfo.maxDamage,
 				(float)damageInfo.damageDone / (float)damageInfo.maxDamage);
 			effectSpawner.SpawnEffect(damageInfo.damageDealer.position, scale, damageInfo);
+
 			stats.CurrentHP -= damageInfo.damageDone;
 			if (stats.CurrentHP > 0f) AudioManager.instance.PlaySound("Hurt");
 			StartCoroutine("Blink");

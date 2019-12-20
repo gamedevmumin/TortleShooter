@@ -128,3 +128,10 @@ MonoBehaviour:
     randomVolume: 0.132
     randomPitch: 0.145
     loop: 0
+  - name: ChestOpen
+    clip: {fileID: 8300000, guid: 7dc601526c115854183c6b146d449661, type: 3}
+    volume: 1.112
+    pitch: 1.164
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0

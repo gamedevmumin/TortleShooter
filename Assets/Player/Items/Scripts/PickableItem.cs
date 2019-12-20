@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PickableItem : MonoBehaviour
+public class PickableItem : MonoBehaviour, IInteractable
 {
     [SerializeField]
     Item item;
     SpriteRenderer sR;
-
-    Text nameText;
 
     bool isInRange = false;
 
@@ -23,17 +21,11 @@ public class PickableItem : MonoBehaviour
         }
     }
 
-    void Update()
+    public void Interact()
     {
-        if (isInRange)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                item.OnPickUp(this);
-                playerItems.PickUpItem(item);
-                Destroy(gameObject);
-            }
-        }
+        item.OnPickUp(this);
+        playerItems.PickUpItem(item);
+        Destroy(gameObject);
     }
 
     public void Initialize(Item item)
@@ -47,27 +39,7 @@ public class PickableItem : MonoBehaviour
         Transform graphic = transform.Find("Graphic");
         sR = graphic.GetComponent<SpriteRenderer>();
         sR.sprite = item.Icon;
-        Transform textObject = transform.Find("Canvas").Find("NameText");
-        nameText = textObject.GetComponent<Text>();
-        nameText.text = item.Name;
-        nameText.transform.parent.gameObject.SetActive(false);
         playerItems = GameObject.Find("Player").GetComponent<PlayerItems>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            nameText.transform.parent.gameObject.SetActive(true);
-            isInRange = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            nameText.transform.parent.gameObject.SetActive(false);
-            isInRange = false;
-        }
-    }
 }
