@@ -26,11 +26,14 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     bool isPlayersBullet = true;
 
+    [SerializeField]
+    bool isPhysical = true;
+
     void Start()
     {
         Invoke("DestroyProjectile", lifeTime);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * speed;
+        if(isPhysical) rb.velocity = transform.right * speed;
         hitPoint = transform.Find("HitPoint").transform;
        
     }

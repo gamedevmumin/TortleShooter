@@ -1587,6 +1587,16 @@ PrefabInstance:
       propertyPath: sounds.Array.data[13].randomPitch
       value: 0.145
       objectReference: {fileID: 0}
+    - target: {fileID: 114975841222375894, guid: 60915c90456b1d54cbca1afe7bbac53e,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114975841222375894, guid: 60915c90456b1d54cbca1afe7bbac53e,
+        type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60915c90456b1d54cbca1afe7bbac53e, type: 3}
 --- !u!1001 &1494873482

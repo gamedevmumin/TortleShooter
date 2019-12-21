@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ChestRoom_1.unity
+    guid: af5fd88f02327284fb07e29fb9fd8758
+  - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 3dd4be059d7e6214886db20c06e14357
   - enabled: 1

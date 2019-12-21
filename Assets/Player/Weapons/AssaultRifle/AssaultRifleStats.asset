@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c9f33b1b937154095db12cfe1170a6, type: 3}
-  m_Name: PlayerStartingWeapons
+  m_Script: {fileID: 11500000, guid: f6f8a03752734eb419d619139b34dbf2, type: 3}
+  m_Name: AssaultRifleStats
   m_EditorClassIdentifier: 
-  startingActiveWeapon: {fileID: 706148378709667932, guid: 0ae61ed0511e1cc4d859579f341cda2a,
-    type: 3}
-  startingInactiveWeapon: {fileID: 0}
+  bullet: {fileID: 114452012955997140, guid: 6a62695580b756e4f9b03e3d0a64f347, type: 3}
+  shakeAmount: 0.01
+  spread: 1
+  shotSound: RifleShooting
+  shotsInterval: 0.5

@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IronChestV2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 873033858403829524, guid: f7cdeddf44f43bd408b41a88870b1054,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -276,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
         type: 3}
@@ -308,6 +313,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 460897535, guid: 4f3dfe37459435b48947d7caf947a51d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329059335082865267, guid: 4f3dfe37459435b48947d7caf947a51d,
+        type: 3}
+      propertyPath: itemToSpawn
+      value: 
+      objectReference: {fileID: 5381843033466291264, guid: d3442d65615472c4e8f71fd6a87f91d4,
+        type: 3}
     - target: {fileID: 4909583449442437025, guid: 4f3dfe37459435b48947d7caf947a51d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -346,7 +361,7 @@ PrefabInstance:
     - target: {fileID: 4909583449442437025, guid: 4f3dfe37459435b48947d7caf947a51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4909583449442437025, guid: 4f3dfe37459435b48947d7caf947a51d,
         type: 3}
@@ -393,12 +408,12 @@ PrefabInstance:
     - target: {fileID: 8050119619798341723, guid: 971b49ac93f25ee48993d5e884750a9b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.595
+      value: -6.98
       objectReference: {fileID: 0}
     - target: {fileID: 8050119619798341723, guid: 971b49ac93f25ee48993d5e884750a9b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.37
+      value: -1.59
       objectReference: {fileID: 0}
     - target: {fileID: 8050119619798341723, guid: 971b49ac93f25ee48993d5e884750a9b,
         type: 3}
@@ -443,6 +458,11 @@ PrefabInstance:
     - target: {fileID: 8050119619798341723, guid: 971b49ac93f25ee48993d5e884750a9b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050119620550646239, guid: 971b49ac93f25ee48993d5e884750a9b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -583,75 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29388458a33f1549a43dd453531d3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &754718859
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 873033858403829524, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_Name
-      value: IronChestV2 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.599
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f7cdeddf44f43bd408b41a88870b1054, type: 3}
 --- !u!1001 &793552740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,6 +669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoldenChestV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909583449442437031, guid: 4f3dfe37459435b48947d7caf947a51d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f3dfe37459435b48947d7caf947a51d, type: 3}
@@ -2972,7 +2928,7 @@ PrefabInstance:
     - target: {fileID: 4909583449442437025, guid: 4f3dfe37459435b48947d7caf947a51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4909583449442437025, guid: 4f3dfe37459435b48947d7caf947a51d,
         type: 3}
@@ -2993,6 +2949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoldenChestV1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909583449442437031, guid: 4f3dfe37459435b48947d7caf947a51d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f3dfe37459435b48947d7caf947a51d, type: 3}
@@ -3138,6 +3099,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IronChestV2
       objectReference: {fileID: 0}
+    - target: {fileID: 873033858403829524, guid: f7cdeddf44f43bd408b41a88870b1054,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3191,6 +3157,11 @@ PrefabInstance:
     - target: {fileID: 873033858403829530, guid: f7cdeddf44f43bd408b41a88870b1054,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304698088170870356, guid: f7cdeddf44f43bd408b41a88870b1054,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

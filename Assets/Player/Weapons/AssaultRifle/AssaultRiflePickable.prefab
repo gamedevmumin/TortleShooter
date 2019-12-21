@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 657937196}
   - component: {fileID: 657937198}
   m_Layer: 14
-  m_Name: PickableWeapon
+  m_Name: AssaultRiflePickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194d29febc519f04d80a13ba94ec894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 114378386028699400, guid: 83deeaeddee20fe47af13607c738c954, type: 3}
+  weapon: {fileID: 6448114352257309270, guid: 83deeaeddee20fe47af13607c738c954, type: 3}
 --- !u!61 &3756245010852579570
 BoxCollider2D:
   m_ObjectHideFlags: 0
