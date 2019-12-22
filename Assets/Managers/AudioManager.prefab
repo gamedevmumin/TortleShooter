@@ -46,8 +46,8 @@ MonoBehaviour:
   sounds:
   - name: RifleShooting
     clip: {fileID: 8300000, guid: 8cac9e7051a107141be024328049c262, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.904
+    pitch: 0.736
     randomVolume: 0.11
     randomPitch: 0.1
     loop: 0
@@ -58,10 +58,10 @@ MonoBehaviour:
     randomVolume: 0.11
     randomPitch: 0.1
     loop: 0
-  - name: Hurt1
-    clip: {fileID: 8300000, guid: bfe940fd09e946841939307304aded08, type: 3}
-    volume: 0.839
-    pitch: 1
+  - name: Hurt
+    clip: {fileID: 8300000, guid: e00a7d0ce596da44781ff6e2cdfa6fa1, type: 3}
+    volume: 0.152
+    pitch: 1.5
     randomVolume: 0.2
     randomPitch: 0.2
     loop: 0
@@ -74,8 +74,8 @@ MonoBehaviour:
     loop: 0
   - name: Death
     clip: {fileID: 8300000, guid: bfe940fd09e946841939307304aded08, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.136
+    pitch: 1.5
     randomVolume: 0.2
     randomPitch: 0.2
     loop: 0
@@ -132,6 +132,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7dc601526c115854183c6b146d449661, type: 3}
     volume: 1.112
     pitch: 1.164
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0
+  - name: ShootingV2
+    clip: {fileID: 8300000, guid: efc5bc88fe55aff408a04fd38c64ebcd, type: 3}
+    volume: 1
+    pitch: 1
     randomVolume: 0.132
     randomPitch: 0.145
     loop: 0

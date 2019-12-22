@@ -7,6 +7,8 @@ public class EnemyStats : MonoBehaviour
     public bool IsDead { get; set; }
     public int CurrentHP { get; set; }
     public float Speed { get; set; }
+    public Vector3 LastDamageDealerDirection { get; set; }
+
     [SerializeField]
     EnemyStartingStats enemyStartingStats;
 
@@ -15,5 +17,6 @@ public class EnemyStats : MonoBehaviour
         CurrentHP = enemyStartingStats.MaxHP;
         Speed = enemyStartingStats.Speed;
         IsDead = false;
+        LastDamageDealerDirection = Vector3.zero;
     }
 }

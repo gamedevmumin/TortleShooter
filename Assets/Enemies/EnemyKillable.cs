@@ -41,7 +41,7 @@ public class EnemyKillable : MonoBehaviour, IKillable
                 AudioManager.instance.PlaySound("Death");
                 if (rb)
                 {
-                    rb.AddForce(new Vector2(-rb.velocity.x * 100f, 400f));
+                    rb.AddForce(stats.LastDamageDealerDirection * 600f);
                     rb.gravityScale = 3.5f;
                 }
                 sR.material.color = new Color32(65, 58, 58, 255);
@@ -49,8 +49,7 @@ public class EnemyKillable : MonoBehaviour, IKillable
             {
                 coll.enabled = false;
             }
-            }
-        
+            }       
     }
 
     

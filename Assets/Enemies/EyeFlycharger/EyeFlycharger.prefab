@@ -49,8 +49,8 @@ GameObject:
   - component: {fileID: 6521270806526769707}
   - component: {fileID: 6521270806526769708}
   - component: {fileID: 6521270806526769709}
-  - component: {fileID: 6521270806526769714}
   - component: {fileID: 6521270806526769713}
+  - component: {fileID: -3951226433060821003}
   m_Layer: 9
   m_Name: EyeFlycharger
   m_TagString: Enemy
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freezeTime: {fileID: 11400000, guid: de7f7604047624742b3cf5194ceae70e, type: 2}
+  colls: []
 --- !u!114 &6521270806526769705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,18 +266,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36662924, y: 0.31227303}
   m_EdgeRadius: 0
---- !u!114 &6521270806526769714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521270806526769710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e00336456713da49ba222d03216c816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6521270806526769713
 Animator:
   serializedVersion: 3
@@ -296,3 +285,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3951226433060821003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521270806526769710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b974a974a67e464d97d64c713e370de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDamage: 1
+  maxDamage: 1
+  targetedTags:
+  - Player

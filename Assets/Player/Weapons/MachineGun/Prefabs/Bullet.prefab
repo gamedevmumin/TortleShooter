@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 50879845522485144}
   - component: {fileID: 61211291424345092}
   - component: {fileID: 5648840076141189564}
+  - component: {fileID: 8661900849519955988}
+  - component: {fileID: 4358238055402630778}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -117,16 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626dbf5751f301e4e994ce9e92b8dc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1600
-  lifeTime: 0.435
-  maxDamage: 15
-  minDamage: 10
-  hitParticle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022,
-    type: 3}
-  isPlayersBullet: 1
-  isPhysical: 1
-  targetedTags:
-  - Enemy
+  speed: 1000
+  lifeTime: 0.7
 --- !u!50 &50879845522485144
 Rigidbody2D:
   serializedVersion: 4
@@ -186,6 +180,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1809d3885bf534abeee4fd47ebf13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8661900849519955988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176281389414164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf840019300f7674eac72c59774f199b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSpawnPlace: {fileID: 4081934190536280}
+  particle: {fileID: 198460217481683970, guid: 4a06f2c115c849746ba496e0c0dd4022, type: 3}
+--- !u!114 &4358238055402630778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176281389414164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e00336456713da49ba222d03216c816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDamage: 10
+  maxDamage: 15
+  targetedTags:
+  - Enemy
 --- !u!1 &1205835494220312
 GameObject:
   m_ObjectHideFlags: 0
