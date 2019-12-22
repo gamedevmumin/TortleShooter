@@ -20,6 +20,12 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     PickableWeapon itemToSpawn;
 
     HighlightningBehaviour highlightningBehaviour;
+    CameraShake cameraShake;
+
+    void Awake()
+    {
+        cameraShake = FindObjectOfType<CameraShake>();
+    }
 
     public void Interact()
     {
@@ -42,6 +48,7 @@ public class ChestInteraction : MonoBehaviour, IInteractable
         AudioManager.instance.PlaySound("ChestOpen");
         isOpened = true;
         yield return new WaitForSeconds(0.35f);
+        cameraShake.Shake(0.2f, 0.02f);
         if(itemToSpawn && itemSpawnPlace)Instantiate(itemToSpawn, itemSpawnPlace.position, itemSpawnPlace.rotation);
         if(effectSquare) effectSquare.SetActive(true);
         sR.sprite = opened;

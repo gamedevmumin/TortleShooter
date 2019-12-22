@@ -10,7 +10,7 @@ public class DamageIndicatorSpawner : MonoBehaviour {
     public void SpawnEffect(Vector2 position, Vector2 scale, DamageInfo damageInfo)
     {
         Debug.Log("Effect spawned");
-        damageIndicator.GetComponentInChildren<Text>().text = damageInfo.damageDone.ToString();
+        damageIndicator.GetComponentInChildren<Text>().text = damageInfo.DamageDone.ToString();
         Vector2 pos = new Vector2(position.x + Random.Range(-0.5f, 0.5f), position.y + Random.Range(-0.5f, 0.5f));
         GameObject eo = Instantiate(damageIndicator.gameObject, pos, Quaternion.Euler(Vector2.zero));
         eo.transform.localScale = scale;

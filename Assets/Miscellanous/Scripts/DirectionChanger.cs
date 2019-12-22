@@ -7,11 +7,7 @@ public class DirectionChanger : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.gameObject.tag == "Runner")
-        {
-            Debug.Log("XD2");
-            coll.GetComponent<EyeRunnerMovementManager>().ChangeDirection();
-        }
+        coll.GetComponent<EyeRunnerMovementManager>()?.ChangeDirection();
     }
 
 }

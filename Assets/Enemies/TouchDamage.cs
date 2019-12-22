@@ -6,7 +6,12 @@ public class TouchDamage : MonoBehaviour
 {
     EnemyStats stats;
     [SerializeField]
-    int amount = 1;
+    int minDamage = 1;
+    [SerializeField]
+    int maxDamage = 1;
+
+    bool canDoDamage = true;
+
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
@@ -16,9 +21,14 @@ public class TouchDamage : MonoBehaviour
     {
         if (coll.CompareTag("Player") && !stats.IsDead)
         {
-            DamageInfo damageInfo = new DamageInfo();
-            damageInfo.damageDone = amount;
-            coll.GetComponent<IDamageable>().TakeDamage(damageInfo);
+            Damage(coll.GetComponent<IDamageable>());
         }
+    }
+
+    void Damage(IDamageable e)
+    {
+        DamageInfo damageInfo = new DamageInfo(minDamage, maxDamage, transform);
+        e.TakeDamage(damageInfo);
+        canDoDamage = false;
     }
 }

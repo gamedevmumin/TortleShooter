@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     float lifeTime=0.5f;
 
-    Rigidbody2D rb;
-
     [SerializeField]
     int maxDamage = 15;
     [SerializeField]
@@ -29,72 +27,59 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     bool isPhysical = true;
 
+    IMovement movement;  
+
+    [SerializeField]
+    List<string> targetedTags;
+
+    private void Awake()
+    {
+        movement = GetComponent<IMovement>();
+    }
+
     void Start()
     {
         Invoke("DestroyProjectile", lifeTime);
-        rb = GetComponent<Rigidbody2D>();
-        if(isPhysical) rb.velocity = transform.right * speed;
         hitPoint = transform.Find("HitPoint").transform;
        
     }
+
+    private void Update()
+    {
+        if (isPhysical) movement.Move(transform.right, speed);
+    }
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (canDoDamage == true)
         {
-            if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Runner")
+            foreach(string tag in targetedTags)
             {
-                if (isPlayersBullet)
+                if(coll.gameObject.tag == tag)
                 {
-                    IDamageable e = coll.GetComponent<IDamageable>();
-                    if(!coll.GetComponent<EnemyStats>().IsDead)
-                    DamageEnemy(e);
+                    IDamageable d = coll.GetComponent<IDamageable>();
+                    if (d.IsDamageable)
+                    {
+                        Damage(d);
+                        DestroyProjectile();
+                    }
+                    break;
                 }
             }
-            else if (coll.gameObject.tag == "Ground")
+            if (coll.gameObject.tag == "Ground")
             {
                 DestroyProjectile();
-            }
-            else if(coll.gameObject.tag == "Player")
-            {
-                if (!isPlayersBullet)
-                {
-                    PlayerDamageable p = coll.GetComponent<PlayerDamageable>();
-                    if (p && p.InvincibilityTimer <= 0f)
-                    {
-                        DamagePlayer(p);
-                    }
-                }
             }
         }
     }
 
-    void DamageEnemy(IDamageable e)
+    void Damage(IDamageable e)
     {
-        DamageInfo damageInfo = new DamageInfo();
-        damageInfo.minDamage = minDamage;
-        damageInfo.maxDamage = maxDamage;
-        damageInfo.damageDone = Random.Range(minDamage, maxDamage);
-        damageInfo.damageDealer = transform;
+        DamageInfo damageInfo = new DamageInfo(minDamage, maxDamage, transform);
         e.TakeDamage(damageInfo);
-
-            canDoDamage = false;
-            DestroyProjectile();
-        
+        canDoDamage = false;          
     }
 
-    void DamagePlayer(IDamageable p)
-    {
-        DamageInfo damageInfo = new DamageInfo();
-        damageInfo.minDamage = minDamage;
-        damageInfo.maxDamage = maxDamage;
-        damageInfo.damageDone = Random.Range(minDamage, maxDamage);
-        damageInfo.damageDealer = transform;
-        p.TakeDamage(damageInfo);
-      
-        canDoDamage = false;
-        DestroyProjectile();
-        
-    }
     void DestroyProjectile()
     {
         Instantiate(hitParticle, hitPoint.position, hitPoint.rotation);

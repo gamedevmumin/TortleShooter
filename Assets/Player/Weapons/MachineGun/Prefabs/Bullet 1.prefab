@@ -116,12 +116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626dbf5751f301e4e994ce9e92b8dc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 1000
   lifeTime: 10
-  damage: 10
+  maxDamage: 15
+  minDamage: 10
   hitParticle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022,
     type: 3}
   isPlayersBullet: 1
+  isPhysical: 1
 --- !u!50 &50879845522485144
 Rigidbody2D:
   serializedVersion: 4

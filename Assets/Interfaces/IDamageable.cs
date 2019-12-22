@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IDamageable
 {
+    bool IsDamageable { get; }
     void TakeDamage(DamageInfo damageInfo);
 }

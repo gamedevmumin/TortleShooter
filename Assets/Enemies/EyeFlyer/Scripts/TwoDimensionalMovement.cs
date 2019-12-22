@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeFlyerMovement : MonoBehaviour, IMovement
+public class TwoDimensionalMovement : MonoBehaviour, IMovement
 {
     Rigidbody2D rb;
     void Awake()

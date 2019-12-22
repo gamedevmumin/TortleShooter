@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114452012955997140}
   - component: {fileID: 50879845522485144}
   - component: {fileID: 61211291424345092}
+  - component: {fileID: 5648840076141189564}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -116,13 +117,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626dbf5751f301e4e994ce9e92b8dc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 1600
   lifeTime: 0.435
   maxDamage: 15
   minDamage: 10
   hitParticle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022,
     type: 3}
   isPlayersBullet: 1
+  isPhysical: 1
+  targetedTags:
+  - Enemy
 --- !u!50 &50879845522485144
 Rigidbody2D:
   serializedVersion: 4
@@ -170,6 +174,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.49801657, y: 0.23500693}
   m_EdgeRadius: 0
+--- !u!114 &5648840076141189564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176281389414164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1809d3885bf534abeee4fd47ebf13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1205835494220312
 GameObject:
   m_ObjectHideFlags: 0

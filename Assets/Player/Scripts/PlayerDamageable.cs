@@ -6,6 +6,9 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
 {
     float invincibilityTimer;
     public float InvincibilityTimer { get { return invincibilityTimer; } private set { invincibilityTimer = value; } }
+
+    public bool IsDamageable => InvincibilityTimer <= 0f;
+
     [SerializeField]
     PlayerStats stats;
     HeartBar heartBar;
@@ -32,7 +35,7 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
         if (invincibilityTimer <= 0f)
         {
             cameraShake.blind();
-            stats.currentHP -= damageInfo.damageDone;
+            stats.currentHP -= damageInfo.DamageDone;
             StartCoroutine(damageEffect.PlayEffect(sR));
             AudioManager.instance.PlaySound("PlayerDamaged");
             if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);

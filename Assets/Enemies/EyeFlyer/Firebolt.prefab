@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 50135805225689824}
   - component: {fileID: 114935249312638040}
   - component: {fileID: 61714565724821114}
+  - component: {fileID: -3188421597050670651}
   m_Layer: 0
   m_Name: Firebolt
   m_TagString: Untagged
@@ -167,13 +168,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626dbf5751f301e4e994ce9e92b8dc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 370
   lifeTime: 10
   maxDamage: 1
   minDamage: 1
   hitParticle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022,
     type: 3}
   isPlayersBullet: 0
+  isPhysical: 1
+  targetedTags:
+  - Player
 --- !u!61 &61714565724821114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,3 +204,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53253365, y: 0.31559074}
   m_EdgeRadius: 0
+--- !u!114 &-3188421597050670651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481880943018662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1809d3885bf534abeee4fd47ebf13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

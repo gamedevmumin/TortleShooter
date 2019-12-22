@@ -58,7 +58,7 @@ MonoBehaviour:
     randomVolume: 0.11
     randomPitch: 0.1
     loop: 0
-  - name: Hurt
+  - name: Hurt1
     clip: {fileID: 8300000, guid: bfe940fd09e946841939307304aded08, type: 3}
     volume: 0.839
     pitch: 1
@@ -81,7 +81,7 @@ MonoBehaviour:
     loop: 0
   - name: Music
     clip: {fileID: 8300000, guid: d326481543541f64db579d53bae0296b, type: 3}
-    volume: 0.8
+    volume: 0
     pitch: 1
     randomVolume: 0
     randomPitch: 0

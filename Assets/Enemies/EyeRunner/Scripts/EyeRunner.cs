@@ -97,11 +97,11 @@ public class EyeRunner : MonoBehaviour {
 	{
 		if (!isDead)
 		{
-			Vector2 scale = new Vector2((float)damageInfo.damageDone / (float)damageInfo.maxDamage,
-				(float)damageInfo.damageDone / (float)damageInfo.maxDamage);
-			effectSpawner.SpawnEffect(damageInfo.damageDealer.position, scale, damageInfo);
+			Vector2 scale = new Vector2((float)damageInfo.DamageDone / (float)damageInfo.MaxDamage,
+				(float)damageInfo.DamageDone / (float)damageInfo.MaxDamage);
+			effectSpawner.SpawnEffect(damageInfo.DamageDealer.position, scale, damageInfo);
 
-			stats.CurrentHP -= damageInfo.damageDone;
+			stats.CurrentHP -= damageInfo.DamageDone;
 			if (stats.CurrentHP > 0f) AudioManager.instance.PlaySound("Hurt");
 			StartCoroutine("Blink");
 		}
@@ -128,7 +128,7 @@ public class EyeRunner : MonoBehaviour {
 		if(coll.CompareTag("Player") && !isDead)
 		{
 			DamageInfo damageInfo = new DamageInfo();
-			damageInfo.damageDone = 1;
+			damageInfo.DamageDone = 1;
 			coll.GetComponent<IDamageable>().TakeDamage(damageInfo);
 		}
 	}

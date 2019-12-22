@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class Chasm : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     void OnTriggerEnter2D(Collider2D coll)
     {
         if(coll.CompareTag("Player"))
@@ -27,7 +17,7 @@ public class Chasm : MonoBehaviour {
             if (player != null)
             {
                 DamageInfo damageInfo = new DamageInfo();
-                damageInfo.damageDone = 1;
+                damageInfo.DamageDone = 1;
                 player.TakeDamage(damageInfo);
             }
         }
