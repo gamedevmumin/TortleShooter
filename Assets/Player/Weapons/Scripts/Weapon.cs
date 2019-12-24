@@ -9,24 +9,23 @@ public class Weapon : MonoBehaviour {
 	public Sprite Icon { get { return icon; }  private set { icon = value; } }
 	protected float shotsIntervalTimer;
 	protected IRotatable rotator;
-    protected IShooting shooting;
+	protected IShooting shooting;
 	public PickableWeapon PickableWeapon { private set; get; }
-    [SerializeField]
-    protected WeaponStats stats;
-    private void Awake()
+	[SerializeField]
+	protected WeaponStats stats;
+	private void Awake()
 	{
 		rotator = GetComponent<IRotatable>();
-        shooting = GetComponent<IShooting>();
-	   
+		shooting = GetComponent<IShooting>();	   
 	}
 
 	void Start () {
-		shotsIntervalTimer = stats.ShotsInterval;
+        shotsIntervalTimer = 0f;
 	}
 
 
 	void Update () {
-        rotator.Rotate();       
+		rotator.Rotate();       
 		ManageShooting();
 	}
 
@@ -36,9 +35,9 @@ public class Weapon : MonoBehaviour {
 		{
 			if (Input.GetButton("Fire1"))
 			{
-                shooting.Shoot();
-                shotsIntervalTimer = stats.ShotsInterval;
-            }
+				shooting.Shoot();
+				shotsIntervalTimer = stats.ShotsInterval;
+			}
 		}
 		else
 		{

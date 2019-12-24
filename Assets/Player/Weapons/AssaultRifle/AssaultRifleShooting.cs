@@ -28,7 +28,7 @@ public class AssaultRifleShooting : MonoBehaviour, IShooting
         for (int i = 0; i < shotsAmount; i++)
         {
             anim.SetTrigger("Shot");
-            cameraShake.Shake(stats.ShakeAmount, 0.1f);
+            cameraShake.Shake(stats.ShakeAmount, 0.03f);
             Instantiate(stats.Bullet, firePoint.position, transform.rotation);
             AudioManager.instance.PlaySound(stats.ShotSound);
             yield return new WaitForSeconds(0.1f);

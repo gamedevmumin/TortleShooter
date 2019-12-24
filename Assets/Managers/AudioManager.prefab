@@ -142,3 +142,17 @@ MonoBehaviour:
     randomVolume: 0.132
     randomPitch: 0.145
     loop: 0
+  - name: RocketLauncherShot
+    clip: {fileID: 8300000, guid: 9e2c021429b9b4e428e52ce850cf3f63, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 0340df414c63b994ba8ff01b4c8b49d4, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0

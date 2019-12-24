@@ -47,7 +47,7 @@ public class EnemyKillable : MonoBehaviour, IKillable
                 sR.material.color = new Color32(65, 58, 58, 255);
             foreach(Collider2D coll in colls)
             {
-                coll.enabled = false;
+                if(coll) coll.enabled = false;
             }
             }       
     }

@@ -12,7 +12,6 @@ public class Bullet : MonoBehaviour {
     IMovement movement;
     IDestructible destructible;
 
-
     private void Awake()
     {
         movement = GetComponent<IMovement>();

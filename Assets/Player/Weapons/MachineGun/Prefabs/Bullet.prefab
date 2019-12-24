@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSpawnPlace: {fileID: 4081934190536280}
-  particle: {fileID: 198460217481683970, guid: 4a06f2c115c849746ba496e0c0dd4022, type: 3}
+  particle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022, type: 3}
 --- !u!114 &4358238055402630778
 MonoBehaviour:
   m_ObjectHideFlags: 0
