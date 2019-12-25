@@ -156,3 +156,10 @@ MonoBehaviour:
     randomVolume: 0.132
     randomPitch: 0.145
     loop: 0
+  - name: LockedChest
+    clip: {fileID: 8300000, guid: 6447b189f80892f49af92fd27bebcfa2, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0

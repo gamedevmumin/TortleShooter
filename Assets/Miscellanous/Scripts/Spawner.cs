@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour {
 
     public void KillThemAll()
     {
-        foreach(Enemy spawn in sceneContents.Enemies)
+        foreach(Enemy spawn in sceneContents.Enemies.ToArray())
         {
             IKillable killable = null;
             if (spawn) killable = spawn.GetComponent<IKillable>();

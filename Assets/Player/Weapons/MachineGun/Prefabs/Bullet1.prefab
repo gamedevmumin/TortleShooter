@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626dbf5751f301e4e994ce9e92b8dc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1750
+  speed: 1000
   lifeTime: 10
 --- !u!50 &50879845522485144
 Rigidbody2D:
@@ -181,7 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSpawnPlace: {fileID: 4081934190536280}
-  particle: {fileID: 198460217481683970, guid: 4a06f2c115c849746ba496e0c0dd4022, type: 3}
+  particle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022, type: 3}
+  destructionSound: 
+  isShakingOnDestruction: 0
+  shakeAmount: 0.05
 --- !u!114 &2477171174716988565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e00336456713da49ba222d03216c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 1
-  maxDamage: 1
+  minDamage: 10
+  maxDamage: 15
   targetedTags:
   - Enemy
 --- !u!114 &-169150021344513996

@@ -18,9 +18,11 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     Transform itemSpawnPlace;
     [SerializeField]
     PickableWeapon itemToSpawn;
-
+    [SerializeField]
+    PlayerCollectables playerCollectables;
     HighlightningBehaviour highlightningBehaviour;
     CameraShake cameraShake;
+
 
     void Awake()
     {
@@ -31,14 +33,23 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     {
         if(isOpened == false)
         {
-            StartCoroutine(open());
-            highlightningBehaviour = GetComponent<HighlightningBehaviour>();
-            if (highlightningBehaviour)
+            if (playerCollectables.KeysAmount > 0)
             {
-                IHighlightable ih = highlightningBehaviour.GetComponent<IHighlightable>();
-                if (ih != null) ih.Unhighlight();
-                
-                Destroy(highlightningBehaviour);
+                StartCoroutine(open());
+                highlightningBehaviour = GetComponent<HighlightningBehaviour>();
+                if (highlightningBehaviour)
+                {
+                    IHighlightable ih = highlightningBehaviour.GetComponent<IHighlightable>();
+                    if (ih != null) ih.Unhighlight();
+
+                    Destroy(highlightningBehaviour);
+                }
+                playerCollectables.IncreaseKeysAmount(-1);                  
+            }
+            else
+            {
+                AudioManager.instance.PlaySound("LockedChest");
+                cameraShake.Shake(0.015f, 0.017f);
             }
         }
     }

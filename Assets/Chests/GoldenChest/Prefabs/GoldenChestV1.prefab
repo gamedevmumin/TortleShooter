@@ -517,6 +517,7 @@ MonoBehaviour:
   itemSpawnPlace: {fileID: 108830588}
   itemToSpawn: {fileID: 3756245010852579568, guid: 143fb0962f72bdf479003e28d2c164d4,
     type: 3}
+  playerCollectables: {fileID: 11400000, guid: 1fcdc819c2c8cad4eaaa1d7621b919c8, type: 2}
 --- !u!61 &318012702
 BoxCollider2D:
   m_ObjectHideFlags: 0

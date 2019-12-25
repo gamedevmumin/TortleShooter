@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour
 {
-    Weapon activeWeapon;
+    [SerializeField]
+    EquippedWeapons equippedWeapons;
     Weapon activeWeaponObject;
-    Weapon inactiveWeapon;
     Weapon inactiveWeaponObject;
     [SerializeField]
     Transform weaponSlot;
@@ -22,19 +22,32 @@ public class PlayerWeapons : MonoBehaviour
 
     void Start()
     {
-        if (playerStartingWeapons.startingInactiveWeapon) PickUpWeapon(playerStartingWeapons.startingInactiveWeapon);
-        if (playerStartingWeapons.startingActiveWeapon) PickUpWeapon(playerStartingWeapons.startingActiveWeapon);
-        
-       
+        if (BetweenLevelDataContainer.instance.FirstScene)
+        {
+            equippedWeapons.ActiveWeapon = null;
+            equippedWeapons.InactiveWeapon = null;
+            if (playerStartingWeapons.startingInactiveWeapon) PickUpWeapon(playerStartingWeapons.startingInactiveWeapon);
+            if (playerStartingWeapons.startingActiveWeapon) PickUpWeapon(playerStartingWeapons.startingActiveWeapon);
+        }
+        else
+        {
+            Weapon activeWeapon = equippedWeapons.ActiveWeapon;
+            equippedWeapons.ActiveWeapon = null;
+            Weapon inactiveWeapon = equippedWeapons.InactiveWeapon;
+            equippedWeapons.InactiveWeapon = null;
+            if (activeWeapon) PickUpWeapon(activeWeapon);
+            if (inactiveWeapon) PickUpWeapon(inactiveWeapon);
+        }
+
         if(wUI)
         {
-            if(activeWeapon && inactiveWeapon)
+            if(equippedWeapons.ActiveWeapon && equippedWeapons.InactiveWeapon)
             {
-                wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
+                wUI.UpdateState(equippedWeapons.ActiveWeapon.Icon, equippedWeapons.InactiveWeapon.Icon);
             }
-            else if(activeWeapon)
+            else if(equippedWeapons.ActiveWeapon)
             {
-                wUI.UpdateState(activeWeapon.Icon, null);
+                wUI.UpdateState(equippedWeapons.ActiveWeapon.Icon, null);
             }
             else
             {
@@ -51,47 +64,48 @@ public class PlayerWeapons : MonoBehaviour
 
     public void SwitchWeapon()
     {      
-        if(activeWeapon && inactiveWeapon)
+        if(equippedWeapons.ActiveWeapon && equippedWeapons.InactiveWeapon)
         {
             activeWeaponObject.gameObject.SetActive(false);
             inactiveWeaponObject.gameObject.SetActive(true);
-            Weapon tmp = activeWeapon;
-            activeWeapon = inactiveWeapon;
-            inactiveWeapon = tmp;
+            Weapon tmp = equippedWeapons.ActiveWeapon;
+            equippedWeapons.ActiveWeapon = equippedWeapons.InactiveWeapon;
+            equippedWeapons.InactiveWeapon = tmp;
             tmp = activeWeaponObject;
             activeWeaponObject = inactiveWeaponObject;
             inactiveWeaponObject = tmp;
-            wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
+            wUI.UpdateState(equippedWeapons.ActiveWeapon.Icon, equippedWeapons.InactiveWeapon.Icon);
+            AudioManager.instance.PlaySound("FireBolt");
         }
     }
 
     public void PickUpWeapon(Weapon weapon)
     {
-        if(activeWeapon == null)
+        if(equippedWeapons.ActiveWeapon == null)
         {
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;
-            activeWeapon = weapon;
-            if(wUI) wUI.UpdateState(activeWeapon.Icon, null);
+            equippedWeapons.ActiveWeapon = weapon;
+            if(wUI) wUI.UpdateState(equippedWeapons.ActiveWeapon.Icon, null);
         }
-        else if(inactiveWeapon == null)
+        else if(equippedWeapons.InactiveWeapon == null)
         {
       
-            inactiveWeapon = activeWeapon;
+            equippedWeapons.InactiveWeapon = equippedWeapons.ActiveWeapon;
             inactiveWeaponObject = activeWeaponObject;
             inactiveWeaponObject.gameObject.SetActive(false);
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;           
-            activeWeapon = weapon;
-            if (wUI) wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
+            equippedWeapons.ActiveWeapon = weapon;
+            if (wUI) wUI.UpdateState(equippedWeapons.ActiveWeapon.Icon, equippedWeapons.InactiveWeapon.Icon);
         }
         else
         {
             PickableWeapon pickableWeapon = Instantiate(pickableWeaponPrefab) as PickableWeapon;
             pickableWeapon.transform.position = transform.position;
-            pickableWeapon.Initialize(activeWeapon);
+            pickableWeapon.Initialize(equippedWeapons.ActiveWeapon);
             Destroy(activeWeaponObject.gameObject);
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;
-            activeWeapon = weapon;
-            if (wUI) wUI.UpdateState(activeWeapon.Icon, inactiveWeapon.Icon);
+            equippedWeapons.ActiveWeapon = weapon;
+            if (wUI) wUI.UpdateState(equippedWeapons.ActiveWeapon.Icon, equippedWeapons.InactiveWeapon.Icon);
         }       
     }
 }

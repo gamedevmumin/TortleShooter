@@ -2542,12 +2542,16 @@ MonoBehaviour:
     roomType: Collect Them All
   - roomName: CollectThemAll3
     roomType: Collect Them All
+  - roomName: CollectThemAll4
+    roomType: Collect Them All
   surviveRooms:
   - roomName: SampleScene
     roomType: SURVIVE
   - roomName: SurviveTwo
     roomType: SURVIVE
   - roomName: SurviveThree
+    roomType: SURVIVE
+  - roomName: SurviveFour
     roomType: SURVIVE
   mapRoomPrefab: {fileID: 114855902531654124, guid: d85fb08e43d26fd4b9258f94d311ab24,
     type: 3}

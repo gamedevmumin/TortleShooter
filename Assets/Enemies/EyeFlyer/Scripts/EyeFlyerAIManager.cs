@@ -25,6 +25,14 @@ public class EyeFlyerAIManager : MonoBehaviour, IAIManager
     bool shoots;
     IMovementManager movementManager;
 
+    bool isVisible = false;
+
+    void OnBecameVisible()
+    {
+
+        StartCoroutine(delay());
+    }
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -39,7 +47,7 @@ public class EyeFlyerAIManager : MonoBehaviour, IAIManager
         if (!stats.IsDead)
         {
             movementManager.ManageMovement();
-            if(shoots) ManageAttack();
+            if(shoots && isVisible) ManageAttack();
         }
     }
 
@@ -66,6 +74,11 @@ public class EyeFlyerAIManager : MonoBehaviour, IAIManager
         }
     }
 
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(3f);
+        isVisible = true;
+    }
     IEnumerator shoot()
     {
         yield return new WaitForSeconds(0.08f);

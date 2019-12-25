@@ -135,8 +135,10 @@ public class Map : MonoBehaviour {
         {          
             for (int i = 0; i < mapData.amountOfLevels; i++)
             {
-                int typeNumber = Random.Range(0, 2); 
-                    
+
+                int typeNumber = Random.Range(0, 2);
+                if (surviveRooms.Count == 0) typeNumber = 1;
+                else if (collectThemAllRooms.Count == 0) typeNumber = 0;
                 pos = new Vector2(firstRoomPosition.x, firstRoomPosition.y + 1.4f * ((i)));
                 rooms.Add(Instantiate(mapRoomPrefab, pos, Quaternion.Euler(Vector3.zero)));
                 if (typeNumber == 0)
@@ -147,6 +149,7 @@ public class Map : MonoBehaviour {
                     level.roomName = surviveRooms[levelNumber].roomName;
                     mapData.roomsData.Add(level);
                     rooms[i].initialize("SURVIVE");
+                    surviveRooms.Remove(surviveRooms[levelNumber]);
                 }
                 else if (typeNumber == 1)
                 {
@@ -156,6 +159,7 @@ public class Map : MonoBehaviour {
                     level.roomName = collectThemAllRooms[levelNumber].roomName;
                     mapData.roomsData.Add(level);
                     rooms[i].initialize("Collect Them All");
+                    collectThemAllRooms.Remove(collectThemAllRooms[levelNumber]);
                 }
             }
         }

@@ -435,6 +435,10 @@ MonoBehaviour:
   sR: {fileID: 8498434227891848590}
   closed: {fileID: 21300000, guid: 2db10b39339f02146ac7f139682f9ce4, type: 3}
   opened: {fileID: 21300000, guid: 913a2cd5674f9734fb7ae975dea70a0f, type: 3}
+  effectSquare: {fileID: 0}
+  itemSpawnPlace: {fileID: 0}
+  itemToSpawn: {fileID: 0}
+  playerCollectables: {fileID: 11400000, guid: 1fcdc819c2c8cad4eaaa1d7621b919c8, type: 2}
 --- !u!114 &731314219247080817
 MonoBehaviour:
   m_ObjectHideFlags: 0

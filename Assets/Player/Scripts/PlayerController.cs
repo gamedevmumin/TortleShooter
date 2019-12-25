@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 //	SpriteRenderer sR;
     GameObject colliders;
     static PlayerController instance;
+    [SerializeField]
     PlayerWeapons playerWeapons;
     [SerializeField]
     List<Transform> groundChecks;
@@ -40,6 +41,10 @@ public class PlayerController : MonoBehaviour {
     IDirectionManager directionManager;
     [SerializeField]
     SceneContents sceneContents;
+    [SerializeField]
+    PlayerCollectables playerCollectables;
+    [SerializeField]
+    Transform weaponSlot;
     void Awake () {    			
             anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();                                          
@@ -55,7 +60,6 @@ public class PlayerController : MonoBehaviour {
     private void OnEnable()
     {
         sceneContents.RegisterPlayer(this);
-        Debug.Log("Player registered");
     }
 
     private void OnDisable()
@@ -69,7 +73,9 @@ public class PlayerController : MonoBehaviour {
         {
             stats.Set(startingStats);
             stats.currentHP = stats.maxHP;
+            playerCollectables.Initialize();
         }
+        
         isDead = false;
         fallingTimer = fallingTime;
     }

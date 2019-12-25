@@ -4785,8 +4785,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 596447205
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4915,7 +4915,6 @@ GameObject:
   - component: {fileID: 8050119620085115068}
   - component: {fileID: 8050119619798341716}
   - component: {fileID: 8050119619798341719}
-  - component: {fileID: 1227953145}
   - component: {fileID: 1227953150}
   - component: {fileID: 7350883019504069444}
   - component: {fileID: 7972660972256476837}
@@ -4923,6 +4922,7 @@ GameObject:
   - component: {fileID: 1227953153}
   - component: {fileID: 655382297}
   - component: {fileID: 921618726}
+  - component: {fileID: 137338768}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4989,12 +4989,15 @@ MonoBehaviour:
   fallingTime: 0.3
   stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
   startingStats: {fileID: 11400000, guid: bbf2e2d681f373041973c1794e12227e, type: 2}
+  playerWeapons: {fileID: 11400000, guid: 8f5074d432fac98448fdb09d5eb4e1d0, type: 2}
   groundChecks:
   - {fileID: 8050119621461954007}
   - {fileID: 6763894689308984100}
   - {fileID: 8893468152763847002}
   OnPlayerDied: {fileID: 11400000, guid: 54b58105520c8284bb68b88454463268, type: 2}
   sceneContents: {fileID: 11400000, guid: ba5940257e6c2fc47a6a98d9cb26902b, type: 2}
+  playerCollectables: {fileID: 11400000, guid: 1fcdc819c2c8cad4eaaa1d7621b919c8, type: 2}
+  weaponSlot: {fileID: 8050119619778576713}
 --- !u!50 &8050119619798341716
 Rigidbody2D:
   serializedVersion: 4
@@ -5042,23 +5045,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28238642, y: 0.6413452}
   m_EdgeRadius: 0
---- !u!114 &1227953145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050119619798341718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d333bdb2915ca0b449dab63fb51545f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSlot: {fileID: 8050119619778576713}
-  pickableWeaponPrefab: {fileID: 3756245010852579568, guid: 65867b4a8838db14fbe0ce93bf0b1934,
-    type: 3}
-  playerStartingWeapons: {fileID: 11400000, guid: 6a2f04e4e4dc2ff4abbdfd04f47affa5,
-    type: 2}
 --- !u!114 &1227953150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5159,6 +5145,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sR: {fileID: 8050119620292545370}
   dashEffect: {fileID: 1654654941}
+--- !u!114 &137338768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050119619798341718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d333bdb2915ca0b449dab63fb51545f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedWeapons: {fileID: 11400000, guid: 517fca3790a35864c9996d9b750327c9, type: 2}
+  weaponSlot: {fileID: 8050119619778576713}
+  pickableWeaponPrefab: {fileID: 5381843033466291264, guid: d3442d65615472c4e8f71fd6a87f91d4,
+    type: 3}
+  playerStartingWeapons: {fileID: 11400000, guid: 6a2f04e4e4dc2ff4abbdfd04f47affa5,
+    type: 2}
 --- !u!1 &8050119620292545364
 GameObject:
   m_ObjectHideFlags: 0

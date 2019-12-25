@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 180804058908732928, guid: eb8ab05398fa00f44814c3a0fea299fa, type: 3}
+  playerWeapons: {fileID: 11400000, guid: 8f5074d432fac98448fdb09d5eb4e1d0, type: 2}
 --- !u!61 &4237481721397750998
 BoxCollider2D:
   m_ObjectHideFlags: 0

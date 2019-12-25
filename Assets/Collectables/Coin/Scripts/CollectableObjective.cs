@@ -4,41 +4,31 @@ using UnityEngine;
 
 public class CollectableObjective : MonoBehaviour {
 
-    [SerializeField] GameObject collectionEffect;
+	[SerializeField] GameObject collectionEffect;
 
-    CollectorManager collectorManager;
+	CollectorManager collectorManager;
 
-    public void initialize(CollectorManager collectorManager)
-    {
-        this.collectorManager = collectorManager;
-    }
-
-    bool collected = false;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void initialize(CollectorManager collectorManager)
+	{
+		this.collectorManager = collectorManager;
 	}
 
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (collected == false)
-        {
-            if (coll.CompareTag("Player"))
-            {
-                collected = true;
-                AudioManager.instance.PlaySound("Collect");
-                Instantiate(collectionEffect, transform.position, transform.rotation);
-                collectorManager.OnCollection();
-                Destroy(gameObject);
-            }
-        }
+	bool collected = false;
 
-    }
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		if (collected == false)
+		{
+			if (coll.CompareTag("Player"))
+			{
+				collected = true;
+				AudioManager.instance.PlaySound("Collect");
+				Instantiate(collectionEffect, transform.position, transform.rotation);
+				collectorManager.OnCollection();
+				Destroy(gameObject);
+			}
+		}
+
+	}
 
 }
