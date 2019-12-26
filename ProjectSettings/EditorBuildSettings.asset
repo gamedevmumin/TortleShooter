@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CollectThemAll4.unity
     guid: c95a026aecdc91e4fb49ad18fee25092
+  - enabled: 1
+    path: Assets/Scenes/SurviveFive.unity
+    guid: af43e790e75cadd42b062aaa508a9061
+  - enabled: 1
+    path: Assets/Scenes/SurviveSix.unity
+    guid: fedee883e9daca047a0e12b97ae7ada3
+  - enabled: 1
+    path: Assets/Scenes/SurviveSeven.unity
+    guid: 0c54629c43471be419c67635e8096e2f
   m_configObjects: {}

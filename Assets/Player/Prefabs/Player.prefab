@@ -5101,6 +5101,7 @@ MonoBehaviour:
   dashTime: 0.123
   maxDashes: 1
   dashEffect: {fileID: 1654654941}
+  rememberTime: 0.2
 --- !u!114 &1227953153
 MonoBehaviour:
   m_ObjectHideFlags: 0

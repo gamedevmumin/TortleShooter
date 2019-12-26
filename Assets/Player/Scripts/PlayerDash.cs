@@ -25,6 +25,11 @@ public class PlayerDash : MonoBehaviour, IDashing
 
     ParticleSystem dashEffect;
 
+    [SerializeField]
+    float rememberTime = 1f;
+    float rememberTimer;
+
+
     void Awake()
     {
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
@@ -44,15 +49,18 @@ public class PlayerDash : MonoBehaviour, IDashing
         {
             RefillDashes();
         }
+        if (rememberTimer > 0f && Mathf.Abs(rb.velocity.x) > 0f)
+        {
+            rememberTimer = 0f;
+            StartCoroutine(DashCoroutine());
+        }
+        rememberTimer -= Time.deltaTime;
     }
     public void Dash()
     {       
         if (!dashed && remainingDashes > 0)
         {
-            if (Mathf.Abs(rb.velocity.x) > 0f)
-            {
-                StartCoroutine(DashCoroutine());
-            }
+            rememberTimer = rememberTime;            
         }
     }
 

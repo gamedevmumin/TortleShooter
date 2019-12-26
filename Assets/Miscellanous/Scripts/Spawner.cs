@@ -47,13 +47,13 @@ public class Spawner : MonoBehaviour {
             {
                 
                 spawnIntervalTimer = spawnInterval;
-                Spawn();
+                StartCoroutine(Spawn());
             }
             spawnIntervalTimer -= Time.deltaTime;
         }
 	}
 
-    void Spawn()
+    IEnumerator Spawn()
     {
         double randomNumber = Random.Range(0, 100);
         int enemyToSpawn = 0;
@@ -63,6 +63,7 @@ public class Spawner : MonoBehaviour {
             {
                 StartCoroutine("spawnEnemies", enemyToSpawn);
             }
+            yield return new WaitForSeconds(0.45f);
             enemyToSpawn++;
         }
 
@@ -80,6 +81,7 @@ public class Spawner : MonoBehaviour {
 
     IEnumerator spawnEnemies(int enemyToSpawn)
     {
+        
         int amount = Random.Range(enemies[enemyToSpawn].minAmount, enemies[enemyToSpawn].maxAmount);
         for (int i = 0; i < amount; i++)
         {

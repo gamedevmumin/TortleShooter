@@ -2533,7 +2533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6e222d85ef77f429594eca32a22cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minAmountOfLevels: 5
+  minAmountOfLevels: 6
   maxAmountOfLevels: 7
   collectThemAllRooms:
   - roomName: CollectThemAll
@@ -2552,6 +2552,12 @@ MonoBehaviour:
   - roomName: SurviveThree
     roomType: SURVIVE
   - roomName: SurviveFour
+    roomType: SURVIVE
+  - roomName: SurviveFive
+    roomType: SURVIVE
+  - roomName: SurviveSix
+    roomType: SURVIVE
+  - roomName: SurviveSeven
     roomType: SURVIVE
   mapRoomPrefab: {fileID: 114855902531654124, guid: d85fb08e43d26fd4b9258f94d311ab24,
     type: 3}

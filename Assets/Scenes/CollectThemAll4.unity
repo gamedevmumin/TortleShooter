@@ -22970,7 +22970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c718d5836ee7a479d5070a4a2e46b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceToAppear: 10
+  chanceToAppear: 15
 --- !u!1001 &1542363462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23412,12 +23412,12 @@ PrefabInstance:
     - target: {fileID: 4200473757731853146, guid: 35bed837ccb70f3469bc9c2047655bff,
         type: 3}
       propertyPath: enemies.Array.data[1].minAmount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4200473757731853146, guid: 35bed837ccb70f3469bc9c2047655bff,
         type: 3}
       propertyPath: enemies.Array.data[1].maxAmount
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4200473757731853147, guid: 35bed837ccb70f3469bc9c2047655bff,
         type: 3}
