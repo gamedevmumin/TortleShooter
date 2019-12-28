@@ -163,3 +163,17 @@ MonoBehaviour:
     randomVolume: 0.132
     randomPitch: 0.145
     loop: 0
+  - name: HeartPickUp
+    clip: {fileID: 8300000, guid: 2e274e6d0efbec046850716e0b2b1cdb, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0
+  - name: Done
+    clip: {fileID: 8300000, guid: 29a761fecd4c00947ad211e523c825fd, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0

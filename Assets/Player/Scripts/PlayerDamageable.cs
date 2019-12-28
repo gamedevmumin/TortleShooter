@@ -38,7 +38,7 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
             stats.currentHP -= damageInfo.DamageDone;
             StartCoroutine(damageEffect.PlayEffect(sR));
             AudioManager.instance.PlaySound("PlayerDamaged");
-            if (heartBar != null) heartBar.changeState(stats.currentHP, stats.maxHP);
+            if (heartBar != null) heartBar.changeState();
             StartInvincibilityTimer(stats.invincibilityTime);
         }
         

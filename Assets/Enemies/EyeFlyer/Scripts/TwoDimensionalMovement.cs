@@ -12,6 +12,7 @@ public class TwoDimensionalMovement : MonoBehaviour, IMovement
 
     public void Move(Vector2 input, float speed)
     {
-        rb.velocity = input * speed * Time.fixedDeltaTime;
+        rb.velocity = input * speed * Time.fixedDeltaTime;           
     }
+
 }

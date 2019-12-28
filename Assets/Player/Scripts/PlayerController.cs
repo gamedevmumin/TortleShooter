@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour {
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), movementInput.y);       
         jumpingController.ManageJumping();
-        if (Input.GetKeyDown(KeyCode.LeftShift)) dashingController.Dash();
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetMouseButtonDown(1)) dashingController.Dash();
         directionManager.ManageDirection(rb.velocity);
         ManagePlatforms();
     }

@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+struct SpawnRange
+{
+    [SerializeField] public Transform leftBorder;
+    [SerializeField] public Transform rightBorder;
+}
+
 public class CollectorManager : LevelManager
 {
-
-    [System.Serializable]
-    struct SpawnRange
-    {
-        [SerializeField] public Transform leftBorder;
-        [SerializeField] public Transform rightBorder;
-    }
-
-
     [SerializeField]
     int minObjectsToCollect = 5;
     [SerializeField]

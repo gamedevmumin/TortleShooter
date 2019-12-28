@@ -25,7 +25,7 @@ public class BulletTouchDamage : MonoBehaviour
                 IDamageable d = coll.GetComponent<IDamageable>();
                 if (d!=null&& d.IsDamageable)
                 {
-                    Damage(d);
+                    Damage(d);                    
                     if (destructible != null) destructible.Destroy(null);
                 }
                 break;

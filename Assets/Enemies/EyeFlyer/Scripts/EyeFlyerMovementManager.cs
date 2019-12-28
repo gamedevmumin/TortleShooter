@@ -37,7 +37,7 @@ public class EyeFlyerMovementManager : MonoBehaviour, IMovementManager
     public void ManageMovement()
     {
 
-                if(needsToChangeDirection == false) movementDirection = GetMovementDirection();
+        if (needsToChangeDirection == false) movementDirection = GetMovementDirection();
 
                 if (movementDirection.x > 0 && !isPlayerOnRight)
                 {

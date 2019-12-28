@@ -46,11 +46,11 @@ GameObject:
   - component: {fileID: 6521270806526769704}
   - component: {fileID: 6521270806526769705}
   - component: {fileID: 6521270806526769706}
-  - component: {fileID: 6521270806526769707}
   - component: {fileID: 6521270806526769708}
   - component: {fileID: 6521270806526769709}
   - component: {fileID: 6521270806526769713}
   - component: {fileID: -3951226433060821003}
+  - component: {fileID: -7588863819416960217}
   m_Layer: 9
   m_Name: EyeFlycharger
   m_TagString: Enemy
@@ -215,18 +215,6 @@ MonoBehaviour:
   bullet: {fileID: 0}
   firePoint: {fileID: 1871908777788682948}
   shoots: 0
---- !u!114 &6521270806526769707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521270806526769710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1809d3885bf534abeee4fd47ebf13b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6521270806526769708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,3 +289,15 @@ MonoBehaviour:
   maxDamage: 1
   targetedTags:
   - Player
+--- !u!114 &-7588863819416960217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521270806526769710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d89bca239171348b06bb24b8cf9bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -22,13 +22,13 @@ public class HeartBar : MonoBehaviour
 
     private void Start()
     {
-       setStartingHearts(playerStats.currentHP, playerStats.maxHP);
-       changeState(playerStats.currentHP, playerStats.maxHP);
+       setStartingHearts();
+       changeState();
     }
 
-    public void setStartingHearts(int currentHealth, int maxHealth)
+    public void setStartingHearts()
     {
-        int fullHearts = maxHealth;
+        int fullHearts = playerStats.maxHP;
         int amountOfFullHearts = 0;
         for (int i = 0; i < maxHearts; i++)
         {
@@ -52,10 +52,10 @@ public class HeartBar : MonoBehaviour
 
     }
 
-    public void changeState(int currentHealth, int maxHealth)
+    public void changeState()
     {
-        int emptyHearts = maxHealth - currentHealth;
-        int fullHearts = currentHealth;
+        int emptyHearts = playerStats.maxHP - playerStats.currentHP;
+        int fullHearts = playerStats.currentHP;
         int amountOfFullHearts = 0;
         int amountOfEmptyHearts = 0;
 
