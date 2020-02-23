@@ -15,6 +15,8 @@ public class EnemyKillable : MonoBehaviour, IKillable
     Animator anim;
     [SerializeField]
     List<Collider2D> colls;
+    [SerializeField]
+    GameObject deathParticle;
     void Awake()
     {
         stats = GetComponent<EnemyStats>();
@@ -45,6 +47,7 @@ public class EnemyKillable : MonoBehaviour, IKillable
                     rb.gravityScale = 3.5f;
                 }
                 sR.material.color = new Color32(65, 58, 58, 255);
+            if (deathParticle) Instantiate(deathParticle, transform.position, transform.rotation);
             foreach(Collider2D coll in colls)
             {
                 if(coll) coll.enabled = false;

@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezeTime: {fileID: 11400000, guid: de7f7604047624742b3cf5194ceae70e, type: 2}
   colls: []
+  deathParticle: {fileID: 0}
 --- !u!114 &6521270806526769705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
     type: 3}
   damageEffect: {fileID: 11400000, guid: 568a993c0bd1fd94c8ae56a3446492e0, type: 2}
   sR: {fileID: 6521270806526769716}
+  anim: {fileID: 6521270806526769713}
 --- !u!114 &6521270806526769706
 MonoBehaviour:
   m_ObjectHideFlags: 0

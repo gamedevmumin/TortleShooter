@@ -15,7 +15,8 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     SpriteRenderer sR;
     Rigidbody2D rb;
     CameraShake cameraShake;
-
+    [SerializeField]
+    Animator anim;
     public bool IsDamageable => !stats.IsDead;
 
     void Awake()
@@ -36,6 +37,11 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             cameraShake.Shake(0.06f, 0.031f);
             stats.CurrentHP -= damageInfo.DamageDone;
             if (stats.CurrentHP > 0f) AudioManager.instance.PlaySound("Hurt");
+            if (anim)
+            {
+                anim.SetTrigger("TookDamage");
+                Debug.Log("XD!");
+            }
             StartCoroutine(damageEffect.PlayEffect(sR));
         }
     }
