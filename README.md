@@ -10,3 +10,7 @@ Space - jump
 Shift or PPM - dash
 
 LPM - shoot
+
+R - reset
+
+ALT + F4 - exit
