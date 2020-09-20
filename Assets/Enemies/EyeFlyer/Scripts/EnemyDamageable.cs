@@ -32,7 +32,6 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         {
             Vector2 scale = new Vector2((float)damageInfo.DamageDone / (float)damageInfo.MaxDamage,
                 (float)damageInfo.DamageDone / (float)damageInfo.MaxDamage);
-            Debug.Log(damageInfo.DamageDealer.right);   
             if(effectSpawner) effectSpawner.SpawnEffect(damageInfo.DamageDealer.position, scale, damageInfo);
             cameraShake.Shake(0.06f, 0.031f);
             stats.CurrentHP -= damageInfo.DamageDone;
@@ -40,7 +39,6 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             if (anim)
             {
                 anim.SetTrigger("TookDamage");
-                Debug.Log("XD!");
             }
             StartCoroutine(damageEffect.PlayEffect(sR));
         }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DamageIndicatorSpawner : MonoBehaviour { 
 
+    
     [SerializeField]
     protected DamageIndicator damageIndicator;
     public void SpawnEffect(Vector2 position, Vector2 scale, DamageInfo damageInfo)

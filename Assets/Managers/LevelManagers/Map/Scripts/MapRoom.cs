@@ -8,18 +8,8 @@ public class MapRoom : MonoBehaviour {
     TextMesh typeText;
     [SerializeField]
     public Transform playerIconPosition;
-
+    
     bool IsActive = false;
-
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void initialize(string type)
     {

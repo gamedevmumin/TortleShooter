@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa38796a41dbd24f8bd26cfa588b28a, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  currentHP: 1
-  maxHP: 3
+  currentHP: 2
+  maxHP: 4
   speed:
-    UseConstant: 0
-    ConstantValue: 0
+    UseConstant: 1
+    ConstantValue: 310
     Variable: {fileID: 11400000, guid: 613d50ec7014dcd448cb693493077086, type: 2}
+  maxSpeed:
+    UseConstant: 1
+    ConstantValue: 310
+    Variable: {fileID: 0}
   jumpHeight: 12.1
-  invincibilityTime: 0.7
+  invincibilityTime: 1

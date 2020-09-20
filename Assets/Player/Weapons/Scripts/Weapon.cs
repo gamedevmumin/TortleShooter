@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour {
 	public PickableWeapon PickableWeapon { private set; get; }
 	[SerializeField]
 	protected WeaponStats stats;
+	[SerializeField]
+	PlayerStats playerStats;
 	private void Awake()
 	{
 		rotator = GetComponent<IRotatable>();
@@ -37,10 +39,12 @@ public class Weapon : MonoBehaviour {
 			{
 				shooting.Shoot();
 				shotsIntervalTimer = stats.ShotsInterval;
+				//playerStats.speed.Value = playerStats.maxSpeed.Value/1.4f;
 			}
 		}
 		else
 		{
+			
 			shotsIntervalTimer -= Time.deltaTime;
 		}
 	}

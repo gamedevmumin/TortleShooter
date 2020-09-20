@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7145453057990883733}
   - component: {fileID: 3245459901315828588}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: MachineGu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d53c7d8359df29045be535a80912cc25, type: 3}
   stats: {fileID: 11400000, guid: c0b4fee13812c494386e0c14ca3b9774, type: 2}
+  playerStats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
 --- !u!95 &706148378709668003
 Animator:
   serializedVersion: 3
@@ -172,6 +173,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -252,6 +254,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:

@@ -12,16 +12,18 @@ public class PlayerStats : ScriptableObject{
     [SerializeField]
     public FloatReference speed;
     [SerializeField]
+    public FloatReference maxSpeed;
+    [SerializeField]
     public float jumpHeight;
     [SerializeField]
     public float invincibilityTime;
 
     public void Set(PlayerStats stats)
-    {
-        
+    {        
         currentHP = stats.currentHP;
         maxHP = stats.maxHP;
-        speed.Value = stats.speed.Value;
+        maxSpeed.Value = stats.maxSpeed;
+        speed.Value = stats.maxSpeed;
         jumpHeight = stats.jumpHeight;
         invincibilityTime = stats.invincibilityTime;
     }

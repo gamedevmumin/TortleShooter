@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent (typeof (Rigidbody2D))]
+[RequireComponent (typeof (Animator))]
 public class PlayerController : MonoBehaviour {
 
     public Rigidbody2D rb { get; private set; }
     Animator anim;
     //bool isRight = true;
     [SerializeField]
-    LayerMask whatIsPlatform;   
+    LayerMask whatIsPlatform;
     [SerializeField]
     TimerUI timer;
     [SerializeField]
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     public PlayerStats Stats { get { return stats; } }
     bool isDead;
     bool inertia = false;
-//	SpriteRenderer sR;
+    //	SpriteRenderer sR;
     GameObject colliders;
     static PlayerController instance;
     [SerializeField]
@@ -45,127 +45,106 @@ public class PlayerController : MonoBehaviour {
     PlayerCollectables playerCollectables;
     [SerializeField]
     Transform weaponSlot;
-    void Awake () {    			
-            anim = GetComponent<Animator>();
-            rb = GetComponent<Rigidbody2D>();                                          
-            colliders = transform.Find("Colliders").gameObject;			
-            playerWeapons = GetComponent<PlayerWeapons>();            
-            movementController = GetComponent<IMovement>();
-            jumpingController = GetComponent<IJumpingController>();
-            dashingController = GetComponent<IDashing>();
-            playerDamageable = GetComponent<PlayerDamageable>();
-            directionManager = GetComponent<IDirectionManager>();
+    void Awake () {
+        anim = GetComponent<Animator> ();
+        rb = GetComponent<Rigidbody2D> ();
+        colliders = transform.Find ("Colliders").gameObject;
+        playerWeapons = GetComponent<PlayerWeapons> ();
+        movementController = GetComponent<IMovement> ();
+        jumpingController = GetComponent<IJumpingController> ();
+        dashingController = GetComponent<IDashing> ();
+        playerDamageable = GetComponent<PlayerDamageable> ();
+        directionManager = GetComponent<IDirectionManager> ();
     }
 
-    private void OnEnable()
-    {
-        sceneContents.RegisterPlayer(this);
+    private void OnEnable () {
+        sceneContents.RegisterPlayer (this);
     }
 
-    private void OnDisable()
-    {
-        sceneContents.UnregisterPlayer(this);
+    private void OnDisable () {
+        sceneContents.UnregisterPlayer (this);
     }
 
-    private void Start()
-    {
-        if (BetweenLevelDataContainer.instance.FirstScene)
-        {
-            stats.Set(startingStats);
+    private void Start () {
+        if (BetweenLevelDataContainer.instance.FirstScene) {
+            stats.Set (startingStats);
             stats.currentHP = stats.maxHP;
-            playerCollectables.Initialize();
+            playerCollectables.Initialize ();
         }
-        
+
         isDead = false;
         fallingTimer = fallingTime;
     }
     void Update () {
-        if (stats.currentHP <= 0f) Die();
-        if (!inertia)
-        {
-            if (!isDead)
-            {
-                ManageMovement();
-                ManageAnimation();
-                ManageSwitchingWeapons();
+        if (stats.currentHP <= 0f) Die ();
+        if (!inertia) {
+            if (!isDead) {
+                ManageMovement ();
+                ManageAnimation ();
+                ManageSwitchingWeapons ();
             }
-        }       
-    }
-
-    void ManageSwitchingWeapons()
-    {
-        if(Mathf.Abs(Input.mouseScrollDelta.y)>0f)
-        {
-            playerWeapons.SwitchWeapon();
         }
     }
 
-    void ManageAnimation()
-    {
-        anim.SetFloat("vSpeed", Mathf.Abs(rb.velocity.x));
+    void ManageSwitchingWeapons () {
+        if (Mathf.Abs (Input.mouseScrollDelta.y) > 0f) {
+            playerWeapons.SwitchWeapon ();
+        }
+    }
+
+    void ManageAnimation () {
+        anim.SetFloat ("vSpeed", Mathf.Abs (rb.velocity.x));
     }
 
     Vector2 movementInput;
-    void ManageMovement()
-    {
-        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), movementInput.y);       
-        jumpingController.ManageJumping();
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetMouseButtonDown(1)) dashingController.Dash();
-        directionManager.ManageDirection(rb.velocity);
-        ManagePlatforms();
+    void ManageMovement () {
+        movementInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), movementInput.y);
+        jumpingController.ManageJumping ();
+        if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetMouseButtonDown (1)) dashingController.Dash ();
+        directionManager.ManageDirection (rb.velocity);
+        ManagePlatforms ();
     }
 
-    private void FixedUpdate()
-    {
-        movementController.Move(movementInput, stats.speed);
+    private void FixedUpdate () {
+        movementController.Move (movementInput, stats.speed.Value);
     }
 
-    void ManagePlatforms()
-    {
-        if (Input.GetButton("Down"))
-        {
-            foreach (Transform groundCheck in groundChecks)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.2f, whatIsPlatform);
-                if (hit)
-                {
-                    StartCoroutine(DisableCollider(hit.collider, 0.6f));
+    void ManagePlatforms () {
+        if (Input.GetButton ("Down")) {
+            foreach (Transform groundCheck in groundChecks) {
+                RaycastHit2D hit = Physics2D.Raycast (groundCheck.transform.position, Vector2.down, 0.2f, whatIsPlatform);
+                if (hit) {
+                    StartCoroutine (DisableCollider (hit.collider, 0.6f));
                     break;
                 }
             }
-        }		       
+        }
     }
 
-    IEnumerator DisableCollider(Collider2D collider, float time)
-    {
+    IEnumerator DisableCollider (Collider2D collider, float time) {
         collider.enabled = false;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds (time);
         collider.enabled = true;
     }
 
-    void Die()
-    {
-        AudioManager.instance.PlaySound("PlayerDeath");
-        OnPlayerDied.Raise();
+    void Die () {
+        AudioManager.instance.PlaySound ("PlayerDeath");
+        OnPlayerDied.Raise ();
         isDead = true;
-        if(timer!=null) timer.isStopped = true;
-        Destroy(gameObject);
+        if (timer != null) timer.isStopped = true;
+        Destroy (gameObject);
     }
 
-    public void resetLevel()
-    {
+    public void resetLevel () {
         stats.currentHP = stats.maxHP;
     }
 
-    public void finishLevel()
-    {
-        if (!isDead)
-        {
-            if (anim != null) anim.SetBool("isGettingToPortal", true);
-            playerDamageable.StartInvincibilityTimer(9999f);
-            //invincibilityTimer = 9999f;
+    public void finishLevel () {
+        if (!isDead) {
+            if (anim != null) anim.SetBool ("isGettingToPortal", true);
+            playerDamageable.StartInvincibilityTimer (9999f);
             inertia = true;
-            colliders.SetActive(false);
+            colliders.SetActive (false);
         }
-    }  
+    }
 }

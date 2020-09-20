@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(EnemyStats))]
-public class EnemyKillable : MonoBehaviour, IKillable
-{
+[RequireComponent (typeof (EnemyStats))]
+public class EnemyKillable : MonoBehaviour, IKillable {
     EnemyStats stats;
     Rigidbody2D rb;
     ScreeneFreezer screenFreezer;
@@ -17,43 +15,39 @@ public class EnemyKillable : MonoBehaviour, IKillable
     List<Collider2D> colls;
     [SerializeField]
     GameObject deathParticle;
-    void Awake()
-    {
-        stats = GetComponent<EnemyStats>();
-        sR = GetComponent<SpriteRenderer>();
-        screenFreezer = FindObjectOfType<ScreeneFreezer>();
-        sR = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+    void Awake () {
+        stats = GetComponent<EnemyStats> ();
+        sR = GetComponent<SpriteRenderer> ();
+        screenFreezer = FindObjectOfType<ScreeneFreezer> ();
+        sR = GetComponent<SpriteRenderer> ();
+        rb = GetComponent<Rigidbody2D> ();
+        anim = GetComponent<Animator> ();
     }
 
-    void Update()
-    {
-        if (stats.CurrentHP <= 0 && !stats.IsDead) Die();
+    void Update () {
+        if (stats.CurrentHP <= 0 && !stats.IsDead) Die ();
     }
 
-    public void Die()
-    {
-         if (!stats.IsDead)
-            {
-                stats.IsDead = true;
-                anim.SetBool("isDead", stats.IsDead);
-                transform.Rotate(0, 0, -90);
-                screenFreezer.Freeze(freezeTime.Value);
-                AudioManager.instance.PlaySound("Death");
-                if (rb)
-                {
-                    rb.AddForce(stats.LastDamageDealerDirection * 600f);
-                    rb.gravityScale = 3.5f;
-                }
-                sR.material.color = new Color32(65, 58, 58, 255);
-            if (deathParticle) Instantiate(deathParticle, transform.position, transform.rotation);
-            foreach(Collider2D coll in colls)
-            {
-                if(coll) coll.enabled = false;
+    public void Die () {
+        if (!stats.IsDead) {
+            stats.IsDead = true;
+            anim.SetBool ("isDead", stats.IsDead);
+            transform.Rotate (0, 0, -90);
+            screenFreezer.Freeze (freezeTime.Value);
+            AudioManager.instance.PlaySound ("Death");
+            if (rb) {
+                rb.AddForce (stats.LastDamageDealerDirection * 600f);
+                rb.gravityScale = 3.5f;
             }
-            }       
+            sR.material.color = new Color32 (65, 58, 58, 255);
+            if (deathParticle) {
+                Instantiate (deathParticle, transform.position, transform.rotation);
+            }
+
+            foreach (Collider2D coll in colls) {
+                if (coll) coll.enabled = false;
+            }
+        }
     }
 
-    
 }
