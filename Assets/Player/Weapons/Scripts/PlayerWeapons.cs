@@ -55,13 +55,7 @@ public class PlayerWeapons : MonoBehaviour
             }          
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void SwitchWeapon()
     {      
         if(equippedWeapons.ActiveWeapon && equippedWeapons.InactiveWeapon)

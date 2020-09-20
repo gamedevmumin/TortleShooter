@@ -9,11 +9,6 @@ public class Congratz : MonoBehaviour {
         text = GetComponent<Text>();
         gameObject.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void Display(string time)
     {
