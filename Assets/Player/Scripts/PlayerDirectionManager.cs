@@ -16,11 +16,6 @@ public class PlayerDirectionManager : MonoBehaviour, IDirectionManager
         IsRight = true;
     }
 
-    void Update()
-    {
-
-    }
-
     void Flip()
     {
         IsRight = !IsRight;

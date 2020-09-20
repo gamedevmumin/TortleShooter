@@ -17,6 +17,7 @@ public class PlayerJumpingController : MonoBehaviour, IJumpingController
     [SerializeField] [Range(0, 1)]
     float cutOfJumpHeight = 0.85f;
     IGroundedChecking groundedChecker;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
