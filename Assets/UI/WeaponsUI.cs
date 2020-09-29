@@ -9,17 +9,6 @@ public class WeaponsUI : MonoBehaviour
     Image activeWeapon;
     [SerializeField]
     Image inactiveWeapon;
-    // Start is called before the first frame update
-    void Start()
-    {       
-       // UpdateState(null, null);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdateState(Sprite activeWeaponSprite, Sprite inactiveWeaponSprite)
     {
