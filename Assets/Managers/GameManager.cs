@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
             instance = this;
         }
         if (SceneManager.GetActiveScene ().name == "Map") {
-            GameObject portalGO = GameObject.Find ("PORTAL");
+        GameObject portalGO = GameObject.Find ("PORTAL");
             if (portalGO) portal = portalGO.GetComponent<Portal> ();;
             if (portal) portal.gameObject.SetActive (false);
             return;
