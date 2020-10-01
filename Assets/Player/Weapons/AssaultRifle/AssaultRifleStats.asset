@@ -17,3 +17,5 @@ MonoBehaviour:
   spread: 1
   shotSound: RifleShooting
   shotsInterval: 0.5
+  reloadTime: 0
+  magazineSize: 36

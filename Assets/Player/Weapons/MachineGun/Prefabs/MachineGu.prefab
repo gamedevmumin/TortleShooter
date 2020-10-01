@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 706148378709668003}
   - component: {fileID: 7145453057990883733}
   - component: {fileID: 3245459901315828588}
+  - component: {fileID: 1984381597295932428}
   m_Layer: 0
   m_Name: MachineGu
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: c0b4fee13812c494386e0c14ca3b9774, type: 2}
   anim: {fileID: 706148378709668003}
   firePoint: {fileID: 706148379709405192}
+--- !u!114 &1984381597295932428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706148378709668001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41e8e750064fdd4fbc6153914d78cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &706148379709405199
 GameObject:
   m_ObjectHideFlags: 0

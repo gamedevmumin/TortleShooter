@@ -9,21 +9,23 @@ public class Weapon : MonoBehaviour {
 	protected float shotsIntervalTimer;
 	protected IRotatable rotator;
 	protected IShooting shooting;
+	protected IWeaponMagazineManager magazineManager;
 	public PickableWeapon PickableWeapon { private set; get; }
 
 	[SerializeField]
 	protected WeaponStats stats;
 	[SerializeField]
 	PlayerStats playerStats;
-	private int bulletsInMagazine;
+
 	private void Awake () {
 		rotator = GetComponent<IRotatable> ();
 		shooting = GetComponent<IShooting> ();
+		magazineManager = GetComponent<IWeaponMagazineManager>();
+		magazineManager.Initialize(stats);
 	}
 
 	void Start () {
 		shotsIntervalTimer = 0f;
-		bulletsInMagazine = stats.MagazineSize;
 	}
 
 	void Update () {
@@ -33,9 +35,9 @@ public class Weapon : MonoBehaviour {
 
 	virtual protected void ManageShooting () {
 		if (shotsIntervalTimer <= 0f) {
-			if (Input.GetButton ("Fire1")) {
-				if (bulletsInMagazine > 0) {
-					shooting.Shoot (ref bulletsInMagazine);
+			if (Input.GetButton ("Fire1") ) {
+				if (magazineManager.IsMagazineEmpty() == false) {
+					shooting.Shoot ();
 					shotsIntervalTimer = stats.ShotsInterval;
 				} else {
 

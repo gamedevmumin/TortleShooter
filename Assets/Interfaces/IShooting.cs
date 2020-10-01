@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IShooting
 {
-    void Shoot(ref int bulletsInMagazine);
+    void Shoot();
 }

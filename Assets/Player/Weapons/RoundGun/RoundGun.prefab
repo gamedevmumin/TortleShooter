@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 2842587035560834407}
   - component: {fileID: 3597041252092554726}
   - component: {fileID: 5299403323175442341}
+  - component: {fileID: 1459494181719451062}
   m_Layer: 0
   m_Name: RoundGun
   m_TagString: Untagged
@@ -260,6 +261,18 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 847fa7fbb1311934793e7592b4de5009, type: 2}
   anim: {fileID: 2842587035560834407}
   firePoint: {fileID: 1126920505239062228}
+--- !u!114 &1459494181719451062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3568303932797148078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41e8e750064fdd4fbc6153914d78cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6695318093211796019
 GameObject:
   m_ObjectHideFlags: 0

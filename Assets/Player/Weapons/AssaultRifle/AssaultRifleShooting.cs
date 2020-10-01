@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AssaultRifleShooting : MonoBehaviour, IShooting {
@@ -12,13 +11,14 @@ public class AssaultRifleShooting : MonoBehaviour, IShooting {
     CameraShake cameraShake;
     [SerializeField]
     int shotsAmount = 3;
+    IWeaponMagazineManager magazineManager;
     void Awake () {
         cameraShake = GameObject.Find ("CameraShake").GetComponent<CameraShake> ();
+        magazineManager = GetComponent<IWeaponMagazineManager>();
     }
 
-    public void Shoot (ref int bulletsInMagazine) {
+    public void Shoot () {
         StartCoroutine (SerialShot ());
-        bulletsInMagazine -= 3;
     }
 
     IEnumerator SerialShot () {
@@ -28,6 +28,7 @@ public class AssaultRifleShooting : MonoBehaviour, IShooting {
             Instantiate (stats.Bullet, firePoint.position, transform.rotation);
             AudioManager.instance.PlaySound (stats.ShotSound);
             yield return new WaitForSeconds (0.1f);
+            magazineManager.ChangeBulletsAmountByNumber(-1);
         }
     }
 }
