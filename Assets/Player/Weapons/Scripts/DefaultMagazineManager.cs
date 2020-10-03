@@ -7,10 +7,26 @@ public class DefaultMagazineManager : MonoBehaviour, IWeaponMagazineManager {
     private WeaponStats stats;
     private int bulletsInMagazine;
     private bool isReloading;
+    private AmmoUI ammoUI;
+    Animator anim;
+
+    public bool IsReloading { get { return isReloading; }}
+
+    void OnEnable () {
+        isReloading = false;
+        ammoUI?.UpdateBulletsInMagazine (bulletsInMagazine);
+        ammoUI?.UpdateMagazineSize (stats.MagazineSize);
+    }
+
+    void Awake () {
+        GameObject ammoUIObject = GameObject.Find ("Ammo");
+        if (ammoUIObject != null) ammoUI = ammoUIObject.GetComponent<AmmoUI> ();
+        anim = GetComponent<Animator>();
+    }
 
     void Update () {
-        if (Input.GetButton ("Reload") && isReloading == false) {
-            StartCoroutine(Reload());
+        if (Input.GetButtonDown ("Reload") && isReloading == false) {
+            StartCoroutine (Reload ());
         }
     }
 
@@ -25,12 +41,16 @@ public class DefaultMagazineManager : MonoBehaviour, IWeaponMagazineManager {
 
     public void ChangeBulletsAmountByNumber (int amount) {
         bulletsInMagazine += amount;
+        ammoUI?.UpdateBulletsInMagazine (bulletsInMagazine);
     }
 
     IEnumerator Reload () {
+        AudioManager.instance.PlaySound ("ReloadingStart");
+        anim.SetTrigger("Reloading");
         isReloading = true;
-        yield return new WaitForSeconds(stats.ReloadTime);
+        yield return new WaitForSeconds (stats.ReloadTime);
         bulletsInMagazine = stats.MagazineSize;
+        ammoUI?.UpdateBulletsInMagazine (bulletsInMagazine);
         isReloading = false;
     }
 }
