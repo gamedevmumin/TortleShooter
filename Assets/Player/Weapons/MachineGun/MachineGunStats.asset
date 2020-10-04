@@ -18,4 +18,4 @@ MonoBehaviour:
   shotSound: RifleShooting
   shotsInterval: 0.18
   reloadTime: 0.9
-  magazineSize: 56
+  magazineSize: 42
