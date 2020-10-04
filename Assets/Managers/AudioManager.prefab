@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230558548429432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0988846, y: -0.31998658, z: -9.914133}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -173,6 +173,27 @@ MonoBehaviour:
   - name: Done
     clip: {fileID: 8300000, guid: 29a761fecd4c00947ad211e523c825fd, type: 3}
     volume: 1
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0
+  - name: ReloadingStart
+    clip: {fileID: 8300000, guid: 232c0a520ef80f64bb08c7fad2f1f63e, type: 3}
+    volume: 2
+    pitch: 0.679
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: ReloadingEnd
+    clip: {fileID: 8300000, guid: 98347bf4df0429941a82ca4340821f23, type: 3}
+    volume: 2
+    pitch: 1
+    randomVolume: 0.132
+    randomPitch: 0.145
+    loop: 0
+  - name: OutOfAmmo
+    clip: {fileID: 8300000, guid: 664bf12378eb49146a6922cacf4c2cce, type: 3}
+    volume: 2
     pitch: 1
     randomVolume: 0.132
     randomPitch: 0.145
