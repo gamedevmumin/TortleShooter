@@ -2,8 +2,7 @@
 using UnityEngine;
 
 public class AssaultRifleShooting : MonoBehaviour, IShooting {
-    [SerializeField]
-    WeaponStats stats;
+    WeaponStats weaponStats;
     [SerializeField]
     Animator anim;
     [SerializeField]
@@ -17,6 +16,10 @@ public class AssaultRifleShooting : MonoBehaviour, IShooting {
         magazineManager = GetComponent<IWeaponMagazineManager>();
     }
 
+    public void Initialize(WeaponStats weaponStats) {
+        this.weaponStats = weaponStats;
+    }
+
     public void Shoot () {
         StartCoroutine (SerialShot ());
     }
@@ -24,9 +27,10 @@ public class AssaultRifleShooting : MonoBehaviour, IShooting {
     IEnumerator SerialShot () {
         for (int i = 0; i < shotsAmount; i++) {
             anim.SetTrigger ("Shot");
-            cameraShake.Shake (stats.ShakeAmount, 0.03f);
-            Instantiate (stats.Bullet, firePoint.position, transform.rotation);
-            AudioManager.instance.PlaySound (stats.ShotSound);
+            cameraShake.Shake (weaponStats.ShakeAmount, 0.03f);
+            Bullet bullet = Instantiate (weaponStats.Bullet, firePoint.position, transform.rotation) as Bullet;
+            bullet.Initialize(weaponStats.MinDamage, weaponStats.MaxDamage, weaponStats.CriticalStrikeChance);
+            AudioManager.instance.PlaySound (weaponStats.ShotSound);
             yield return new WaitForSeconds (0.1f);
             magazineManager.ChangeBulletsAmountByNumber(-1);
         }

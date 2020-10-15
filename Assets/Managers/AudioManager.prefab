@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: RifleShooting
     clip: {fileID: 8300000, guid: 8cac9e7051a107141be024328049c262, type: 3}
     volume: 0.904
-    pitch: 0.736
+    pitch: 1
     randomVolume: 0.11
     randomPitch: 0.1
     loop: 0

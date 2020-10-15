@@ -53,6 +53,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -194,6 +195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSpawnPlace: {fileID: 4081934190536280}
   particle: {fileID: 1851039228854760, guid: 4a06f2c115c849746ba496e0c0dd4022, type: 3}
+  destructionSound: 
+  isShakingOnDestruction: 0
+  shakeAmount: 0.05
 --- !u!114 &4358238055402630778
 MonoBehaviour:
   m_ObjectHideFlags: 0
