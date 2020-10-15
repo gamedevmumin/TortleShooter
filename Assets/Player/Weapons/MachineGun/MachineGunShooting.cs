@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MachineGunShooting : MonoBehaviour, IShooting {
     [SerializeField]
-    WeaponStats stats;
+    WeaponStats weaponStats;
     [SerializeField]
     Animator anim;
     [SerializeField]
@@ -16,12 +16,17 @@ public class MachineGunShooting : MonoBehaviour, IShooting {
         magazineManager = GetComponent<IWeaponMagazineManager>();
     }
 
+    public void Initialize(WeaponStats weaponStats) {
+        this.weaponStats = weaponStats;
+    }
+
     public void Shoot () {
         anim.SetTrigger ("Shot");
-        cameraShake.Shake (stats.ShakeAmount, 0.03f);
-        Bullet shotBullet = Instantiate (stats.Bullet, firePoint.position, transform.rotation) as Bullet;
-        shotBullet.gameObject.transform.Rotate (new Vector3 (0f, 0f, 1f), Random.Range (-stats.Spread, stats.Spread));
-        AudioManager.instance.PlaySound (stats.ShotSound);
+        cameraShake.Shake (weaponStats.ShakeAmount, 0.03f);
+        Bullet shotBullet = Instantiate (weaponStats.Bullet, firePoint.position, transform.rotation) as Bullet;
+        shotBullet.gameObject.transform.Rotate (new Vector3 (0f, 0f, 1f), Random.Range (-weaponStats.Spread, weaponStats.Spread));
+        shotBullet.Initialize(weaponStats.MinDamage, weaponStats.MaxDamage, weaponStats.CriticalStrikeChance);
+        AudioManager.instance.PlaySound (weaponStats.ShotSound);
         magazineManager.ChangeBulletsAmountByNumber(-1);
     }
 }

@@ -1,44 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
-public class Bullet : MonoBehaviour {
+﻿using UnityEngine;
 
+[RequireComponent (typeof (Rigidbody2D))]
+[RequireComponent(typeof (BulletTouchDamage))]
+public class Bullet : MonoBehaviour {
     [SerializeField]
     float speed;
     [SerializeField]
-    float lifeTime=0.5f;
+    float lifeTime = 0.5f;
 
     IMovement movement;
     IDestructible destructible;
 
-    private void Awake()
-    {
-        movement = GetComponent<IMovement>();
-        destructible = GetComponent<IDestructible>();
+    public void Initialize (int minDamage, int maxDamage, int criticalStrikeChance) {
+        BulletTouchDamage bulletTouchDamage = GetComponent<BulletTouchDamage>();
+        bulletTouchDamage.Initialize(minDamage, maxDamage, criticalStrikeChance);
     }
 
-    void Start()
-    {
-        Invoke("DestroyProjectile", lifeTime);              
+    private void Awake () {
+        movement = GetComponent<IMovement> ();
+        destructible = GetComponent<IDestructible> ();
     }
 
-    void DestroyProjectile()
-    {
-        destructible.Destroy(null);
+    void Start () {
+        Invoke ("DestroyProjectile", lifeTime);
     }
 
-    private void FixedUpdate()
-    {
-        movement.Move(transform.right, speed);
+    void DestroyProjectile () {
+        destructible.Destroy (null);
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
-    {       
-            if (coll.gameObject.tag == "Ground")
-            {
-                DestroyProjectile();
-            }
-        
+    private void FixedUpdate () {
+        movement.Move (transform.right, speed);
+    }
+
+    void OnTriggerEnter2D (Collider2D coll) {
+        if (coll.gameObject.tag == "Ground") {
+            DestroyProjectile ();
+        }
+
     }
 }

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyStats))]
-[RequireComponent(typeof(Rigidbody2D))]
-public class EnemyDamageable : MonoBehaviour, IDamageable
-{
+[RequireComponent (typeof (EnemyStats))]
+[RequireComponent (typeof (Rigidbody2D))]
+public class EnemyDamageable : MonoBehaviour, IDamageable {
     EnemyStats stats;
     [SerializeField]
     DamageIndicatorSpawner effectSpawner;
@@ -19,28 +18,31 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     Animator anim;
     public bool IsDamageable => !stats.IsDead;
 
-    void Awake()
-    {
-        stats = GetComponent<EnemyStats>();
-        rb = GetComponent<Rigidbody2D>();
-        cameraShake = FindObjectOfType<CameraShake>();
+    void Awake () {
+        stats = GetComponent<EnemyStats> ();
+        rb = GetComponent<Rigidbody2D> ();
+        cameraShake = FindObjectOfType<CameraShake> ();
     }
 
-    public void TakeDamage(DamageInfo damageInfo)
-    {
-        if (!stats.IsDead)
-        {
-            Vector2 scale = new Vector2((float)damageInfo.DamageDone / (float)damageInfo.MaxDamage,
-                (float)damageInfo.DamageDone / (float)damageInfo.MaxDamage);
-            if(effectSpawner) effectSpawner.SpawnEffect(damageInfo.DamageDealer.position, scale, damageInfo);
-            cameraShake.Shake(0.06f, 0.031f);
+    public void TakeDamage (DamageInfo damageInfo) {
+        if (!stats.IsDead) {
+            Vector2 scale = new Vector2 ((float) damageInfo.DamageDone / (float) damageInfo.MaxDamage,
+                (float) damageInfo.DamageDone / (float) damageInfo.MaxDamage);
+            if (effectSpawner) effectSpawner.SpawnEffect (damageInfo.DamageDealer.position, scale, damageInfo);
+           
             stats.CurrentHP -= damageInfo.DamageDone;
-            if (stats.CurrentHP > 0f) AudioManager.instance.PlaySound("Hurt");
-            if (anim)
-            {
-                anim.SetTrigger("TookDamage");
+            if (damageInfo.WasCritical) {
+                AudioManager.instance.PlaySound ("CriticalStrike");
+                 cameraShake.Shake (0.3f, 0.036f);
+            } else {
+                AudioManager.instance.PlaySound ("Hurt");
+                 cameraShake.Shake (0.06f, 0.031f);
             }
-            StartCoroutine(damageEffect.PlayEffect(sR));
+
+            if (anim) {
+                anim.SetTrigger ("TookDamage");
+            }
+            StartCoroutine (damageEffect.PlayEffect (sR));
         }
     }
 

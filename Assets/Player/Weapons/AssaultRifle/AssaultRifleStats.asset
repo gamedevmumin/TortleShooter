@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8a03752734eb419d619139b34dbf2, type: 3}
   m_Name: AssaultRifleStats
   m_EditorClassIdentifier: 
+  criticalStrikeChance: 0
+  minDamage: 7
+  maxDamage: 8
   bullet: {fileID: 114452012955997140, guid: 6a62695580b756e4f9b03e3d0a64f347, type: 3}
   shakeAmount: 0.01
   spread: 1

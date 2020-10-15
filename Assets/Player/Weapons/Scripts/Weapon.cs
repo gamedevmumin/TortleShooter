@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+
 public class Weapon : MonoBehaviour {
 	[SerializeField]
 	Sprite icon;
@@ -24,6 +22,7 @@ public class Weapon : MonoBehaviour {
 		shooting = GetComponent<IShooting> ();
 		magazineManager = GetComponent<IWeaponMagazineManager> ();
 		magazineManager.Initialize (stats);
+		shooting.Initialize(stats);
 	}
 
 	void Start () {
