@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerDamageable : MonoBehaviour, IDamageable
 {
     float invincibilityTimer;
     public float InvincibilityTimer { get { return invincibilityTimer; } private set { invincibilityTimer = value; } }
-
     public bool IsDamageable => InvincibilityTimer <= 0f;
 
     [SerializeField]

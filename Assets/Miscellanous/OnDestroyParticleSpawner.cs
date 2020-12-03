@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class OnDestroyParticleSpawner : MonoBehaviour, IDestructible
 {
-
     [SerializeField]
     Transform particleSpawnPlace;
     [SerializeField]

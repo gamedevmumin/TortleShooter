@@ -4763,6 +4763,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5098,7 +5099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
-  dashTime: 0.123
+  dashTime: 0.2
   maxDashes: 1
   dashEffect: {fileID: 1654654941}
   rememberTime: 0.2
@@ -5209,6 +5210,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5418,6 +5420,11 @@ PrefabInstance:
     - target: {fileID: 706148378709668002, guid: 0ae61ed0511e1cc4d859579f341cda2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 706148380717172538, guid: 0ae61ed0511e1cc4d859579f341cda2a,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

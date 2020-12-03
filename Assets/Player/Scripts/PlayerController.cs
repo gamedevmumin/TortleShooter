@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour {
         isDead = false;
         fallingTimer = fallingTime;
     }
+
     void Update () {
         if (stats.currentHP <= 0f) Die ();
         if (!inertia) {

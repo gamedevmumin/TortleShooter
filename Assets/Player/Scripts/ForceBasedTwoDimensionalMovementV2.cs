@@ -9,7 +9,6 @@ public class ForceBasedTwoDimensionalMovementV2 : MonoBehaviour, IMovement {
     }
 
     public void Move (Vector2 input, float speed) {
-        Debug.Log (rb.velocity.x);
         PhysicsUtility.ApplyForceToReachVelocity (rb, 6.2f * input, 100000);
     }
 
