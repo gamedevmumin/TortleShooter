@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class VerticalMovement : MonoBehaviour, IMovement
+public class HorizontalMovement : MonoBehaviour, IMovement
 {
     private Rigidbody2D rb;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
+
 [CreateAssetMenu]
 public class PlayerCollectables : ScriptableObject
 {
     public int KeysAmount { get; private set; }
     public int CoinsAmount { get; private set; }
 
-    [SerializeField]
-    GameEvent KeysStateChanged;
+    [SerializeField] 
+    private GameEvent keysStateChanged;
 
     public void Initialize()
     {
@@ -20,12 +18,12 @@ public class PlayerCollectables : ScriptableObject
     public void IncreaseKeysAmount(int amount)
     {
         KeysAmount+=amount;
-        KeysStateChanged.Raise();
+        keysStateChanged.Raise();
     }
 
     public void IncreaseCoinsAmount(int amount)
     {
         CoinsAmount+=amount;
-        KeysStateChanged.Raise();
+        keysStateChanged.Raise();
     }
 }
