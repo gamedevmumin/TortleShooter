@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
         ManagePlatforms ();
     }
 
-    private void FixedUpdate () {
+    private void FixedUpdate () {      
         movementController.Move (movementInput, stats.speed.Value);
     }
 

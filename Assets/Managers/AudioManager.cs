@@ -100,7 +100,6 @@ public class AudioManager : MonoBehaviour
 
     public void StopSound(string _name)
     {
-
         for (int i = 0; i < sounds.Count; i++)
         {
             if (sounds[i].name == _name)
@@ -111,5 +110,4 @@ public class AudioManager : MonoBehaviour
         }
         Debug.LogWarning("AudioManager: Sound not found in sounds list: " + _name);
     }
-
 }
