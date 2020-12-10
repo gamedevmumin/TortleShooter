@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class VerticalMovement : MonoBehaviour, IMovement
+public class HorizontalMovement : MonoBehaviour, IMovement
 {
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     void Start()
     {

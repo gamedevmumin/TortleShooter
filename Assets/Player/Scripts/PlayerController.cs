@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
 
     public Rigidbody2D rb { get; private set; }
     Animator anim;
-    //bool isRight = true;
     [SerializeField]
     LayerMask whatIsPlatform;
     [SerializeField]
