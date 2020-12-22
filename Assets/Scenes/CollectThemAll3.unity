@@ -26844,6 +26844,11 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[501].second.m_AllTileFlags
       value: 1073741825
       objectReference: {fileID: 0}
+    - target: {fileID: 233795631628862774, guid: 3a786ccae5e095e419791340acb96afc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 233795631628862772, guid: 3a786ccae5e095e419791340acb96afc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3a786ccae5e095e419791340acb96afc, type: 3}

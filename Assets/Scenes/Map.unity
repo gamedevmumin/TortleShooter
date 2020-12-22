@@ -2486,11 +2486,9 @@ MonoBehaviour:
   collectThemAllRooms:
   - roomName: CollectThemAll
     roomType: Collect Them All
-  - roomName: CollectThemAll2
+  - roomName: CollectThemAll4
     roomType: Collect Them All
   - roomName: CollectThemAll3
-    roomType: Collect Them All
-  - roomName: CollectThemAll4
     roomType: Collect Them All
   surviveRooms:
   - roomName: SampleScene

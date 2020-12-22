@@ -29,7 +29,6 @@ public class PlayerDash : MonoBehaviour, IDashing
     float rememberTime = 1f;
     float rememberTimer;
 
-
     void Awake()
     {
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
@@ -45,7 +44,7 @@ public class PlayerDash : MonoBehaviour, IDashing
 
     void Update()
     {
-        if(groundedChecker.IsGrounded())
+        if(groundedChecker.IsGrounded() && dashed == false)
         {
             RefillDashes();
         }
