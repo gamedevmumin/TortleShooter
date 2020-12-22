@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletTouchDamage : MonoBehaviour {
+    [SerializeField]
     int criticalStrikeChance = 1;
+    [SerializeField]
     int minDamage;
+    [SerializeField]
     int maxDamage;
     [SerializeField]
     List<string> targetedTags;

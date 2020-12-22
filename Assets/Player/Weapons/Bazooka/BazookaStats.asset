@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8a03752734eb419d619139b34dbf2, type: 3}
   m_Name: BazookaStats
   m_EditorClassIdentifier: 
+  criticalStrikeChance: 10
+  minDamage: 40
+  maxDamage: 60
   bullet: {fileID: 7975660883936144239, guid: f8ffe0242beb0184bb41608a66a2e5d9, type: 3}
   shakeAmount: 0.035
   spread: 2
   shotSound: RocketLauncherShot
   shotsInterval: 1.3
+  reloadTime: 1
+  magazineSize: 6
