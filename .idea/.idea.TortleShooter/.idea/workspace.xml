@@ -21,9 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a9bb30c7-ecda-4f69-8757-b210d1177c5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Weapons/Bazooka/BazookaStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Weapons/Bazooka/BazookaStats.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Weapons/MachineGun/MachineGunStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Weapons/MachineGun/MachineGunStats.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ChestRoom_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ChestRoom_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveFour.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveFour.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveSeven.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveSeven.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveSix.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveSix.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveTwo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveTwo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +54,8 @@
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/Movement/VerticalMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/Movement/HorizontalMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDirectionManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/BulletTouchDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" />
       </list>
     </option>
   </component>
@@ -136,10 +148,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1607531012605">
+    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1608652139512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607531012605" />
+    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608652139512" />
     <state x="633" y="356" key="LayersDialog" timestamp="1607531822312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

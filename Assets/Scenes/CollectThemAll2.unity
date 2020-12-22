@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 1189280464}
   - component: {fileID: 1189280463}
   - component: {fileID: 1189280462}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Tilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}

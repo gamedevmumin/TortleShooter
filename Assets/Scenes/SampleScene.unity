@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 1189280464}
   - component: {fileID: 1189280463}
   - component: {fileID: 1189280462}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Tilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3157,7 +3157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1417376410
 GameObject:
@@ -3205,7 +3205,7 @@ Transform:
   m_Children:
   - {fileID: 485800306}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1480722135
 PrefabInstance:
@@ -3214,6 +3214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1763985624, guid: ee535eec3a6ec374fb345571bf22d753, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 172362109083384949, guid: ee535eec3a6ec374fb345571bf22d753,
         type: 3}
       propertyPath: m_IsActive
@@ -3262,7 +3266,7 @@ PrefabInstance:
     - target: {fileID: 172362109708196864, guid: ee535eec3a6ec374fb345571bf22d753,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 172362109708196864, guid: ee535eec3a6ec374fb345571bf22d753,
         type: 3}

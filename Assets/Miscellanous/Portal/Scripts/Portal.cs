@@ -16,9 +16,7 @@ public class Portal : MonoBehaviour {
     Animator anim;
     // Use this for initialization
     void Start () {
-
         anim = transform.Find ("Sprite").GetComponent<Animator> ();
-
     }
 
     public void Open () {
