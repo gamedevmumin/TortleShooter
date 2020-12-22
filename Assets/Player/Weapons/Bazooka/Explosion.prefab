@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -141,7 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e00336456713da49ba222d03216c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 40
-  maxDamage: 50
+  criticalStrikeChance: 10
+  minDamage: 20
+  maxDamage: 40
   targetedTags:
   - Enemy

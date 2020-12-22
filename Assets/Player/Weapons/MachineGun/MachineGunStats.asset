@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8a03752734eb419d619139b34dbf2, type: 3}
   m_Name: MachineGunStats
   m_EditorClassIdentifier: 
-  criticalStrikeChance: 20
+  criticalStrikeChance: 9
   minDamage: 10
   maxDamage: 15
   bullet: {fileID: 114452012955997140, guid: a3beee1a95ead874fbabe6bd087a317e, type: 3}

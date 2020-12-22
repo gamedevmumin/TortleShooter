@@ -5131,7 +5131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 10241
+    m_Bits: 43008
   groundCheck: {fileID: 8050119621461954006}
 --- !u!114 &921618726
 MonoBehaviour:

@@ -19,13 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5b929d0-a707-4902-a5ca-5e60c7d39b48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/indexLayout.xml" afterDir="false" />
+    <list default="true" id="a9bb30c7-ecda-4f69-8757-b210d1177c5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TortleShooter/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/Movement/VerticalMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/Movement/HorizontalMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/Movement/VerticalMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/Movement/HorizontalMovement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ChestRoom_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ChestRoom_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveFour.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveFour.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveSeven.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveSeven.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveSix.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveSix.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveTwo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveTwo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +41,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="GAME-3" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -41,10 +54,15 @@
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/Movement/VerticalMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/Movement/HorizontalMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDirectionManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/BulletTouchDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1lQK5xW423b4ZiEUfGWNhW6kb7u" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -130,10 +148,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1607531012605">
+    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1608652139512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607531012605" />
+    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608652139512" />
     <state x="633" y="356" key="LayersDialog" timestamp="1607531822312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
