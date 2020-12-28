@@ -1,164 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9bb30c7-ecda-4f69-8757-b210d1177c5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ChestRoom_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ChestRoom_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectThemAll3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveFour.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveFour.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveSeven.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveSeven.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveSix.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveSix.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SurviveTwo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SurviveTwo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    <list default="true" id="1fa1817a-4aa9-4223-8f15-8d9a450adbda" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TortleShooter/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="GAME-3" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/Movement/VerticalMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/Movement/HorizontalMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDirectionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/BulletTouchDamage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerDash.cs" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectId" id="1lQK5xW423b4ZiEUfGWNhW6kb7u" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../Build\Tortle Shooter.exe" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="E:\Program Files (x86)\Programming\GameDevelopment\TS\Build" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
-      <option name="allowRunningInParallel" value="false" />
-      <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
-      <option name="selectedOptions">
-        <set />
-      </option>
-      <method v="2" />
-    </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
-      <option name="allowRunningInParallel" value="false" />
-      <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
-      <option name="selectedOptions">
-        <set />
-      </option>
-      <method v="2" />
-    </configuration>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="b5b929d0-a707-4902-a5ca-5e60c7d39b48" name="Default Changelist" comment="" />
-      <created>1607523723897</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1607523723897</updated>
-      <workItem from="1607523770623" duration="176000" />
-      <workItem from="1607524024675" duration="1133000" />
-      <workItem from="1607528712411" duration="735000" />
-      <workItem from="1607530609450" duration="169000" />
-      <workItem from="1607530815211" duration="2736000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1608652139512">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608652139512" />
-    <state x="633" y="356" key="LayersDialog" timestamp="1607531822312">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="633" y="356" key="LayersDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607531822312" />
-    <state x="306" y="47" key="SettingsEditor" timestamp="1607531819167">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="306" y="47" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607531819167" />
   </component>
 </project>
