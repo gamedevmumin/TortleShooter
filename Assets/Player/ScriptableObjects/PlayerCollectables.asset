@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411fe7b680b1ce7498b7e3ab9ffa83ca, type: 3}
   m_Name: PlayerCollectables
   m_EditorClassIdentifier: 
-  KeysStateChanged: {fileID: 11400000, guid: 1c7f35feb86d9bb4eae4ad75edb727cc, type: 2}
+  keysStateChanged: {fileID: 11400000, guid: 1c7f35feb86d9bb4eae4ad75edb727cc, type: 2}

@@ -18,6 +18,7 @@ public class PlayerCollectables : ScriptableObject
     public void IncreaseKeysAmount(int amount)
     {
         KeysAmount+=amount;
+        keysStateChanged.Raise();
     }
 
     public void IncreaseCoinsAmount(int amount)
