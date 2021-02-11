@@ -56,7 +56,6 @@ public class CollectorManager : LevelManager
     {
         if (amountOfObjectsToCollect <= 0)
         {
-            Debug.Log("Yeah");
             Win();
         }
 

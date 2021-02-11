@@ -33,8 +33,6 @@ public class AcceleratedMovement : MonoBehaviour, IMovement
             return;
         }
         acceleration += accelerationStamp;
-        Debug.Log(acceleration);
     }
-    
 }
 
