@@ -15,7 +15,6 @@ public class TimerUI : MonoBehaviour {
 
     //double minutes = 0;
     void Start () {
-        //time = 0;
         timerLabel = GetComponent<Text> ();
     }
 
@@ -34,7 +33,6 @@ public class TimerUI : MonoBehaviour {
             if (seconds <= 0) {
                 seconds = 59;
                 minutes--;
-                Debug.Log (minutes);
             }
 
             //update the label value  + ":"+
