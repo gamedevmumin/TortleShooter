@@ -5,31 +5,29 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerDash : MonoBehaviour, IDashing
 {
-    [SerializeField]
-    PlayerStats stats;
-    bool dashed = false;
-    CameraShake cameraShake;
-    Rigidbody2D rb;
+    [SerializeField] private PlayerStats stats;
 
-    [SerializeField]
-    float dashTime = 0.15f;
+    private bool dashed = false;
+    private CameraShake cameraShake;
+    private Rigidbody2D rb;
 
-    IGroundedChecking groundedChecker;
+    [SerializeField] private float dashTime = 0.15f;
 
-    [SerializeField]
-    int maxDashes = 1;
-    int remainingDashes;
+    private IGroundedChecking groundedChecker;
+
+    [SerializeField] private int maxDashes = 1;
+
+    private int remainingDashes;
 
     PlayerDamageable playerDamageable;
-    [SerializeField]
+    [SerializeField] private ParticleSystem dashEffect;
 
-    ParticleSystem dashEffect;
+    [SerializeField] private float rememberTime = 1f;
+    private float rememberTimer;
 
-    [SerializeField]
-    float rememberTime = 1f;
-    float rememberTimer;
-
-    void Awake()
+    [SerializeField] private float distanceBetweenImages;
+    private float lastImageXPos;
+    private void Awake()
     {
         cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         groundedChecker = GetComponent<IGroundedChecking>();
@@ -37,13 +35,21 @@ public class PlayerDash : MonoBehaviour, IDashing
         playerDamageable = GetComponent<PlayerDamageable>();
     }
 
-    void Start()
+    private void Start()
     {
         remainingDashes = maxDashes;
     }
 
-    void Update()
+    private void Update()
     {
+        if (dashed)
+        {
+            if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBetweenImages)
+            {
+                PlayerAfterImagePool.Instance.GetFromPool();
+                lastImageXPos = transform.position.x;
+            }
+        }
         if(groundedChecker.IsGrounded() && dashed == false)
         {
             RefillDashes();
@@ -65,7 +71,9 @@ public class PlayerDash : MonoBehaviour, IDashing
 
     IEnumerator DashCoroutine()
     {
-        dashEffect.Play();
+        //dashEffect.Play();
+        PlayerAfterImagePool.Instance.GetFromPool();
+        lastImageXPos = transform.position.x;
         cameraShake.Shake(0.018f, 0.015f);
         AudioManager.instance.PlaySound("Dash");
         stats.speed.Value += 605;      
