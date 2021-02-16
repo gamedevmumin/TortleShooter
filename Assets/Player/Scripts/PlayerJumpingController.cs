@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,17 +18,19 @@ public class PlayerJumpingController : MonoBehaviour, IJumpingController
     [SerializeField] [Range(0, 1)]
     float cutOfJumpHeight = 0.85f;
     IGroundedChecking groundedChecker;
+    private WallClimbing wallClimbing;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundedChecker = GetComponent<IGroundedChecking>();
+        wallClimbing = GetComponent<WallClimbing>();
     }
 
     public void ManageJumping()
     {
         groundedRememberTimer -= Time.deltaTime;
-        if (groundedChecker.IsGrounded())
+        if (groundedChecker.IsGrounded() || wallClimbing.IsSliding)
             groundedRememberTimer = groundedRemember;
 
         jumpPressedRememberTimer -= Time.deltaTime;
@@ -39,7 +42,7 @@ public class PlayerJumpingController : MonoBehaviour, IJumpingController
         {
             jumpPressedRememberTimer = 0f;
             groundedRememberTimer = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, stats.jumpHeight);
+            rb.velocity = new Vector2(!wallClimbing.IsSliding ? rb.velocity.x : -stats.jumpHeight*3, stats.jumpHeight);
             AudioManager.instance.PlaySound("Jump");
         }
         if (Input.GetButtonUp("Jump"))

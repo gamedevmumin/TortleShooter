@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IJumpingController 
+﻿
+namespace Interfaces
 {
-    void ManageJumping(); 
+    public interface IJumpingController 
+    {
+        void ManageJumping(); 
+    }
 }
