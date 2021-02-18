@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 41975169}
   m_Layer: 15
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1000,6 +1000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1743a0ac8180dd94e986de519f9b023d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerState: {fileID: 11400000, guid: 2fb9588a3d34f2d4b949672651b88559, type: 2}
+  isPlayer: 1
 --- !u!1001 &672263516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5790,7 +5792,7 @@ GameObject:
   - component: {fileID: 2069277428}
   m_Layer: 15
   m_Name: Collider (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

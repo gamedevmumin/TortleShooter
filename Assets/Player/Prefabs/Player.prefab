@@ -5197,6 +5197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: 2fb9588a3d34f2d4b949672651b88559, type: 2}
+  isPlayer: 1
 --- !u!114 &7972660972256476837
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EyeRunnerStats
   m_EditorClassIdentifier: 
   maxHP: 40
-  speed: 239
+  speed: 200
