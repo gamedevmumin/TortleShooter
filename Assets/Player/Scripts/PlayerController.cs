@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent (typeof (Rigidbody2D))]
@@ -10,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 
     public Rigidbody2D rb { get; private set; }
     Animator anim;
-    //bool isRight = true;
     [SerializeField]
     LayerMask whatIsPlatform;
     [SerializeField]
@@ -25,20 +26,21 @@ public class PlayerController : MonoBehaviour {
     public PlayerStats Stats { get { return stats; } }
     bool isDead;
     bool inertia = false;
-    //	SpriteRenderer sR;
     GameObject colliders;
     static PlayerController instance;
     [SerializeField]
     PlayerWeapons playerWeapons;
     [SerializeField]
     List<Transform> groundChecks;
-    [SerializeField]
-    GameEvent OnPlayerDied;
+    [FormerlySerializedAs("OnPlayerDied")] [SerializeField]
+    GameEvent onPlayerDied;
     IMovement movementController;
     IJumpingController jumpingController;
     IDashing dashingController;
     PlayerDamageable playerDamageable;
     IDirectionManager directionManager;
+    private WallClimbing wallClimbing;
+    
     [SerializeField]
     SceneContents sceneContents;
     [SerializeField]
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour {
         dashingController = GetComponent<IDashing> ();
         playerDamageable = GetComponent<PlayerDamageable> ();
         directionManager = GetComponent<IDirectionManager> ();
+        wallClimbing = GetComponent<WallClimbing>();
     }
 
     private void OnEnable () {
@@ -104,6 +107,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetMouseButtonDown (1)) dashingController.Dash ();
         directionManager.ManageDirection (rb.velocity);
         ManagePlatforms ();
+        wallClimbing.ManageWallClimbing(movementInput.x);
     }
 
     private void FixedUpdate () {      
@@ -130,7 +134,7 @@ public class PlayerController : MonoBehaviour {
 
     void Die () {
         AudioManager.instance.PlaySound ("PlayerDeath");
-        OnPlayerDied.Raise ();
+        onPlayerDied.Raise ();
         isDead = true;
         if (timer != null) timer.isStopped = true;
         Destroy (gameObject);

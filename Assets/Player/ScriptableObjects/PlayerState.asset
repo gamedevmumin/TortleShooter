@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d24d22c2ec08c8488595b4a2e1b2874, type: 3}
-  m_Name: EyeRunnerStats
+  m_Script: {fileID: 11500000, guid: 4739095ea7415f04fbf17f26fe068571, type: 3}
+  m_Name: PlayerState
   m_EditorClassIdentifier: 
-  maxHP: 40
-  speed: 200

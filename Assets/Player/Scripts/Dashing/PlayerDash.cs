@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -14,13 +15,13 @@ public class PlayerDash : MonoBehaviour, IDashing
     [SerializeField] private float dashTime = 0.15f;
 
     private IGroundedChecking groundedChecker;
-
+    private IWallCollisionChecker wallCollisionChecker;
+    
     [SerializeField] private int maxDashes = 1;
 
     private int remainingDashes;
 
     PlayerDamageable playerDamageable;
-    [SerializeField] private ParticleSystem dashEffect;
 
     [SerializeField] private float rememberTime = 1f;
     private float rememberTimer;
@@ -33,6 +34,7 @@ public class PlayerDash : MonoBehaviour, IDashing
         groundedChecker = GetComponent<IGroundedChecking>();
         rb = GetComponent<Rigidbody2D>();        
         playerDamageable = GetComponent<PlayerDamageable>();
+        wallCollisionChecker = GetComponent<IWallCollisionChecker>();
     }
 
     private void Start()
@@ -50,7 +52,7 @@ public class PlayerDash : MonoBehaviour, IDashing
                 lastImageXPos = transform.position.x;
             }
         }
-        if(groundedChecker.IsGrounded() && dashed == false)
+        if(groundedChecker.IsGrounded() || wallCollisionChecker.IsTouchingWall() && dashed == false)
         {
             RefillDashes();
         }
@@ -71,7 +73,6 @@ public class PlayerDash : MonoBehaviour, IDashing
 
     IEnumerator DashCoroutine()
     {
-        //dashEffect.Play();
         PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXPos = transform.position.x;
         cameraShake.Shake(0.018f, 0.015f);
