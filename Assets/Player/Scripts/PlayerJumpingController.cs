@@ -19,8 +19,11 @@ public class PlayerJumpingController : MonoBehaviour, IJumpingController
     float cutOfJumpHeight = 0.85f;
     IGroundedChecking groundedChecker;
     private WallClimbing wallClimbing;
-    
-    void Start()
+    private bool isWallJumping = false;
+    [SerializeField] private float wallJumpTime = 0.1f;
+    [SerializeField] private PlayerState playerState;
+    private float wallJumpDirection;
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundedChecker = GetComponent<IGroundedChecking>();
@@ -34,21 +37,45 @@ public class PlayerJumpingController : MonoBehaviour, IJumpingController
             groundedRememberTimer = groundedRemember;
 
         jumpPressedRememberTimer -= Time.deltaTime;
-
-        if (Input.GetButtonDown("Jump"))
-            jumpPressedRememberTimer = jumpPressedRemember;
-
-        if (groundedRememberTimer > 0f && jumpPressedRememberTimer > 0f)
+        if (isWallJumping)
         {
-            jumpPressedRememberTimer = 0f;
-            groundedRememberTimer = 0f;
-            rb.velocity = new Vector2(!wallClimbing.IsSliding ? rb.velocity.x : -stats.jumpHeight*3, stats.jumpHeight);
-            AudioManager.instance.PlaySound("Jump");
+            rb.velocity = new Vector2(wallJumpDirection*stats.jumpHeight*0.6f, stats.jumpHeight*0.6f);
         }
-        if (Input.GetButtonUp("Jump"))
+        else
         {
-            if (rb.velocity.y > 0f)
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutOfJumpHeight);
+            if (Input.GetButtonDown("Jump"))
+                jumpPressedRememberTimer = jumpPressedRemember;
+
+            if (groundedRememberTimer > 0f && jumpPressedRememberTimer > 0f)
+            {
+                jumpPressedRememberTimer = 0f;
+                groundedRememberTimer = 0f;
+                isWallJumping = isWallJumping || wallClimbing.IsSliding;
+                if (isWallJumping)
+                {
+                    playerState.IsAbleToMove = false;
+                    wallJumpDirection = Input.GetAxisRaw("Horizontal") * -1;
+                    Invoke(nameof(FinishWallJump), wallJumpTime);
+                }
+                else
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, stats.jumpHeight);
+                }
+
+                AudioManager.instance.PlaySound("Jump");
+            }
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                if (rb.velocity.y > 0f)
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutOfJumpHeight);
+            }
         }
-    }  
+    }
+
+    private void FinishWallJump()
+    {
+        playerState.IsAbleToMove = true;
+        isWallJumping = false;
+    }
 }

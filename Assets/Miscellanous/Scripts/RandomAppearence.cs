@@ -21,7 +21,6 @@ public class RandomAppearence : MonoBehaviour
         }
         if (chanceToAppear>=randomNumber)
         {
-            Debug.Log(chanceToAppear + " >= " + randomNumber);
             gameObject.SetActive(true);
         }
         else
