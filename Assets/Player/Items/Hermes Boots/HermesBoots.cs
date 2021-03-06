@@ -20,7 +20,6 @@ public class HermesBoots : Item, IPlayerStatsChanger
     public void ChangeStats()
     {
         WasActivated = true;
-        Debug.Log("Changing stats...");
         playerStats.speed.Value += speedBuff;
     }
 

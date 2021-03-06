@@ -7,7 +7,7 @@ public class PlayerItems : MonoBehaviour {
     List<IPlayerStatsChanger> statsChangingItems = new List<IPlayerStatsChanger>();
     public delegate void ReloadItems();
     public ReloadItems reloadItems;
-    PlayerController playerController;
+    private PlayerController playerController;
     private void Awake()
     {
         EquippedItems = new List<Item>();
@@ -16,9 +16,10 @@ public class PlayerItems : MonoBehaviour {
         {
             statsChangingItems.Clear();
             List<Item> temp = EquippedItems.FindAll(item => item is IPlayerStatsChanger);
-            foreach (IPlayerStatsChanger item in temp)
+            foreach (var item1 in temp)
             {
-                statsChangingItems.Add(item as IPlayerStatsChanger);
+                var item = (IPlayerStatsChanger) item1;
+                statsChangingItems.Add(item);
                 if(!item.WasActivated) item.ChangeStats();
             }
         }; 
