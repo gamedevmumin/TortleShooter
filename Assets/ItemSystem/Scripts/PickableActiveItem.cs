@@ -23,13 +23,14 @@ namespace ItemSystem.Scripts
         public void Initialize(string itemBaseKey)
         {
             activeItem = activeItemsBaseSO.ActiveItemBase[itemBaseKey];
+            activeItem.ItemBaseKey = itemBaseKey;
             GetComponent<NameAndMessageHighlight>().Name = activeItem.Name;
             sR.sprite = activeItem.Icon;
         }
 
         public void Interact()
         {
-            activeItemsManager.OnPickUp(activeItem);
+            activeItemsManager.OnPickUp(activeItem, transform);
             AudioManager.instance.PlaySound("PickUp");
             Destroy(gameObject);
         }

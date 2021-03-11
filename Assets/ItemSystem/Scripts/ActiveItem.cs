@@ -6,7 +6,7 @@ namespace ItemSystem.Scripts
     {
         [SerializeField] private string itemName;
         [SerializeField] private Sprite itemIcon;
-        
+
         public override string Name
         {
             get => itemName;
@@ -18,7 +18,11 @@ namespace ItemSystem.Scripts
             get => itemIcon;
             protected set => itemIcon = value;
         }
+
         
+        public string ItemBaseKey { get; set; }
+
+
         public override PickableItem PickableItem { get; protected set; }
 
         public abstract override void OnPickUp();

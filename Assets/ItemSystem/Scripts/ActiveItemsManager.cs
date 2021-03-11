@@ -10,6 +10,7 @@ namespace ItemSystem.Scripts
         private ActiveItem chosenActiveItem;
         private int maximumCarriedItems;
         [SerializeField] private GameEvent activeItemPickedUp;
+        [SerializeField] private GameObject pickableItemPrefab;
         
         public ActiveItem ChosenActiveItem => chosenActiveItem;
 
@@ -37,11 +38,17 @@ namespace ItemSystem.Scripts
             }
         }
         
-        public void OnPickUp(ActiveItem activeItem)
+        public void OnPickUp(ActiveItem activeItem, Transform transform)
         {
             if (carriedItems.Count == maximumCarriedItems)
             {
-                // drop out chosenActive item and pick up proper one
+                carriedItems.Remove(chosenActiveItem);
+                var pickableItem =  Instantiate(pickableItemPrefab, transform.position, transform.rotation).GetComponent<IPickable>();
+                pickableItem.Initialize(chosenActiveItem.ItemBaseKey);
+                chosenActiveItem = activeItem;
+                carriedItems.Add(activeItem);
+                activeItem.OnPickUp();
+                activeItemPickedUp.Raise();
                 return;
             }
             carriedItems.Add(activeItem);

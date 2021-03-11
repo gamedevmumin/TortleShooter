@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ActiveItemsManager
   m_EditorClassIdentifier: 
   activeItemPickedUp: {fileID: 11400000, guid: a0de29783f7e84044aa3823b3bd0ad17, type: 2}
+  pickableItemPrefab: {fileID: 3345517487005473452, guid: eff2caed102f14b42a412e817edb7946,
+    type: 3}
