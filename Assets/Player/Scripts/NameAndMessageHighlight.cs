@@ -12,6 +12,12 @@ public class NameAndMessageHighlight : MonoBehaviour, IHighlightable {
     [SerializeField]
     Text messageText;
 
+    public string Name
+    {
+        get => _name;
+        set => _name = value;
+    }
+    
     void Start () {
         nameText.text = _name;
         messageText.text = message;

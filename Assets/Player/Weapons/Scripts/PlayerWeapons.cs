@@ -26,8 +26,8 @@ public class PlayerWeapons : MonoBehaviour
         {
             equippedWeapons.ActiveWeapon = null;
             equippedWeapons.InactiveWeapon = null;
-            if (playerStartingWeapons.startingInactiveWeapon) PickUpWeapon(playerStartingWeapons.startingInactiveWeapon);
-            if (playerStartingWeapons.startingActiveWeapon) PickUpWeapon(playerStartingWeapons.startingActiveWeapon);
+            if (playerStartingWeapons.startingInactiveWeapon) PickUpWeapon(playerStartingWeapons.startingInactiveWeapon, transform.position);
+            if (playerStartingWeapons.startingActiveWeapon) PickUpWeapon(playerStartingWeapons.startingActiveWeapon, transform.position);
         }
         else
         {
@@ -35,8 +35,8 @@ public class PlayerWeapons : MonoBehaviour
             equippedWeapons.ActiveWeapon = null;
             Weapon inactiveWeapon = equippedWeapons.InactiveWeapon;
             equippedWeapons.InactiveWeapon = null;
-            if (activeWeapon) PickUpWeapon(activeWeapon);
-            if (inactiveWeapon) PickUpWeapon(inactiveWeapon);
+            if (activeWeapon) PickUpWeapon(activeWeapon, transform.position);
+            if (inactiveWeapon) PickUpWeapon(inactiveWeapon, transform.position);
         }
 
         if(wUI)
@@ -73,7 +73,7 @@ public class PlayerWeapons : MonoBehaviour
         }
     }
 
-    public void PickUpWeapon(Weapon weapon)
+    public void PickUpWeapon(Weapon weapon, Vector3 position)
     {
         if(equippedWeapons.ActiveWeapon == null)
         {
@@ -94,7 +94,7 @@ public class PlayerWeapons : MonoBehaviour
         else
         {
             PickableWeapon pickableWeapon = Instantiate(pickableWeaponPrefab) as PickableWeapon;
-            pickableWeapon.transform.position = transform.position;
+            pickableWeapon.transform.position = position;
             pickableWeapon.Initialize(equippedWeapons.ActiveWeapon);
             Destroy(activeWeaponObject.gameObject);
             activeWeaponObject = Instantiate(weapon, weaponSlot) as Weapon;

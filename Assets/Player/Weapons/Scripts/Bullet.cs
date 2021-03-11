@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     float lifeTime = 0.5f;
 
+    [SerializeField] private bool moveUp;
+    
+    
     IMovement movement;
     IDestructible destructible;
 
@@ -30,7 +33,7 @@ public class Bullet : MonoBehaviour {
     }
 
     private void FixedUpdate () {
-        movement.Move (transform.right, speed);
+        movement.Move (moveUp ? transform.up : transform.right, speed);
     }
 
     void OnTriggerEnter2D (Collider2D coll) {

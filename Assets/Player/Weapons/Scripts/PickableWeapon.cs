@@ -36,7 +36,7 @@ public class PickableWeapon : MonoBehaviour, IInteractable
     public void Interact()
     {
         weapon.OnPickUp(this);
-        playerWeapons.PickUpWeapon(weapon);
+        playerWeapons.PickUpWeapon(weapon, transform.position);
         Destroy(gameObject);
     }
      

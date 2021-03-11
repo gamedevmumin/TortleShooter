@@ -7,6 +7,6 @@ public abstract class Item : MonoBehaviour
     public abstract string Name { get; protected set; }
     public abstract Sprite Icon { get; protected set; }
     public abstract PickableItem PickableItem { get; protected set; }
-    public abstract void OnPickUp(PickableItem pickableItem);
+    public abstract void OnPickUp();
 
 }

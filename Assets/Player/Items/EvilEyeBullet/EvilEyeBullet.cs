@@ -17,9 +17,9 @@ public class EvilEyeBullet : Item, IRandomBulletChanger
 
     public override PickableItem PickableItem { get; protected set; }
 
-    public override void OnPickUp(PickableItem pickableItem)
+    public override void OnPickUp()
     {
-        PickableItem = pickableItem;
+       
     }
 
     public bool shouldWork()

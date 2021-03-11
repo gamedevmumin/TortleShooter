@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criticalStrikeChance: 0
   minDamage: 7
-  maxDamage: 8
+  maxDamage: 15
   bullet: {fileID: 114452012955997140, guid: 6a62695580b756e4f9b03e3d0a64f347, type: 3}
   shakeAmount: 0.01
   spread: 1

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ItemSystem;
+using ItemSystem.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     PlayerStats stats;
     [SerializeField]
     PlayerStats startingStats;
-    public PlayerStats Stats { get { return stats; } }
+    public PlayerStats Stats => stats;
     bool isDead;
     bool inertia = false;
     GameObject colliders;
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour {
     PlayerCollectables playerCollectables;
     [SerializeField]
     Transform weaponSlot;
+
+    [SerializeField] private ActiveItemsManager activeItemsManager;
     void Awake () {
         anim = GetComponent<Animator> ();
         rb = GetComponent<Rigidbody2D> ();
@@ -86,10 +90,19 @@ public class PlayerController : MonoBehaviour {
                 ManageMovement ();
                 ManageAnimation ();
                 ManageSwitchingWeapons ();
+                ManageActiveItem();;
             }
         }
     }
 
+    private void ManageActiveItem()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            activeItemsManager.ActivateChosenItem();
+        }
+    }
+    
     void ManageSwitchingWeapons () {
         if (Mathf.Abs (Input.mouseScrollDelta.y) > 0f) {
             playerWeapons.SwitchWeapon ();

@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa38796a41dbd24f8bd26cfa588b28a, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  currentHP: 1
+  currentHP: 0
   maxHP: 4
   speed:
     UseConstant: 1
-    ConstantValue: 200
+    ConstantValue: 260
     Variable: {fileID: 11400000, guid: 613d50ec7014dcd448cb693493077086, type: 2}
   maxSpeed:
     UseConstant: 1
-    ConstantValue: 200
+    ConstantValue: 260
     Variable: {fileID: 0}
   jumpHeight: 12.1
   invincibilityTime: 1
+  onHeal: {fileID: 11400000, guid: cc718b63e08bd9e4ba937c45203c3a59, type: 2}

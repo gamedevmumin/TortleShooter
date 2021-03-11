@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent((typeof(IInteractable)))]
 public class InteractionBehaviour : MonoBehaviour
 {
     private bool isInRange;
 
-    IInteractable interaction;
+    private IInteractable interaction;
 
-    void Awake()
+    private void Awake()
     {
         interaction = GetComponent<IInteractable>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (isInRange)
+        if (!isInRange) return;
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                interaction.Interact();
-            }
+            interaction.Interact();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {         
             isInRange = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {           
             isInRange = false;
         }

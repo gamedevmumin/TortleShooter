@@ -24,9 +24,8 @@ public class HermesBoots : Item, IPlayerStatsChanger
         playerStats.speed.Value += speedBuff;
     }
 
-    public override void OnPickUp(PickableItem pickableItem)
+    public override void OnPickUp()
     {
         WasActivated = false;
-        PickableItem = pickableItem;
     }
 }

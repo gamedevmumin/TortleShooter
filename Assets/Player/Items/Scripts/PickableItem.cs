@@ -23,7 +23,7 @@ public class PickableItem : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        item.OnPickUp(this);
+        item.OnPickUp();
         playerItems.PickUpItem(item);
         Destroy(gameObject);
     }

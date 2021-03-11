@@ -5,7 +5,7 @@ using UnityEngine;
 public class HighlightningBehaviour : MonoBehaviour
 {
 
-    IHighlightable highlightable;
+    private IHighlightable highlightable;
 
     // Start is called before the first frame update
     void Awake()

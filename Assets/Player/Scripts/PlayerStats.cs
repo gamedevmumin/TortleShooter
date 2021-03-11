@@ -17,6 +17,16 @@ public class PlayerStats : ScriptableObject{
     public float jumpHeight;
     [SerializeField]
     public float invincibilityTime;
+    public bool IsFullHealth => currentHP == maxHP;
+    
+    [SerializeField] private GameEvent onHeal;
+    
+    public void Heal(int amount)
+    {
+        if (IsFullHealth) return;
+        currentHP += amount;
+        onHeal.Raise();
+    }
 
     public void Set(PlayerStats stats)
     {        
