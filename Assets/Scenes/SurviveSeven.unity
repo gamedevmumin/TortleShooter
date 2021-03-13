@@ -17286,11 +17286,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5353285260615268276, guid: 2bc8f05b19078fe4b95fb78faa8787f4,
         type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5353285260615268276, guid: 2bc8f05b19078fe4b95fb78faa8787f4,
+        type: 3}
       propertyPath: orthographic size
       value: 6.238902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc8f05b19078fe4b95fb78faa8787f4, type: 3}
+--- !u!1 &5353285260991467468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5353285260615268279, guid: 2bc8f05b19078fe4b95fb78faa8787f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5353285260991467467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5353285260991467469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353285260991467468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &8786883840908052250
 PrefabInstance:
   m_ObjectHideFlags: 0

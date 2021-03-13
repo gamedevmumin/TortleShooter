@@ -46,10 +46,12 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,6 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 2886125181803584743}
     - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.86
       objectReference: {fileID: 0}
@@ -176,6 +183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -187,16 +199,6 @@ PrefabInstance:
     - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8498434227891848577, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
@@ -223,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 8498434227891848591, guid: 4dc88905e110f4046a5b18fa68bdd0f7,
         type: 3}
       propertyPath: m_Name
-      value: IronChestV2 (2)
+      value: IronChestV2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dc88905e110f4046a5b18fa68bdd0f7, type: 3}

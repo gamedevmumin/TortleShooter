@@ -55,10 +55,12 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 828bfe5896f33cd4b8d3454bc904ba44, type: 2}
+  - {fileID: 2100000, guid: 7f85ad43f2f28d04ab76325ec593fdc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba438293117bb489c86365e80e9613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneContents: {fileID: 0}
 --- !u!114 &2593526792860016385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +160,7 @@ MonoBehaviour:
     type: 3}
   damageEffect: {fileID: 11400000, guid: 568a993c0bd1fd94c8ae56a3446492e0, type: 2}
   sR: {fileID: 2593526792860016388}
+  anim: {fileID: 0}
 --- !u!114 &2593526792860016387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freezeTime: {fileID: 11400000, guid: de7f7604047624742b3cf5194ceae70e, type: 2}
+  colls: []
+  deathParticle: {fileID: 0}
 --- !u!50 &2593526792860016639
 Rigidbody2D:
   serializedVersion: 4
@@ -206,6 +212,7 @@ MonoBehaviour:
   attackTime: 2
   bullet: {fileID: 114935249312638040, guid: b6793bc571952174aa39d0f59f72fe6a, type: 3}
   firePoint: {fileID: 2593526793008089578}
+  shoots: 0
 --- !u!114 &2593526792860016634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab8b746cabe6294094402deff10a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneContents: {fileID: 0}
 --- !u!114 &2593526792860016637
 MonoBehaviour:
   m_ObjectHideFlags: 0
