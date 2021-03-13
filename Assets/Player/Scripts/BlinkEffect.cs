@@ -11,6 +11,6 @@ public class BlinkEffect : VisualSpriteEffect
     {
         sR.material.SetInt(Blink, 1);
         yield return new WaitForSeconds(0.08f);
-        sR.material.SetInt("_Blink", 0);    
+        sR.material.SetInt(Blink, 0);    
     }
 }

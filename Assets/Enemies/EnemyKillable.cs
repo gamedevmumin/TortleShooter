@@ -15,6 +15,9 @@ public class EnemyKillable : MonoBehaviour, IKillable {
     List<Collider2D> colls;
     [SerializeField]
     GameObject deathParticle;
+
+    private static readonly int Color = Shader.PropertyToID("_Color");
+
     void Awake () {
         stats = GetComponent<EnemyStats> ();
         sR = GetComponent<SpriteRenderer> ();
@@ -39,7 +42,8 @@ public class EnemyKillable : MonoBehaviour, IKillable {
                 rb.AddForce (stats.LastDamageDealerDirection * 600f);
                 rb.gravityScale = 3.5f;
             }
-            sR.material.color = new Color32 (65, 58, 58, 255);
+            var deadColor = new Color32 (65, 58, 58, 255);
+            sR.material.SetColor(Color, deadColor);
             if (deathParticle) {
                 Instantiate (deathParticle, transform.position, transform.rotation);
             }
