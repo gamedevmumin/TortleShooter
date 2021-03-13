@@ -83,10 +83,12 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   lifeTime: 10
+  moveUp: 0
 --- !u!61 &511194014755892685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e00336456713da49ba222d03216c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  criticalStrikeChance: 1
   minDamage: 1
   maxDamage: 1
   targetedTags:
