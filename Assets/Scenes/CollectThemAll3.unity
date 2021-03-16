@@ -374,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rockets: {fileID: 974054174}
   theFlyingPart: {fileID: 1178808660}
+  cameraShake: {fileID: 1928487621}
 --- !u!114 &50554929
 MonoBehaviour:
   m_ObjectHideFlags: 0

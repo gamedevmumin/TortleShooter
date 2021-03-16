@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ChestRoom_1.unity
     guid: af5fd88f02327284fb07e29fb9fd8758
   - enabled: 1
+    path: Assets/Scenes/CHALLENGE_NOHIT_1.unity
+    guid: 42610e107ecf37f4d850c1687bf8cad0
+  - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 3dd4be059d7e6214886db20c06e14357
   - enabled: 1

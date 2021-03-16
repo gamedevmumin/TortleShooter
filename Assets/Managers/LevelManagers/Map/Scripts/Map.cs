@@ -64,6 +64,7 @@ public class Map : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space) && ready)
         {
+            //SceneManager.LoadScene("CHALLENGE_NOHIT_1");
             SceneManager.LoadScene(mapData.roomsData[mapData.currentRoom].roomName);
         }
         

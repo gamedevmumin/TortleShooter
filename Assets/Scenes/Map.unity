@@ -2647,6 +2647,8 @@ MonoBehaviour:
     roomType: SURVIVE
   - roomName: SurviveSeven
     roomType: SURVIVE
+  - roomName: CHALLENGE_NOHIT_1
+    roomType: SURVIVE
   mapRoomPrefab: {fileID: 114855902531654124, guid: d85fb08e43d26fd4b9258f94d311ab24,
     type: 3}
 --- !u!4 &2136162208
