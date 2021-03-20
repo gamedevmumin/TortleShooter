@@ -5310,6 +5310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: e0bf5794278d508419dfc7f7570cca7c, type: 2}
   damageEffect: {fileID: 11400000, guid: 568a993c0bd1fd94c8ae56a3446492e0, type: 2}
+  takenDamage: {fileID: 11400000, guid: 79f051b0c58e0634eb8c3fe9204ec7e0, type: 2}
 --- !u!114 &655382297
 MonoBehaviour:
   m_ObjectHideFlags: 0

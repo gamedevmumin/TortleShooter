@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
 		
 	}
 
-	virtual protected void Win()
+	protected virtual void Win()
 	{
 		levelStatus = LevelStatus.WON;
 		foreach (Spawner spawner in spawners)

@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8a03752734eb419d619139b34dbf2, type: 3}
   m_Name: RoundGunStats
   m_EditorClassIdentifier: 
+  criticalStrikeChance: 30
+  minDamage: 4
+  maxDamage: 7
   bullet: {fileID: 4714978505761613775, guid: 44cde60e11218364daf69c5cf0a059a7, type: 3}
-  shakeAmount: 0.01
-  spread: 6.5
+  shakeAmount: 0.013
+  spread: 8
   shotSound: ShootingV2
-  shotsInterval: 0.1
+  shotsInterval: 0.09
+  reloadTime: 0.5
+  magazineSize: 120

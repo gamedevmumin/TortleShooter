@@ -22,6 +22,11 @@ public class TimerUI : MonoBehaviour {
         time = maxTime;
     }
 
+    public void StopTimer()
+    {
+        isStopped = true;
+    }
+    
     void Update () {
         if (!isStopped) {
             time -= Time.deltaTime;
@@ -36,12 +41,15 @@ public class TimerUI : MonoBehaviour {
             }
 
             //update the label value  + ":"+
-
+            
+            if (time<= 0) isStopped = true;
             timerLabel.text = string.Format ("{0:00}", minutes) + ":" + string.Format ("{0:00}", seconds) + ":" + string.Format ("{0:00}", fraction);
             congratzTime = string.Format ("{0:00}", minutes) + ":" + string.Format ("{0:00}", seconds);
 
-        } else {
-            congratz.Display (congratzTime);
+        } else
+        {
+            timerLabel.enabled = false;
+            //congratz.Display (congratzTime);
         }
     }
 }

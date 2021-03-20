@@ -13,7 +13,8 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
     [SerializeField]
     VisualSpriteEffect damageEffect;
     SpriteRenderer sR;
-
+    [SerializeField] private GameEvent takenDamage;
+    
     void Start()
     {
         GameObject heartBarObj = GameObject.Find("StatPanel/HeartBar");
@@ -37,6 +38,7 @@ public class PlayerDamageable : MonoBehaviour, IDamageable
             AudioManager.instance.PlaySound("PlayerDamaged");
             if (heartBar != null) heartBar.changeState();
             StartInvincibilityTimer(stats.invincibilityTime);
+            takenDamage.Raise();
         }
         
     }
