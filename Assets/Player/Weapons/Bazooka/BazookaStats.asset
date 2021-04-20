@@ -19,6 +19,6 @@ MonoBehaviour:
   shakeAmount: 0.035
   spread: 2
   shotSound: RocketLauncherShot
-  shotsInterval: 1.3
+  shotsInterval: 0.3
   reloadTime: 1
   magazineSize: 6

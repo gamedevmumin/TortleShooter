@@ -9,7 +9,9 @@ public class EnemyKillable : MonoBehaviour, IKillable {
     ScreeneFreezer screenFreezer;
     [SerializeField]
     FloatVariable freezeTime;
+    [SerializeField]
     SpriteRenderer sR;
+    [SerializeField]
     Animator anim;
     [SerializeField]
     List<Collider2D> colls;
@@ -20,11 +22,10 @@ public class EnemyKillable : MonoBehaviour, IKillable {
 
     void Awake () {
         stats = GetComponent<EnemyStats> ();
-        sR = GetComponent<SpriteRenderer> ();
         screenFreezer = FindObjectOfType<ScreeneFreezer> ();
-        sR = GetComponent<SpriteRenderer> ();
         rb = GetComponent<Rigidbody2D> ();
-        anim = GetComponent<Animator> ();
+        if(anim == null) anim = GetComponent<Animator> ();
+        if(sR == null) sR = GetComponent<SpriteRenderer> ();
     }
 
     void Update () {
@@ -43,6 +44,7 @@ public class EnemyKillable : MonoBehaviour, IKillable {
                 rb.gravityScale = 3.5f;
             }
             var deadColor = new Color32 (65, 58, 58, 255);
+
             sR.material.SetColor(Color, deadColor);
             if (deathParticle) {
                 Instantiate (deathParticle, transform.position, transform.rotation);
