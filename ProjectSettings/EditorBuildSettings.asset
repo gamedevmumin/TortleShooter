@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/BossFight.unity
+    guid: 49e7f8ad89216284a8685fef2dbf696d
+  - enabled: 1
     path: Assets/Scenes/ChestRoom_1.unity
     guid: af5fd88f02327284fb07e29fb9fd8758
   - enabled: 1
