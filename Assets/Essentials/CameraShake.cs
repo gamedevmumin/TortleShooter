@@ -24,6 +24,7 @@ public class CameraShake : MonoBehaviour
 
     public void Shake(float amount, float length)
     {
+        if (shakeAmount > amount) return;
         shakeAmount = amount;
         InvokeRepeating("BeginShake", 0, 0.01f);
         Invoke("StopShake", length);
@@ -31,22 +32,21 @@ public class CameraShake : MonoBehaviour
 
     void BeginShake()
     {
-        if (shakeAmount > 0)
-        {
+        if (!(shakeAmount > 0)) return;
+        var mainCamTransform = mainCam.transform;
+        var camPos = mainCamTransform.position;
 
-            Vector3 camPos = mainCam.transform.position;
-
-            float offsetX = Random.value * shakeAmount * 2 - shakeAmount;
-            float offsetY = Random.value * shakeAmount * 2 - shakeAmount;
-            camPos.x += offsetX;
-            camPos.y += offsetY;
-            //camPos.z = -10;
-            mainCam.transform.position = camPos;
-        }
+        var offsetX = Random.value * shakeAmount * 2 - shakeAmount;
+        var offsetY = Random.value * shakeAmount * 2 - shakeAmount;
+        camPos.x += offsetX;
+        camPos.y += offsetY;
+        //camPos.z = -10;
+        mainCamTransform.position = camPos;
     }
 
     void StopShake()
     {
+        shakeAmount = 0;
         CancelInvoke("BeginShake");
         mainCam.transform.localPosition = Vector3.zero;
     }
