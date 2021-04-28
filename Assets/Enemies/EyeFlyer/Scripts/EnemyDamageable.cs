@@ -4,7 +4,9 @@ using UnityEngine;
 
 [RequireComponent (typeof (EnemyStats))]
 [RequireComponent (typeof (Rigidbody2D))]
-public class EnemyDamageable : MonoBehaviour, IDamageable {
+public class EnemyDamageable : MonoBehaviour, IDamageable
+{
+    [SerializeField] private GameEvent enemyDamaged;
     EnemyStats stats;
     [SerializeField]
     DamageIndicatorSpawner effectSpawner;
@@ -31,6 +33,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable {
             if (effectSpawner) effectSpawner.SpawnEffect (damageInfo.DamageDealer.position, scale, damageInfo);
            
             stats.CurrentHP -= damageInfo.DamageDone;
+            if(enemyDamaged) enemyDamaged.Raise();
             if (damageInfo.WasCritical) {
                 AudioManager.instance.PlaySound ("CriticalStrike");
                  cameraShake.Shake (0.3f, 0.036f);

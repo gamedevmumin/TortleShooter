@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.Advertisements;
 using Random = UnityEngine.Random;
 
 public class EyebossaAI : MonoBehaviour
@@ -13,13 +15,13 @@ public class EyebossaAI : MonoBehaviour
     
     [SerializeField] private List<Transform> bulletsPositionsWhenNearGround;
     [SerializeField] private List<Transform> restOfTheBullets;
+    [SerializeField] private List<Transform> chargeCollisionBulletSpawnPoints;
     
     [SerializeField] private List<Transform> downBulletsSpawningPositions;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform groundScanPoint;
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Animator anim;
-
     [SerializeField] private AcceleratedMovement acceleratedMovement;
     
     private int counter = 0;
@@ -34,12 +36,18 @@ public class EyebossaAI : MonoBehaviour
     
     private float rotationCounter = 1;
     private float rotationChange = 1f;
+
+    private bool isPreparingToCharge = false;
+    
     private enum State
     {
         DoingNothing,
         ShootingAround,
         ShootingDown,
-        ChargingDown
+        ChargingDown,
+        ChargingToTheSide,
+        LeftRightShooting,
+        Recovering
     }
 
     private State currentState;
@@ -66,6 +74,14 @@ public class EyebossaAI : MonoBehaviour
         var rotation = transform.rotation;
         switch (currentState)
         {
+            case State.Recovering:
+                if (transform.position.y > 0.21f)
+                {
+                    rb.velocity = Vector2.zero;
+                    currentState = State.LeftRightShooting;
+                    anim.SetBool("UpDownPhase", true);
+                }
+                break;
             case State.DoingNothing:
                 break;
             case State.ShootingAround:
@@ -129,14 +145,35 @@ public class EyebossaAI : MonoBehaviour
                 rb.velocity = new Vector2(0f, -40f); 
                 //acceleratedMovement.Move(Vector2.down, 500);
                 break;
+            case State.LeftRightShooting:
+                rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z + rotationCounter);
+                transform.rotation = rotation;
+                rotationCounter -= rotationChange;
+                if (rotationChange > 0f && rotationCounter < -35)
+                {
+                    rotationCounter = -34f;
+                    rotationChange *= -1f;
+                }
+                else if (rotationChange < 0f && rotationCounter > 35)
+                {
+                    rotationCounter = 34f;
+                    rotationChange *= -1f;
+                }
+                rb.velocity = new Vector2(direction*1.3f, 0f);
+                break;
+            case State.ChargingToTheSide:
+                break;
             
         }
     }
 
     public void SwitchToChargeDown()
     {
-        currentState = State.ChargingDown;
-        acceleratedMovement.enabled = true;
+        if (currentState != State.Recovering)
+        {
+            currentState = State.ChargingDown;
+            acceleratedMovement.enabled = true;
+        }
     }
     
     public void ShootAround()
@@ -166,12 +203,34 @@ public class EyebossaAI : MonoBehaviour
 
     }
 
+    public void ShootAfterChargingDown()
+    {
+
+        for (var i = 0; i < 3; i++)
+        {
+            foreach (var bsPos in chargeCollisionBulletSpawnPoints)
+            {
+                StartCoroutine(SpawnBullet(bsPos, i));
+                //Instantiate(bulletPrefab, bsPos.position+Vector3.left*i*0.5f, bsPos.rotation);
+            }
+        }
+
+        
+    }
+
+
     private IEnumerator StartBattle()
     {
         yield return new WaitForSeconds(1f);
         currentState = State.ShootingAround;
     }
-    
+
+    private IEnumerator SpawnBullet(Transform bsPos, float index)
+    {
+        yield return new WaitForSeconds(0.07f*index);
+        //ShootAround();
+        Instantiate(bulletPrefab, bsPos.position, bsPos.rotation);
+    }
     
     public void ShootDown()
     {
@@ -207,12 +266,25 @@ public class EyebossaAI : MonoBehaviour
         {
             if (currentState != State.ChargingDown)
             {
+                if (currentState == State.LeftRightShooting)
+                {
+                    var choice = Random.Range(0, 1);
+                    if (choice == 0)
+                    {
+                        currentState = State.ChargingToTheSide;
+                        anim.SetTrigger(Anger1);
+                    }
+                }
                 bounceCounter++;
                 direction *= -1;
             }
-            else
+            else if(currentState != State.DoingNothing)
             {
-                cameraShake.Shake(0.2f, 0.2f);
+                anim.SetTrigger("Recovering");
+                anim.SetBool("ChargeDown", false);
+                currentState = State.Recovering;
+                ShootAfterChargingDown();
+                cameraShake.Shake(0.11f, 0.15f);
             }
 
         }
