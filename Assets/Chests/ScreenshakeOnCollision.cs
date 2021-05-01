@@ -11,6 +11,7 @@ public class ScreenshakeOnCollision : MonoBehaviour
     private int counter = 0;
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (cameraShake == null) cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
         if (counter == 0)
         {
             cameraShake.Shake(0.12f, 0.02f);

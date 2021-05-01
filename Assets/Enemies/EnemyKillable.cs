@@ -18,6 +18,11 @@ public class EnemyKillable : MonoBehaviour, IKillable {
     [SerializeField]
     GameObject deathParticle;
 
+    [SerializeField] private bool rotateOnDeath = true;
+    [SerializeField] private bool changeColorOnDeath = true;
+    [SerializeField] private bool disableCollidersOnDeath = true;
+    [SerializeField] private bool enableGravityOnDeath = true;
+    
     private static readonly int Color = Shader.PropertyToID("_Color");
 
     void Awake () {
@@ -36,22 +41,31 @@ public class EnemyKillable : MonoBehaviour, IKillable {
         if (!stats.IsDead) {
             stats.IsDead = true;
             anim.SetBool ("isDead", stats.IsDead);
-            transform.Rotate (0, 0, -90);
+            anim.SetTrigger("JustDied");
+            if(rotateOnDeath) transform.Rotate (0, 0, -90);
             screenFreezer.Freeze (freezeTime.Value);
             AudioManager.instance.PlaySound ("Death");
-            if (rb) {
+            if (enableGravityOnDeath && rb) {
                 rb.AddForce (stats.LastDamageDealerDirection * 600f);
                 rb.gravityScale = 3.5f;
             }
-            var deadColor = new Color32 (65, 58, 58, 255);
 
-            sR.material.SetColor(Color, deadColor);
+            if (changeColorOnDeath)
+            {
+                var deadColor = new Color32(65, 58, 58, 255);
+                sR.material.SetColor(Color, deadColor);
+            }
+
             if (deathParticle) {
                 Instantiate (deathParticle, transform.position, transform.rotation);
             }
 
-            foreach (Collider2D coll in colls) {
-                if (coll) coll.enabled = false;
+            if (disableCollidersOnDeath)
+            {
+                foreach (Collider2D coll in colls)
+                {
+                    if (coll) coll.enabled = false;
+                }
             }
         }
     }

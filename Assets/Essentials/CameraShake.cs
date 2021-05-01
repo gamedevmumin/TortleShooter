@@ -22,9 +22,10 @@ public class CameraShake : MonoBehaviour
         blinding.color = new Color(blinding.color.r, blinding.color.g, blinding.color.b, 0f);
     }
 
-    public void Shake(float amount, float length)
+    public void Shake(float amount, float length, bool prioritize = false)
     {
-        if (shakeAmount > amount) return;
+        if (!prioritize && shakeAmount > amount) return;
+        if(prioritize) Debug.Log("Should be shaking");
         shakeAmount = amount;
         InvokeRepeating("BeginShake", 0, 0.01f);
         Invoke("StopShake", length);

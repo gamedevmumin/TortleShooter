@@ -13,8 +13,6 @@ public class EyebossaAI : MonoBehaviour
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private List<Transform> bulletsSpawningPositions;
     
-    [SerializeField] private List<Transform> bulletsPositionsWhenNearGround;
-    [SerializeField] private List<Transform> restOfTheBullets;
     [SerializeField] private List<Transform> chargeCollisionBulletSpawnPoints;
     
     [SerializeField] private List<Transform> downBulletsSpawningPositions;
@@ -23,6 +21,13 @@ public class EyebossaAI : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Animator anim;
     [SerializeField] private AcceleratedMovement acceleratedMovement;
+
+    [SerializeField] private EnemyStats stats;
+
+    [SerializeField] private GameObject reward;
+    [SerializeField] private Transform rewardTransform;
+
+    private bool deathDone = false;
     
     private int counter = 0;
     private int bounceCounter = 0;
@@ -47,7 +52,8 @@ public class EyebossaAI : MonoBehaviour
         ChargingDown,
         ChargingToTheSide,
         LeftRightShooting,
-        Recovering
+        Recovering,
+        Dead
     }
 
     private State currentState;
@@ -131,12 +137,15 @@ public class EyebossaAI : MonoBehaviour
                     anim.SetTrigger(Anger1);
                     anim.SetBool(RotatingPhase, false);
                     anim.SetBool(ChargeDown, true);
+                    bounceCounter = 0;
                     break;
                 }
                 rb.velocity = new Vector2(0f, direction*1.3f);
                 break;
             case State.ChargingDown:
-                if (hitTheGround) break;
+                if (hitTheGround)
+                    break;
+                
                 if (IsGroundBeneath())
                 {
                     hitTheGround = true;
@@ -160,13 +169,37 @@ public class EyebossaAI : MonoBehaviour
                     rotationChange *= -1f;
                 }
                 rb.velocity = new Vector2(direction*1.3f, 0f);
+                if (bounceCounter >= 2 && rotationCounter < 0.1f && rotationCounter > -0.1f)
+                {
+                    var choice = Random.Range(0, 1);
+                    Debug.Log(choice);
+                    if (choice == 0)
+                    {
+                        bounceCounter = 0;
+                        currentState = State.ChargingToTheSide;
+                        rb.velocity = Vector2.zero;
+                        anim.SetTrigger(Anger1);
+                    }
+                }
+                
                 break;
             case State.ChargingToTheSide:
+                break;
+            case State.Dead:
+                rb.velocity = Vector2.zero;
                 break;
             
         }
     }
 
+    void Update()
+    {
+        if (stats.IsDead)
+        {
+            currentState = State.Dead;
+        } 
+    }
+    
     public void SwitchToChargeDown()
     {
         if (currentState != State.Recovering)
@@ -249,15 +282,25 @@ public class EyebossaAI : MonoBehaviour
         return hit.collider != null;
     }
 
+    public void ShakeScreen(float time)
+    {
+        cameraShake.Shake(0.11f, time, true);
+    }
+    
     public void Anger()
     {
         screenFreezer.Freeze(0.03f);
         cameraShake.Shake(0.122f, 0.2f);
     }
 
-    public Vector2 GetRandomDirection()
+    public void SpawnReward()
     {
-        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        if (deathDone == false)
+        {
+            screenFreezer.Freeze(0.1f);
+            Instantiate(reward, rewardTransform.position, Quaternion.identity);
+            deathDone = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -266,15 +309,6 @@ public class EyebossaAI : MonoBehaviour
         {
             if (currentState != State.ChargingDown)
             {
-                if (currentState == State.LeftRightShooting)
-                {
-                    var choice = Random.Range(0, 1);
-                    if (choice == 0)
-                    {
-                        currentState = State.ChargingToTheSide;
-                        anim.SetTrigger(Anger1);
-                    }
-                }
                 bounceCounter++;
                 direction *= -1;
             }
